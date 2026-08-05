@@ -11,6 +11,18 @@ $(function () {
     const $currentWrap = $(".current-wrap");
     const $currentNumbers = $(".current");
 
+    // Color Target
+    const $colorTitle = $(".color-title");
+    const $sliderBtn = $(".slider-btn a");
+
+    const colorClasses = [
+        "grapefruit",
+        "lemon",
+        "shinemuscat",
+        "peach",
+        "blueberry"
+    ];
+
     let current = 0;
 
     const interval = 3000;
@@ -45,6 +57,10 @@ $(function () {
         top: 0
     });
 
+    // 첫 번째 색상 적용
+    $colorTitle.addClass(colorClasses[0]);
+    $sliderBtn.addClass(colorClasses[0]);
+
     // ==========================
     // 자동 슬라이드
     // ==========================
@@ -52,6 +68,18 @@ $(function () {
     setInterval(function () {
 
         const next = (current + 1) % totalSlides;
+
+        // --------------------------
+        // Color Change
+        // --------------------------
+
+        $colorTitle
+            .removeClass(colorClasses.join(" "))
+            .addClass(colorClasses[next]);
+
+        $sliderBtn
+            .removeClass(colorClasses.join(" "))
+            .addClass(colorClasses[next]);
 
         // --------------------------
         // Fruit Name
@@ -222,7 +250,7 @@ ScrollTrigger.create({
 // ========================================================================
 
 
-
+// Prove ========================================================================
 
 
 // ========================================================================
