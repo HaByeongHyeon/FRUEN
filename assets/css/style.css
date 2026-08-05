@@ -1,0 +1,710 @@
+@import url(/assets/component/header.css);
+@import url(/assets/component/font.css);
+
+.main {
+    display: flex;
+    flex-direction: column;
+    /* gap: 350px; */
+}
+
+/* Slider ========================== */
+
+.slider-sec {
+    width: 100%;
+    height: 100vh;
+    background: #F6F5F4;
+}
+
+.slider-content-wrap {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #474747;
+}
+
+.slider-text-wrap {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 20%;
+
+}
+
+.slider-title-wrap {
+    font-size: 80px;
+    font-weight: 600;
+    line-height: 1;
+    display: flex;
+}
+
+.color-title {
+    position: relative;
+    display: inline-block;
+    color: #F47C70;
+    overflow: hidden;
+    margin-left: 40px;
+}
+
+.grapefruit {
+    background-color: #F47C70;
+}
+
+.lemon {
+    background-color: #FFE558;
+}
+
+.shinemuscat {
+    background-color: #A7C96F;
+}
+
+.peach {
+    background-color: #FFB5AF;
+}
+
+.blueberry {
+    background-color: #6F8BEA;
+}
+
+
+.slider-desc {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 10%;
+    margin-top: 22px;
+}
+
+.slider-btn {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 56px;
+}
+
+.slider-btn a {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F47C70;
+}
+
+.slider-btn-desc {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 10%;
+}
+
+.slider-wrap {
+    position: relative;
+    width: 644px;
+    height: 839px;
+}
+
+.slider-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slider-img.active {
+    display: block;
+}
+
+.page-number {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.fruit-name-box {
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+    /* fruit-name 한 줄 높이와 동일 */
+    text-align: center;
+}
+
+.fruit-name-wrap {
+    position: relative;
+    top: 0;
+}
+
+.fruit-name {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    /* 한 줄 높이 */
+    line-height: 40px;
+    white-space: nowrap;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.visual-page {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.current-wrap {
+    position: relative;
+    top: 0;
+}
+
+.current {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+
+    font-size: 30px;
+    font-weight: 500;
+    color: #474747;
+}
+
+.slash {
+    font-size: 20px;
+    font-weight: 500;
+    color: #474747;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: 500;
+    color: #474747;
+}
+
+/* About ========================== */
+
+.problem-sec {
+    position: relative;
+    width: 100%;
+    height: 1150px;
+    overflow: hidden;
+}
+
+.problem-sec>img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.problem-sec .container {
+    max-width: 1440px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+}
+
+.problem-content-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.problem-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #5C2300;
+    margin-bottom: 30px;
+}
+
+.problem-desc {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #5D4A3A;
+    margin-bottom: 60px;
+}
+
+.preview-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 246px;
+    height: 65px;
+    border: 2px solid #8A4318;
+    border-radius: 999px;
+    background: transparent;
+    color: #8A4318;
+    font-size: 26px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.preview-btn:hover {
+    background: #5C2300;
+    color: #fff;
+}
+
+
+/* History ========================== */
+
+.history-sec {
+    width: 100%;
+    padding: 140px 0;
+    background: #F6F5F4;
+    text-align: center;
+    overflow: hidden;
+}
+
+.history-title {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #5C2300;
+    text-align: center;
+}
+
+.history-title-line {
+    display: block;
+    width: 3px;
+    height: 106px;
+    background: #5C2300;
+    margin: 76px auto 51px;
+}
+
+.history-img-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+.history-track {
+    display: flex;
+    width: fit-content;
+}
+
+.history-track img {
+    flex-shrink: 0;
+    display: block;
+    width: 100vw;
+    height: auto;
+    object-fit: cover;
+}
+
+.history-progress {
+    position: relative;
+}
+
+.history-progress-svg {
+    display: block;
+    width: 100%;
+    height: 20px;
+}
+
+.progress-track {
+    fill: none;
+    stroke: #D9D9D9;
+    stroke-width: 6;
+}
+
+.progress-bar {
+    fill: none;
+    stroke: #5C2300;
+    stroke-width: 6;
+
+    /* GSAP 애니메이션용 */
+    stroke-dasharray: 1920;
+    stroke-dashoffset: 1920;
+}
+
+/* 레몬 포인터 */
+
+.scrollbar-pointer {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.history-text-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* active */
+
+.history-text-list.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    text-align: left;
+}
+
+.history-text-list.active h3 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #5C2300;
+}
+
+.history-text-list.active p {
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #303030;
+}
+
+
+/* 기본 */
+
+.history-text-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    text-align: left;
+}
+
+.history-text-list>img {
+    width: 3px;
+    height: 70px;
+}
+
+.history-text h3 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #928379;
+    transition: color .3s ease;
+}
+
+.history-text p {
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #9B9B9B;
+    transition: color .3s ease;
+}
+
+
+/* Prove ========================== */
+.prove-sec {
+    width: 100%;
+    padding: 50px 0;
+    background: #F6F5F4;
+    overflow: hidden;
+}
+
+.prove-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #303030;
+}
+
+.prove-title span {
+    color: #5C2300;
+}
+
+
+/* ==========================
+        CONTENT
+========================== */
+
+.prove-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 1440px;
+    height: 860px;
+
+    margin: 30px auto 0;
+}
+
+
+/* ==========================
+        CENTER VISUAL
+========================== */
+
+.prove-visual {
+    position: absolute;
+    left: 49%;
+    top: 0;
+
+    width: 720px;
+    height: 720px;
+
+    transform: translateX(-50%);
+}
+
+
+/* ==========================
+        CIRCLE
+========================== */
+
+.prove-circle {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* ==========================
+        POINTER
+========================== */
+
+.prove-pointer {
+    position: absolute;
+
+    left: 0;
+    bottom: 120px;
+
+    width: 26px;
+    height: 26px;
+
+    transform: translate(-50%, 50%);
+}
+
+
+/* ==========================
+        PRODUCT
+========================== */
+
+.prove-product {
+    position: absolute;
+    left: 50%;
+    top: 65%;
+
+    width: 500px;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+}
+
+
+/* ==========================
+        LEFT / RIGHT DATA
+========================== */
+
+.prove-item {
+    position: absolute;
+    top: 280px;
+
+    text-align: center;
+}
+
+.prove-item-left {
+    left: 120px;
+}
+
+.prove-item-right {
+    right: 120px;
+}
+
+.prove-number {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    color: #303030;
+}
+
+.prove-desc {
+    margin-top: 10px;
+
+    font-size: 22px;
+    font-weight: 500;
+    color: #666;
+}
+
+
+/* ==========================
+        PAGINATION
+========================== */
+
+.prove-pagination {
+    position: absolute;
+    left: 50%;
+    bottom: 70px;
+
+    display: flex;
+    gap: 12px;
+
+    transform: translateX(-50%);
+}
+
+.prove-dot {
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+    background: #D8D8D8;
+}
+
+.prove-dot.active {
+    background: #FF9800;
+}
+
+
+/* ==========================
+        BOTTOM TITLE
+========================== */
+
+.prove-bottom-title {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+
+    white-space: nowrap;
+    color: #303030;
+}
+
+
+/* flavor ========================== */
+.flavor-sec {
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: flex-start;
+    padding: 150px 0 150px 240px;
+
+    background-color: #FFFFEC;
+    box-sizing: border-box;
+}
+
+.flavor-title-wrap {
+    flex: 0 0 auto;
+    align-self: flex-start;
+}
+
+.flavor-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #5C2300;
+    margin-bottom: 10px;
+}
+
+.flavor-desc {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 70px;
+}
+
+.flavor-content {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 200px;
+
+    margin-left: 120px;
+    overflow: hidden;
+}
+
+.flavor-list-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.flavor-list {
+    width: fit-content;
+    padding: 15px 40px;
+    margin-left: 83px;
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+
+    color: #fff;
+    background-color: #5C2300;
+    border-radius: 50px;
+}
+
+.flavor-img-wrap {
+    display: flex;
+    overflow: hidden;
+}
+
+.flavor-img-wrap img {
+    width: 500px;
+    flex-shrink: 0;
+}
+
+
+
+
+/* FAQ ========================== */
+.faq-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 200px 0;
+    gap: 250px;
+}
+
+.faq-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #5C2300;
+}
+
+.faq-wrap {
+    width: 100%;
+    border-top: 1px solid #5C2300;
+    border-bottom: 1px solid #5C2300;
+}
+
+.faq-quest {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    font-weight: 500;
+    color: #5C2300;
+    padding: 30px 40px;
+}
+
+.faq-line {
+    width: 100%;
+    height: 1px;
+    background-color: #5C2300;
+}
+
+.answer {
+    display: none;
+    font-size: 24px;
+    font-weight: 400;
+    color: #5C2300;
+    padding: 30px;
+    line-height: 1.3;
+    border-top: 1px solid #9B9B9B;
+}
