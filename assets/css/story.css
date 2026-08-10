@@ -1,12 +1,6 @@
-.header-wrap {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    z-index: 9999;
+html {
+    background-color: #FFF2F2;
 }
-
 
 /* ==================================================
    Header Inner
@@ -25,7 +19,9 @@
     justify-content: space-between;
 
     box-sizing: border-box;
-    
+    position: absolute;
+    z-index: 9999;
+
 }
 
 
@@ -101,7 +97,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    
+
 }
 
 
@@ -184,4 +180,858 @@
 
     text-decoration: none;
     white-space: nowrap;
+}
+
+
+/* =============================================================== */
+
+
+.kv-sec {
+    width: 100%;
+    height: 1080px;
+    padding-bottom: 160px;
+}
+
+.kv-sec img {
+    width: 100%;
+
+    object-fit: cover;
+}
+
+.kv-title-wrap {
+    width: 100%;
+    max-width: 1440px;
+    margin: 105px auto 0;
+}
+
+.kv-title-wrap h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #121212;
+    margin-bottom: 10px;
+}
+
+.kv-title-wrap p {
+    font-size: 34px;
+    font-weight: 500;
+    color: #121212;
+}
+
+
+/* =============================================================== */
+
+
+/* =========================
+   History
+========================= */
+
+.hitory-sec {
+    position: relative;
+
+    width: 100%;
+    padding: 160px 0 260px;
+
+    background-color: #ffffff;
+
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   History Line
+========================= */
+
+.hitory-sec>img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   History Image
+========================= */
+
+.year-img-wrap {
+    position: relative;
+
+    width: 586px;
+    height: 241px;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    opacity: 0;
+}
+
+.year-img-wrap>img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   이미지 위 제목
+========================= */
+
+.year-img-wrap h2 {
+    position: absolute;
+    top: 55px;
+    left: 60px;
+
+    margin: 0;
+
+    text-align: left;
+    font-size: 30px;
+    font-weight: 600;
+
+    color: #ffffff;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   이미지 위 설명
+========================= */
+
+.year-img-wrap p {
+    position: absolute;
+    top: 142px;
+    left: 60px;
+
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: left;
+
+    color: #ffffff;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   Year Common
+========================= */
+
+.year-wrap {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 30px;
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   Year Text
+========================= */
+
+.year-text-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Year */
+
+.year-text-wrap p {
+    margin: 0;
+
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+
+    color: #E33C3C;
+}
+
+
+/* Number */
+
+.year-text-wrap span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    margin: 30px auto;
+
+    background-color: #E33C3C;
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   2024
+========================= */
+
+.first-year {
+    left: 17%;
+    top: 530px;
+}
+
+
+/* =========================
+   2025
+========================= */
+
+.second-year {
+    left: 37.5%;
+    top: 110px;
+}
+
+
+/* =========================
+   2026
+========================= */
+
+.third-year {
+    left: 59%;
+    top: 530px;
+}
+
+
+/* =============================================================== */
+
+.problem-sec {
+    width: 100%;
+
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.problem-title-wrap h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #121212;
+    margin-bottom: 60px;
+}
+
+.problem-title-wrap p {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.4;
+
+    margin-bottom: 200px;
+
+    color: #303030;
+}
+
+.problem-sec video {
+    width: 100%;
+    height: 800px;
+
+    top: -50%;
+    object-fit: cover;
+    object-position: center 80%;
+}
+
+
+/* =============================================================== */
+
+.solution-sec {
+    position: relative;
+
+    width: 100%;
+    height: 1080px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   Solution Text
+========================= */
+
+.solution-text-wrap {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    z-index: 2;
+}
+
+.solution-text-wrap h2 {
+    margin: 0;
+
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.3;
+
+    color: #121212;
+}
+
+.solution-text-wrap p {
+    margin: 0;
+
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    color: #303030;
+}
+
+
+/* =========================
+   Solution Image
+========================= */
+
+.solution-img-wrap {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: min(952px, 100%);
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+
+    transform: translateX(-50%);
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+.solution-img-wrap img {
+    width: 342px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   Image Position
+========================= */
+
+.solution-img-right {
+    align-self: flex-end;
+}
+
+.solution-img-left {
+    align-self: flex-start;
+}
+
+
+/* =============================================================== */
+
+
+.philosophy-sec {
+    width: 100%;
+
+    background-color: #fff;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   Container
+========================= */
+
+.philosophy-sec .container {
+    position: relative;
+
+    width: 100%;
+    max-width: 1440px;
+
+    height: 100%;
+    margin: 0 auto;
+
+    padding-top: 120px;
+    padding-bottom: 90px;
+}
+
+
+/* =========================
+   Philosophy Title
+========================= */
+
+.philosophy-title-wrap {
+    text-align: center;
+}
+
+.philosophy-title-wrap h2 {
+    margin: 0 0 20px;
+
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.philosophy-title-wrap p {
+    margin: 0 0 100px;
+
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   Philosophy Slider
+========================= */
+
+.philosophy-slider-wrap {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.philosophy-slider-wrap img {
+    flex: 0 0 100%;
+
+    width: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+/* =========================
+   Slider Button
+========================= */
+
+.page-btn-wrap {
+    position: absolute;
+
+    top: 800px;
+    left: 50%;
+
+    width: 100%;
+    max-width: 1380px;
+    padding: 0 30px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.page-btn-wrap button {
+    width: 62px;
+    height: 62px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    background-color: #ffffff90;
+    border-radius: 50%;
+    pointer-events: auto;
+
+    cursor: pointer;
+}
+
+.page-btn-wrap button img {
+    display: block;
+
+    width: 10px;
+    height: 17px;
+}
+
+/* =========================
+   Pagination
+========================= */
+
+.page-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 50px;
+}
+
+.page-pagination span {
+    display: block;
+
+    width: 16px;
+    height: 16px;
+
+    background-color: #E8E9ED;
+
+    border-radius: 50%;
+}
+
+.page-pagination span.active {
+    background-color: #000000;
+}
+
+
+/* =============================================================== */
+
+
+/* =========================
+   Standard
+========================= */
+
+.standard-sec {
+    position: relative;
+
+    width: 100%;
+    min-height: 1080px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #FFF5F5;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   Text
+========================= */
+
+.standard-text-wrap {
+    position: relative;
+
+    width: 25%;
+
+    margin-left: 12%;
+
+    flex-shrink: 0;
+
+    z-index: 2;
+}
+
+.standard-text-wrap h2 {
+    margin-bottom: 15px;
+
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #121212;
+}
+
+.standard-text-wrap>p {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: #121212;
+}
+
+
+/* =========================
+   Slider Pagination
+========================= */
+
+.slider-pagenation {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+.slider-pagenation button {
+    width: auto;
+    height: auto;
+
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.slider-pagenation button img {
+    display: block;
+
+    width: 18px;
+    height: 18px;
+}
+
+.page-number {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    margin: 0 8px;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    color: #121212;
+}
+
+.page-number span {
+    display: block;
+}
+
+
+/* =========================
+   Card
+========================= */
+
+.standard-card-wrap {
+    position: relative;
+
+    width: 63%;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+
+    cursor: grab;
+    touch-action: pan-y;
+}
+
+.standard-card {
+    display: flex;
+
+    gap: 10px;
+
+    width: max-content;
+
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.standard-card img {
+    display: block;
+
+    width: 464px;
+    height: auto;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* =============================================================== */
+
+.footer {
+    width: 100%;
+    background: #F6F5F4;
+}
+
+.footer .container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+
+/* ==========================
+        Top
+========================== */
+
+.footer-top {
+    display: flex;
+    align-items: center;
+
+    height: 120px;
+
+    border-bottom: 1px solid #303030;
+}
+
+.footer-logo img {
+    width: 150px;
+    display: block;
+    filter: brightness(0) invert(0);
+}
+
+
+/* ==========================
+        Bottom
+========================== */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 40px 0 60px;
+}
+
+
+/* ==========================
+        Left
+========================== */
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* menu */
+
+.footer-menu {
+    display: flex;
+    gap: 40px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-menu a {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: #303030;
+}
+
+
+/* company */
+
+.footer-company {
+    margin-top: 28px;
+
+    font-style: normal;
+}
+
+.footer-company p {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 10px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+
+    color: #303030;
+}
+
+
+
+/* copy */
+
+.footer-copy {
+    margin-top: 36px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    color: #303030;
+}
+
+
+/* design */
+
+.footer-design {
+    margin-top: 60px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #303030;
+}
+
+
+/* ==========================
+        Right
+========================== */
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 10px;
+}
+
+.footer-instagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 42px;
+    height: 42px;
+}
+
+.footer-instagram img {
+    width: 42px;
+    display: block;
+}
+
+.footer-center-title {
+    margin-top: 22px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: #303030;
+}
+
+.footer-tel {
+    margin-top: 18px;
+
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: #303030;
 }
