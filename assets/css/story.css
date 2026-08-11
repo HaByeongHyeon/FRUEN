@@ -1,4 +1,4 @@
-html {
+body {
     background-color: #FFF2F2;
 }
 
@@ -88,6 +88,10 @@ html {
     white-space: nowrap;
 }
 
+.header-menu:hover a {
+    color: #404040;
+}
+
 
 /* ==================================================
    Header Button
@@ -99,21 +103,6 @@ html {
     gap: 10px;
 
 }
-
-
-/* 버튼 기본 스타일 초기화 */
-
-.shop-btn,
-.contact-btn {
-    margin: 0;
-    padding: 0;
-
-    border: 0;
-    background: none;
-
-    font: inherit;
-}
-
 
 /* ==================================================
    SHOP Button
@@ -143,16 +132,25 @@ html {
     white-space: nowrap;
 }
 
+
 .shop-btn img {
     display: block;
-
+    
     width: auto;
     height: auto;
-
+    
     margin-left: 4px;
     filter: brightness(0) invert(1);
 }
 
+.shop-btn:hover a {
+    background-color: #fff;
+    color: #000;
+}
+
+.shop-btn:hover img {
+    filter: brightness(0) invert(0);
+}
 
 /* ==================================================
    CONTACT Button
@@ -182,6 +180,11 @@ html {
     white-space: nowrap;
 }
 
+.contact-btn:hover a {
+    background-color: #121212;
+    color: #fff;
+} 
+
 
 /* =============================================================== */
 
@@ -201,7 +204,7 @@ html {
 .kv-title-wrap {
     width: 100%;
     max-width: 1440px;
-    margin: 105px auto 0;
+    margin: 40px auto 0;
 }
 
 .kv-title-wrap h2 {
@@ -837,9 +840,6 @@ html {
     overflow: hidden;
 
     flex-shrink: 0;
-
-    cursor: grab;
-    touch-action: pan-y;
 }
 
 .standard-card {
@@ -899,7 +899,6 @@ html {
 .footer-logo img {
     width: 150px;
     display: block;
-    filter: brightness(0) invert(0);
 }
 
 

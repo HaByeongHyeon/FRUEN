@@ -189,378 +189,67 @@ $(function () {
 
 $(function () {
 
-    const $wrap = $(".standard-card-wrap");
     const $card = $(".standard-card");
-
-    const $prevBtn = $(".slider-pagenation button").eq(0);
-    const $nextBtn = $(".slider-pagenation button").eq(1);
+    const $cards = $card.find("img");
     const $current = $(".page-number span").eq(0);
 
     let current = 0;
     let moving = false;
 
-    let startX = 0;
-    let dragX = 0;
-    let isDragging = false;
+    const moveWidth = () =>
+        $cards.eq(0).outerWidth() +
+        (parseFloat($card.css("gap")) || 0);
 
-
-    // =========================
-    // 카드 이동 거리
-    // =========================
-
-    function getMoveWidth() {
-
-        const cardWidth = $card.find("img").eq(0).outerWidth();
-        const gap = parseFloat($card.css("gap")) || 0;
-
-        return cardWidth + gap;
-    }
-
-
-    // =========================
-    // 숫자 변경
-    // =========================
-
-    function updateNumber() {
-
+    const update = () => {
         $current.text(current + 1);
+    };
 
-    }
-
-
-    // =========================
-    // 다음
-    // =========================
-
-    function nextSlide() {
+    const slide = (direction) => {
 
         if (moving) return;
 
         moving = true;
 
-        const moveWidth = getMoveWidth();
+        const width = moveWidth();
 
-        current++;
+        if (direction === 1) {
+            current = (current + 1) % $cards.length;
 
-        if (current >= $card.find("img").length) {
-            current = 0;
-        }
-
-        updateNumber();
-
-        gsap.to($wrap, {
-
-            x: -moveWidth,
-
-            duration: 0.6,
-
-            ease: "power2.out",
-
-            onComplete: function () {
-
-                $card.append(
-                    $card.find("img").first()
-                );
-
-                gsap.set($wrap, {
-                    x: 0
-                });
-
-                moving = false;
-
-            }
-
-        });
-
-    }
-
-
-    // =========================
-    // 이전
-    // =========================
-
-    function prevSlide() {
-
-        if (moving) return;
-
-        moving = true;
-
-        const moveWidth = getMoveWidth();
-
-        $card.prepend(
-            $card.find("img").last()
-        );
-
-        gsap.set($wrap, {
-            x: -moveWidth
-        });
-
-        current--;
-
-        if (current < 0) {
-            current = $card.find("img").length - 1;
-        }
-
-        updateNumber();
-
-        gsap.to($wrap, {
-
-            x: 0,
-
-            duration: 0.6,
-
-            ease: "power2.out",
-
-            onComplete: function () {
-
-                moving = false;
-
-            }
-
-        });
-
-    }
-
-
-    // =========================
-    // Button
-    // =========================
-
-    $nextBtn.on("click", function () {
-        nextSlide();
-    });
-
-    $prevBtn.on("click", function () {
-        prevSlide();
-    });
-
-
-    // =========================
-    // Drag Start
-    // =========================
-
-    $wrap.on("mousedown", function (e) {
-
-        if (moving) return;
-
-        isDragging = true;
-
-        startX = e.clientX;
-        dragX = 0;
-
-        gsap.killTweensOf($wrap);
-
-        e.preventDefault();
-
-    });
-
-
-    // =========================
-    // Drag Move
-    // =========================
-
-    $(document).on("mousemove", function (e) {
-
-        if (!isDragging) return;
-
-        dragX = e.clientX - startX;
-
-        gsap.set($wrap, {
-            x: dragX
-        });
-
-    });
-
-
-    // =========================
-    // Drag End
-    // =========================
-
-    $(document).on("mouseup", function () {
-
-        if (!isDragging) return;
-
-        isDragging = false;
-
-        const moveWidth = getMoveWidth();
-
-        // -------------------------
-        // 다음
-        // -------------------------
-
-        if (dragX < -moveWidth * 0.2) {
-
-            moving = true;
-
-            current++;
-
-            if (current >= $card.find("img").length) {
-                current = 0;
-            }
-
-            updateNumber();
-
-            gsap.to($wrap, {
-
-                x: -moveWidth,
-
-                duration: 0.4,
-
+            gsap.to($card, {
+                x: -width,
+                duration: 0.6,
                 ease: "power2.out",
-
-                onComplete: function () {
-
-                    $card.append(
-                        $card.find("img").first()
-                    );
-
-                    gsap.set($wrap, {
-                        x: 0
-                    });
-
+                onComplete: () => {
+                    $card.append($card.find("img").first());
+                    gsap.set($card, { x: 0 });
                     moving = false;
-
                 }
-
             });
-
-        }
-
-        // -------------------------
-        // 이전
-        // -------------------------
-
-        else if (dragX > moveWidth * 0.2) {
-
-            moving = true;
-
-            $card.prepend(
-                $card.find("img").last()
-            );
-
-            gsap.set($wrap, {
-                x: dragX - moveWidth
-            });
-
-            current--;
-
-            if (current < 0) {
-                current = $card.find("img").length - 1;
-            }
-
-            updateNumber();
-
-            gsap.to($wrap, {
-
-                x: 0,
-
-                duration: 0.4,
-
-                ease: "power2.out",
-
-                onComplete: function () {
-
-                    moving = false;
-
-                }
-
-            });
-
-        }
-
-        // -------------------------
-        // 이동량 부족
-        // -------------------------
-
-        else {
-
-            gsap.to($wrap, {
-
-                x: 0,
-
-                duration: 0.3,
-
-                ease: "power2.out"
-
-            });
-
-        }
-
-        dragX = 0;
-
-    });
-
-
-    // =========================
-    // Touch Start
-    // =========================
-
-    $wrap.on("touchstart", function (e) {
-
-        if (moving) return;
-
-        isDragging = true;
-
-        startX =
-            e.originalEvent.touches[0].clientX;
-
-        dragX = 0;
-
-        gsap.killTweensOf($wrap);
-
-    });
-
-
-    // =========================
-    // Touch Move
-    // =========================
-
-    $wrap.on("touchmove", function (e) {
-
-        if (!isDragging) return;
-
-        dragX =
-            e.originalEvent.touches[0].clientX - startX;
-
-        gsap.set($wrap, {
-            x: dragX
-        });
-
-    });
-
-
-    // =========================
-    // Touch End
-    // =========================
-
-    $wrap.on("touchend", function () {
-
-        if (!isDragging) return;
-
-        isDragging = false;
-
-        const moveWidth = getMoveWidth();
-
-        if (dragX < -moveWidth * 0.2) {
-
-            nextSlide();
-
-        } else if (dragX > moveWidth * 0.2) {
-
-            prevSlide();
 
         } else {
 
-            gsap.to($wrap, {
-                x: 0,
-                duration: 0.3,
-                ease: "power2.out"
-            });
+            $card.prepend($card.find("img").last());
 
+            gsap.set($card, { x: -width });
+
+            current = (current - 1 + $cards.length) % $cards.length;
+
+            gsap.to($card, {
+                x: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                onComplete: () => {
+                    moving = false;
+                }
+            });
         }
 
-        dragX = 0;
+        update();
+    };
 
-    });
+    $(".slider-pagenation button").eq(0).on("click", () => slide(-1));
+    $(".slider-pagenation button").eq(1).on("click", () => slide(1));
+
+    update();
 
 });
