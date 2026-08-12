@@ -135,10 +135,10 @@ body {
 
 .shop-btn img {
     display: block;
-    
+
     width: auto;
     height: auto;
-    
+
     margin-left: 4px;
     filter: brightness(0) invert(1);
 }
@@ -183,7 +183,7 @@ body {
 .contact-btn:hover a {
     background-color: #121212;
     color: #fff;
-} 
+}
 
 
 /* =============================================================== */
@@ -397,8 +397,8 @@ body {
 ========================= */
 
 .first-year {
-    left: 17%;
-    top: 530px;
+    left: 13.5%;
+    top: 390px;
 }
 
 
@@ -407,7 +407,7 @@ body {
 ========================= */
 
 .second-year {
-    left: 37.5%;
+    left: 35%;
     top: 110px;
 }
 
@@ -417,8 +417,8 @@ body {
 ========================= */
 
 .third-year {
-    left: 59%;
-    top: 530px;
+    left: 56%;
+    top: 390px;
 }
 
 
@@ -870,8 +870,6 @@ body {
 }
 
 
-/* =============================================================== */
-
 .footer {
     width: 100%;
     background: #F6F5F4;
@@ -891,7 +889,7 @@ body {
     display: flex;
     align-items: center;
 
-    height: 120px;
+    height: 100px;
 
     border-bottom: 1px solid #303030;
 }
@@ -911,7 +909,7 @@ body {
     justify-content: space-between;
     align-items: flex-start;
 
-    padding: 40px 0 60px;
+    padding: 20px 0;
 }
 
 
@@ -949,7 +947,7 @@ body {
 /* company */
 
 .footer-company {
-    margin-top: 28px;
+    margin-top: 18px;
 
     font-style: normal;
 }

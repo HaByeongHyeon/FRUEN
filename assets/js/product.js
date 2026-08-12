@@ -50,122 +50,57 @@ $(function () {
 
 $(function () {
 
-    const $productLists = $(".product-list");
-    const $popupWrap = $(".popup-wrap");
-    const $popups = $(".popup");
+    const $lists = $(".product-list"),
+        $wrap = $(".popup-wrap"),
+        $popups = $(".popup"),
+        map = [[0, 1, 2, 3, 4, 5], [8, 9, 10, 11, 1]];
 
+    let scrollTop = 0;
 
-    // =========================
-    // COOL & FRESH
-    // 상품 1~6 → popup 1~6
-    // =========================
-
-    const coolPopup = [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
-    ];
-
-
-    // =========================
-    // WARM & COZY
-    // 상품 1~4 → popup 9~12
-    // 상품 5   → popup 2
-    // =========================
-
-    const warmPopup = [
-        8,
-        9,
-        10,
-        11,
-        1
-    ];
-
-
-    // =========================
-    // Product 클릭
-    // =========================
 
     $(".product-btn").on("click", function () {
 
-        const $productList = $(this).closest(".product-list");
+        const $list = $(this).closest(".product-list"),
+            i = $lists.index($list),
+            j = $list.find(".product-btn").index(this),
+            popup = map[i]?.[j];
 
-        // product-list가 전체 목록 중 몇 번째인지 확인
-        const listIndex = $productLists.index($productList);
+        if (popup === undefined) return;
 
-        // 해당 product-list 안에서 몇 번째 상품인지
-        const productIndex = $productList
-            .find(".product-btn")
-            .index(this);
+        scrollTop = $(window).scrollTop();
 
-        let popupIndex;
+        $popups.hide().eq(popup).stop(true, true).fadeIn(400);
+        $wrap.css("display", "flex");
 
+        $("html").css("overflow-y", "scroll");
 
-        // =========================
-        // COOL & FRESH
-        // =========================
+        $("body").css({
+            position: "fixed",
+            top: -scrollTop,
+            left: 0,
+            width: "100%"
+        });
 
-        if (listIndex === 0) {
-
-            popupIndex = coolPopup[productIndex];
-
-        }
-
-
-        // =========================
-        // WARM & COZY
-        // =========================
-
-        else if (listIndex === 1) {
-
-            popupIndex = warmPopup[productIndex];
-
-        }
-
-
-        // 연결되는 팝업이 없으면 종료
-        if (popupIndex === undefined) return;
-
-
-        // =========================
-        // Popup 열기
-        // =========================
-
-        $popups
-            .stop(true, true)
-            .hide();
-
-        $popupWrap
-            .css("display", "flex");
-
-        $("body").css("overflow", "hidden");
-
-        $popups
-            .eq(popupIndex)
-            .stop(true, true)
-            .fadeIn(400);
     });
 
 
-    // =========================
-    // Popup 닫기
-    // =========================
-
     $(".close-btn").on("click", function () {
 
-        $(this)
-            .closest(".popup")
-            .stop(true, true)
-            .fadeOut(300, function () {
+        $(this).closest(".popup").stop(true, true).fadeOut(300, function () {
 
-                $popupWrap.css("display", "none");
+            $wrap.hide();
 
-                $("body").css("overflow", "");
-
+            $("body").css({
+                position: "",
+                top: "",
+                left: "",
+                width: ""
             });
+
+            $("html").css("overflow-y", "");
+            $(window).scrollTop(scrollTop);
+
+        });
 
     });
 
