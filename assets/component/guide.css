@@ -1,0 +1,311 @@
+:root {
+
+   /* =========================
+       Font Family
+    ========================= */
+
+   --font-family: "Pretendard", sans-serif;
+
+
+   /* =========================
+       Main Title
+    ========================= */
+
+   --main-title-2-size: 60px;
+   --main-title-2-weight: 600;
+   --main-title-2-line-height: 72px;
+   --main-title-2-letter-spacing: 0;
+
+   --main-title-1-size: 60px;
+   --main-title-1-weight: 700;
+   --main-title-1-line-height: 72px;
+   --main-title-1-letter-spacing: 0;
+
+
+   /* =========================
+       Subtitle
+    ========================= */
+
+   --subtitle-size: 34px;
+   --subtitle-weight: 400;
+   --subtitle-line-height: 44px;
+   --subtitle-letter-spacing: 0;
+
+
+   /* =========================
+       Section
+    ========================= */
+
+   --section-title-size: 40px;
+   --section-title-weight: 700;
+   --section-title-line-height: 48px;
+   --section-title-letter-spacing: 0;
+
+   --section-sub-title-size: 30px;
+   --section-sub-title-weight: 400;
+   --section-sub-title-line-height: 40px;
+   --section-sub-title-letter-spacing: 0;
+
+
+   /* =========================
+       Product
+    ========================= */
+
+   --product-card-title-size: 32px;
+   --product-card-title-weight: 600;
+   --product-card-title-line-height: 42px;
+   --product-card-title-letter-spacing: 0;
+
+   --card-title-size: 24px;
+   --card-title-weight: 600;
+   --card-title-line-height: 34px;
+   --card-title-letter-spacing: 0;
+
+
+   /* =========================
+       Description
+    ========================= */
+
+   --description-size: 24px;
+   --description-weight: 400;
+   --description-line-height: 34px;
+   --description-letter-spacing: 0;
+
+
+   /* =========================
+       Button
+    ========================= */
+
+   --btn-font-size: 20px;
+   --btn-font-weight: 500;
+   --btn-font-line-height: 28px;
+   --btn-font-letter-spacing: 0;
+
+
+   /* =========================
+       Product Card Description
+    ========================= */
+
+   --product-card-desc-size: 16px;
+   --product-card-desc-weight: 400;
+   --product-card-desc-line-height: 24px;
+   --product-card-desc-letter-spacing: 0;
+
+
+   /* =========================
+       Caption
+    ========================= */
+
+   --caption-size: 12px;
+   --caption-weight: 400;
+   --caption-line-height: 18px;
+   --caption-letter-spacing: 0;
+
+
+
+
+
+
+
+
+   /* =========================
+   Color Guide
+========================= */
+
+
+/* =========================
+   Brand Core
+========================= */
+
+/* Brand Point / Key Visual */
+--color-brand-point: #FFE65F; 
+
+/* Sub Background / Surface */
+--color-sub-background: #FFFFEB;
+
+/* Main Background / Section */
+--color-main-background: #F6FAFF;
+
+
+/* =========================
+   UI System
+========================= */
+
+
+/* -------------------------
+   Primary
+------------------------- */
+
+/* Heavy */
+--color-primary-heavy: #121212;
+
+/* Strong */
+--color-primary-strong: #321300;
+
+/* Normal */
+--color-primary-normal: #5C2300;
+
+
+/* -------------------------
+   Text Secondary
+------------------------- */
+
+/* Description */
+--color-text-description: #303030;
+
+/* Disabled Text */
+--color-text-disabled: #474747;
+
+/* Caption / Metadata */
+--color-text-caption: #868686;
+
+/* Assistive Text */
+--color-text-assistive: #B0B0B0;
+
+/* Secondary Emphasis */
+--color-text-secondary-emphasis: #F6FAFF;
+
+
+/* -------------------------
+   Background
+------------------------- */
+
+/* Section */
+--color-bg-section: #F6FAFF;
+
+/* Story */
+--color-bg-story: #FFF2F2;
+
+/* Product */
+--color-bg-product: #FEFFEA;
+
+/* Recipe */
+--color-bg-recipe: #DEF7FF;
+
+/* Listed Brand */
+--color-bg-listed-brand: #EBF7BE;
+
+/* Event */
+--color-bg-event: #FFF5DB;
+
+/* Shop */
+--color-bg-shop: #FFBFB9;
+
+/* Contact */
+--color-bg-contact: #FFEDDD;
+
+
+/* -------------------------
+   Border
+------------------------- */
+
+/* Default */
+--color-border-default: #C4C4C4;
+
+/* Brand */
+--color-border-brand: #8A8A8A;
+
+/* Strong */
+--color-border-strong: #321300;
+
+/* High Contrast */
+--color-border-high-contrast: #121212;
+
+
+/* -------------------------
+   Button
+------------------------- */
+
+/* Secondary Default */
+--color-btn-secondary-default: #FFFFFF;
+
+/* Disabled */
+--color-btn-disabled: #E3E3E3;
+
+/* Inactive */
+--color-btn-inactive: #C4C4C4;
+
+/* Primary Default */
+--color-btn-primary-default: #8A8A8A;
+
+/* Primary Hover */
+--color-btn-primary-hover: #321300;
+
+/* Secondary Hover */
+--color-btn-secondary-hover: #121212;
+
+
+/* -------------------------
+   Icon
+------------------------- */
+
+/* Secondary */
+--color-icon-secondary: #969696;
+
+/* Default */
+--color-icon-default: #8A8A8A;
+
+/* Disabled */
+--color-icon-disabled: #C4C4C4;
+
+/* Primary */
+--color-icon-primary: #121212;
+
+
+/* =========================
+   Accent (Flavor)
+========================= */
+
+/* Strawberry */
+--color-flavor-strawberry: #FF6262;
+
+/* Grapefruit */
+--color-flavor-grapefruit: #FF978E;
+
+/* Shine Muscat */
+--color-flavor-shine-muscat: #99ED47;
+
+/* Pineapple */
+--color-flavor-pineapple: #FEE06C;
+
+/* Passion Fruit */
+--color-flavor-passion-fruit: #B2B1DD;
+
+/* Mango */
+--color-flavor-mango: #FFCA00;
+
+/* Citron */
+--color-flavor-citron: #FAE5B5;
+
+/* Apple */
+--color-flavor-apple: #EF4D42;
+
+/* Lemon */
+--color-flavor-lemon: #FFD11F;
+
+/* Pear */
+--color-flavor-pear: #E8BD86;
+
+/* Peach */
+--color-flavor-peach: #FFBBBB;
+
+/* Blueberry */
+--color-flavor-blueberry: #C089CB;
+
+
+/* =========================
+   Fill
+========================= */
+
+/* Normal */
+--color-fill-normal: #F4F4F5;
+
+/* Strong */
+--color-fill-strong: #E8E8EA;
+
+/* Alternative */
+--color-fill-alternative: #F8F8F8;
+
+}
+
+

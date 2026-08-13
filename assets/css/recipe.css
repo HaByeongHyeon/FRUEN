@@ -1,20 +1,23 @@
+/* ==================================================
+   Header Inner
+================================================== */
+
 .header {
     width: 100%;
     height: 150px;
-
     background-color: #00000030;
 
     margin: 0 auto;
-    padding: 0 clamp(20px, 12.5vw, 240px);
+    padding: 0 240px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     box-sizing: border-box;
-
     position: absolute;
     z-index: 9999;
+
 }
 
 
@@ -137,12 +140,12 @@
 }
 
 .shop-btn:hover a {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--color-btn-secondary-hover);
+    color: var(--color-btn-secondary-default);
 }
 
 .shop-btn:hover img {
-    filter: brightness(0) invert(0);
+    filter: brightness(0) invert(1);
 }
 
 /* ==================================================
@@ -163,8 +166,8 @@
 
     border-radius: 50px;
 
-    background-color: #ffffff;
-    color: #121212;
+    background-color: var(--color-btn-secondary-default);
+    color: var(--color-btn-secondary-hover);
 
     font-size: 18px;
     font-weight: 500;
@@ -174,8 +177,8 @@
 }
 
 .contact-btn:hover a {
-    background-color: #121212;
-    color: #fff;
+    background-color: var(--color-btn-secondary-hover);
+    color: var(--color-btn-secondary-default);
 }
 
 
@@ -187,7 +190,7 @@
     height: 1080px;
     padding-bottom: 160px;
 
-    background-color: #DEF7FF;
+    background-color: var(--color-bg-recipe);
 }
 
 .kv-sec img {
@@ -203,16 +206,12 @@
 }
 
 .kv-title-wrap h2 {
-    font-size: 60px;
-    font-weight: 700;
-    color: #121212;
+    color: var(--color-primary-heavy);
     margin-bottom: 10px;
 }
 
 .kv-title-wrap p {
-    font-size: 34px;
-    font-weight: 500;
-    color: #121212;
+    color: var(--color-primary-heavy);
 }
 
 
@@ -377,11 +376,11 @@
 ========================= */
 
 .ade-1 {
-    background-color: #FFF7F2;
+    background-color: #FFF7CE;
 }
 
 .ade-2 {
-    background-color: #FFF7CE;
+    background-color: #FFF7F2;
 }
 
 .ade-3 {
@@ -459,20 +458,13 @@
 .slide h2 {
     margin-bottom: 20px;
 
-    font-size: clamp(32px, 3vw, 48px);
-    font-weight: 700;
-
-    color: #121212;
+    color: var(--color-primary-heavy);
 }
 
 .slide p {
     margin-bottom: 45px;
 
-    font-size: clamp(16px, 1.5vw, 22px);
-    font-weight: 400;
-    line-height: 1.5;
-
-    color: #121212;
+    color: var(--color-primary-heavy);
 }
 
 
@@ -487,22 +479,19 @@
 
     padding: 15px 30px;
 
-    border: 2px solid #7C3F20;
+    border: 2px solid var(--color-primary-normal);
     border-radius: 30px;
 
     background: transparent;
 
-    font-size: 20px;
-    font-weight: 500;
-
-    color: #7C3F20;
+    color: var(--color-primary-normal);
 
     cursor: pointer;
 }
 
 .recipe-btn:hover {
-    background-color: #7C3F20;
-    color: #fff;
+    background-color: var(--color-primary-normal);
+    color: var(--color-btn-secondary-default);
 }
 
 
@@ -570,7 +559,7 @@
     justify-content: center;
 
     border: 0;
-    background-color: #ffffff;
+    background-color: var(--color-btn-secondary-default);
     border-radius: 50%;
 
     pointer-events: auto;
@@ -661,31 +650,22 @@ Close Button
 ========================= */
 
 .close-btn {
-    margin-top: 30px;
+    position: absolute;
 
-    padding: 10px 30px;
-
-    color: #7C3F20;
-
-    border: 2px solid #7C3F20;
-    border-radius: 50px;
-
-    background-color: #fff;
-
-    cursor: pointer;
+    top: 3%;
+    right: 3%;
 }
 
-.close-btn:hover {
-    color: #fff;
-    background-color: #7C3F20;
+.close-btn img {
+    width: 35px;
+    height: 35px;
 }
-
 
 /* =============================================================== */
 
 .footer {
     width: 100%;
-    background: #F6F5F4;
+    background: #F0F0F0;
 }
 
 .footer .container {
@@ -753,7 +733,7 @@ Close Button
     font-weight: 400;
     line-height: 1;
 
-    color: #303030;
+    color: var(--color-text-description);
 }
 
 
@@ -775,7 +755,7 @@ Close Button
     font-weight: 400;
     line-height: 1.6;
 
-    color: #303030;
+    color: var(--color-text-description);
 }
 
 
@@ -787,19 +767,8 @@ Close Button
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
-    color: #303030;
+    color: var(--color-text-description);
 }
-
-
-/* design */
-
-.footer-design {
-    margin-top: 60px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #303030;
-}
-
 
 /* ==========================
         Right
@@ -833,7 +802,7 @@ Close Button
     font-weight: 400;
     line-height: 1;
 
-    color: #303030;
+    color: var(--color-text-description);
 }
 
 .footer-tel {
@@ -843,5 +812,5 @@ Close Button
     font-weight: 400;
     line-height: 1;
 
-    color: #303030;
+    color: var(--color-text-description);
 }

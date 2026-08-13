@@ -1,0 +1,126 @@
+/* =========================
+   Main Title
+========================= */
+
+.main-title-2 {
+    font-family: var(--font-family);
+    font-size: var(--main-title-2-size);
+    font-weight: var(--main-title-2-weight);
+    line-height: var(--main-title-2-line-height);
+    letter-spacing: var(--main-title-2-letter-spacing);
+}
+
+.main-title-1 {
+    font-family: var(--font-family);
+    font-size: var(--main-title-1-size);
+    font-weight: var(--main-title-1-weight);
+    line-height: var(--main-title-1-line-height);
+    letter-spacing: var(--main-title-1-letter-spacing);
+}
+
+
+/* =========================
+   Subtitle
+========================= */
+
+.subtitle {
+    font-family: var(--font-family);
+    font-size: var(--subtitle-size);
+    font-weight: var(--subtitle-weight);
+    line-height: var(--subtitle-line-height);
+    letter-spacing: var(--subtitle-letter-spacing);
+}
+
+
+/* =========================
+   Section
+========================= */
+
+.section-title {
+    font-family: var(--font-family);
+    font-size: var(--section-title-size);
+    font-weight: var(--section-title-weight);
+    line-height: var(--section-title-line-height);
+    letter-spacing: var(--section-title-letter-spacing);
+}
+
+.section-sub-title {
+    font-family: var(--font-family);
+    font-size: var(--section-sub-title-size);
+    font-weight: var(--section-sub-title-weight);
+    line-height: var(--section-sub-title-line-height);
+    letter-spacing: var(--section-sub-title-letter-spacing);
+}
+
+
+/* =========================
+   Card
+========================= */
+
+.product-card-title {
+    font-family: var(--font-family);
+    font-size: var(--product-card-title-size);
+    font-weight: var(--product-card-title-weight);
+    line-height: var(--product-card-title-line-height);
+    letter-spacing: var(--product-card-title-letter-spacing);
+}
+
+.card-title {
+    font-family: var(--font-family);
+    font-size: var(--card-title-size);
+    font-weight: var(--card-title-weight);
+    line-height: var(--card-title-line-height);
+    letter-spacing: var(--card-title-letter-spacing);
+}
+
+
+/* =========================
+   Description
+========================= */
+
+.description {
+    font-family: var(--font-family);
+    font-size: var(--description-size);
+    font-weight: var(--description-weight);
+    line-height: var(--description-line-height);
+    letter-spacing: var(--description-letter-spacing);
+}
+
+
+/* =========================
+   Button
+========================= */
+
+.btn-font {
+    font-family: var(--font-family);
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    line-height: var(--btn-font-line-height);
+    letter-spacing: var(--btn-font-letter-spacing);
+}
+
+
+/* =========================
+   Product Card Description
+========================= */
+
+.product-card-desc {
+    font-family: var(--font-family);
+    font-size: var(--product-card-desc-size);
+    font-weight: var(--product-card-desc-weight);
+    line-height: var(--product-card-desc-line-height);
+    letter-spacing: var(--product-card-desc-letter-spacing);
+}
+
+
+/* =========================
+   Caption
+========================= */
+
+.caption {
+    font-family: var(--font-family);
+    font-size: var(--caption-size);
+    font-weight: var(--caption-weight);
+    line-height: var(--caption-line-height);
+    letter-spacing: var(--caption-letter-spacing);
+}
