@@ -15,6 +15,42 @@
 <body>
 
     <!-- 헤더 -->
+    <header class="header">
+        <div class="logo">
+            <a href="/main.html">
+                <img src="/assets/images/logo.png" alt="logo">
+            </a>
+        </div>
+
+        <nav class="header-nav">
+            <ul>
+                <li class="header-menu">
+                    <a href="/sub_page/story.html">STORY</a>
+                </li>
+                <li class="header-menu">
+                    <a href="/sub_page/product.html">PRODUCT</a>
+                </li>
+                <li class="header-menu">
+                    <a href="/sub_page/recipe.html">RECIPE</a>
+                </li>
+                <li class="header-menu">
+                    <a href="/sub_page/brand.html">LISTED BRAND</a>
+                </li>
+                <li class="header-menu">
+                    <a href="/sub_page/event.html">EVENT</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="headr-btn">
+            <button class="shop-btn">
+                <a href="#">SHOP <img src="/assets/icon/icon-shop-btn.png" alt="shop-btn"></a>
+            </button>
+            <button class="contact-btn">
+                <a href="/sub_page/contact.html">CONTACT</a>
+            </button>
+        </div>
+    </header>
 
 
     <!-- kv section -->
@@ -27,80 +63,143 @@
     </section>
 
 
+    <!-- EVENT -->
     <section class="event-sec">
         <div class="container">
-            <h2 class="title">프루엔의 소식을 만나보세요</h2>
+            <h2 class="main-title-2">프루엔의 소식을 만나보세요</h2>
         </div>
         <div class="filter-wrap">
-            <button class="btn-enevt-all">전체</button>
+            <button class="btn-enevt-all active">전체</button>
             <button class="btn-event-soon">진행예정</button>
             <button class="btn-event-ing">진행중</button>
             <button class="btn-event-end">종료</button>
         </div>
 
-        <div class="event-wrap">
-            <div class="event-soon">
-                <ul class="event-list">
-                    <li>
-                        <a href="">
-                            <img src="/assets/images/sub-event/event-soon-1.png" alt="이벤트">
-                            <h3>FRUEN POP-UP STORE<br>프루엔 팝업스토어 오픈 예정</h3>
-                            <p>2026.09.26 예정</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/assets/images/sub-event/event-soon-2.png" alt="이벤트">
-                            <h3>FRUEN FRUIT JAM<br>프루엔 과일잼 출시 예정</h3>
-                            <p>2026.10.20 예정</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/assets/images/sub-event/event-soon-3.png" alt="이벤트">
-                            <h3>FRUEN COLLABORATION<br>새로운 브랜드와의 만남</h3>
-                            <p>2026.11.05 예정</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="event-ing">
-                <ul class="event-list">
-                    <li>
-                        <a href="">
-                            <img src="/assets/images/sub-event/event-ing-1.png" alt="이벤트">
-                            <h3>FRUEN NEW PRODUCT TRIAL<br>프루엔 신제품 체험단 모집</h3>
-                            <p>2026.8.25 ~ 2026.9.30</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/assets/images/sub-event/event-ing-2.png" alt="이벤트">
-                            <h3>FRUEN INSTAGRAM EVENT<br>프루엔 인스타그램 게시물 이벤트</h3>
-                            <p>2026.8.25 ~ 2026.9.30</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="event-end">
-                <ul class="event-list">
-                    <li>
-                        <a href="">
-                            <img src="/assets/images/sub-event/event-end-1.png" alt="이벤트">
-                            <h3>FRUEN SNS FOLLOW EVENT<br>프루엔 SNS 팔로우 이벤트 종료</h3>
-                            <p>2026.5.1 ~ 2026.5.14</p>
-                        </a>
-                    </li>
-                </ul>
+        <div class="event-content">
+            <div class="event-wrap">
+                <div class="event-soon">
+                    <ul class="event-list">
+                        <li>
+                            <a href="/sub_page/sub-event-page/event-soon-1.html">
+                                <img src="/assets/images/sub-event/event-soon-1.png" alt="이벤트">
+                                <h3 class="card-title">FRUEN POP-UP STORE<br>프루엔 팝업스토어 오픈 예정</h3>
+                                <p>2026.09.26 예정</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/sub_page/sub-event-page/event-soon-2.html">
+                                <img src="/assets/images/sub-event/event-soon-2.png" alt="이벤트">
+                                <h3 class="card-title">FRUEN FRUIT JAM<br>프루엔 과일잼 출시 예정</h3>
+                                <p>2026.10.20 예정</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="/assets/images/sub-event/event-soon-3.png" alt="이벤트">
+                                <h3 class="card-title">FRUEN COLLABORATION<br>새로운 브랜드와의 만남</h3>
+                                <p>2026.11.05 예정</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="event-ing">
+                    <ul class="event-list">
+                        <li>
+                            <a href="">
+                                <img src="/assets/images/sub-event/event-ing-1.png" alt="이벤트">
+                                <h3 class="card-title">FRUEN NEW PRODUCT TRIAL<br>프루엔 신제품 체험단 모집</h3>
+                                <p>2026.8.25 ~ 2026.9.30</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="/assets/images/sub-event/event-ing-2.png" alt="이벤트">
+                                <h3 class="card-title">FRUEN INSTAGRAM EVENT<br>프루엔 인스타그램 게시물 이벤트</h3>
+                                <p>2026.8.25 ~ 2026.9.30</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="event-end">
+                    <ul class="event-list">
+                        <li>
+                            <a href="">
+                                <img src="/assets/images/sub-event/event-end-1.png" alt="이벤트">
+                                <h3 class="card-title">FRUEN SNS FOLLOW EVENT<br>프루엔 SNS 팔로우 이벤트 종료</h3>
+                                <p>2026.5.1 ~ 2026.5.14</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="page-btn-wrap">
-            <img src="/assets/icon/icon-philosophy-slide-prev.svg" alt="이전 버튼">
-            <img src="/assets/icon/icon-philosophy-slide-next.svg" alt="다음 버튼">
+            <img class="prev-btn" src="/assets/icon/icon-philosophy-slide-prev.svg" alt="이전 버튼">
+            <img class="next-btn active" src="/assets/icon/icon-philosophy-slide-next.svg" alt="다음 버튼">
         </div>
     </section>
 
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+
+            <!-- Top -->
+            <div class="footer-top">
+
+                <!-- Logo -->
+                <img src="/assets/images/f-logo.png" alt="로고">
+
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+
+                <!-- Left -->
+                <div class="footer-left">
+
+                    <!-- Policy -->
+                    <ul class="footer-menu">
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이용약관</a></li>
+                    </ul>
+
+                    <!-- Company -->
+                    <address class="footer-company">
+                        <p>
+                            FRUEN
+                            <span>사업자번호. 000-00-00000</span>
+                            <span>본사. 서울특별시 성동구 성수이로 88, 4층 FRUEN</span>
+                        </p>
+
+                        <p>
+                            <span>FAX. 02-6203-1841</span>
+                            <span>EMAIL. hello@fruen.co.kr</span>
+                        </p>
+                    </address>
+
+                    <!-- Copyright -->
+                    <p class="footer-copy">
+                        COPYRIGHT © FRUEN. ALL RIGHTS RESERVED.
+                    </p>
+                </div>
+
+                <!-- Right -->
+                <div class="footer-right">
+                    <a href="#" class="footer-instagram">
+                        <img src="/assets/icon/icon-footer-instargram.svg" alt="Instagram">
+                    </a>
+                    <p class="footer-center-title">
+                        고객센터
+                    </p>
+                    <a href="tel:0807422100" class="footer-tel">
+                        080-742-2100
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="/assets/js/jquery-4.0.0.min.js"></script>

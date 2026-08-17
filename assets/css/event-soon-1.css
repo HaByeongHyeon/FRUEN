@@ -1,0 +1,659 @@
+/* 헤더 */
+/* ==================================================
+   Header Inner
+================================================== */
+
+.header {
+    width: 100%;
+    height: 150px;
+    background-color: #00000030;
+
+    margin: 0 auto;
+    padding: 0 240px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 9999;
+
+}
+
+
+/* ==================================================
+   Logo
+================================================== */
+
+.logo {
+    margin: 0;
+    padding: 0;
+    filter: brightness(0) invert(1);
+}
+
+.logo a {
+    display: block;
+
+    width: 185px;
+    height: 40px;
+}
+
+.logo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   Navigation
+================================================== */
+
+.header-nav {
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.header-menu {
+    margin: 0;
+    padding: 0;
+}
+
+.header-menu a {
+    display: block;
+
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.header-menu:hover a {
+    color: #404040;
+}
+
+
+/* ==================================================
+   Header Button
+================================================== */
+
+.headr-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+/* ==================================================
+   SHOP Button
+================================================== */
+
+.shop-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 132px;
+    height: 44px;
+
+    padding: 12px 32px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+.shop-btn img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    margin-left: 4px;
+    filter: brightness(0) invert(1);
+}
+
+.shop-btn:hover a {
+    background-color: var(--color-btn-secondary-hover);
+    color: var(--color-btn-secondary-default);
+}
+
+.shop-btn:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* ==================================================
+   CONTACT Button
+================================================== */
+
+.contact-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 154px;
+    height: 44px;
+
+    padding: 12px 32px;
+
+    box-sizing: border-box;
+
+    border-radius: 50px;
+
+    background-color: var(--color-btn-secondary-default);
+    color: var(--color-btn-secondary-hover);
+
+    font-size: 18px;
+    font-weight: 500;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.contact-btn:hover a {
+    background-color: var(--color-btn-secondary-hover);
+    color: var(--color-btn-secondary-default);
+}
+
+
+/* =============================================================== */
+
+.kv-sec {
+    width: 100%;
+    height: 1080px;
+    /* padding-bottom: 160px; */
+
+    background-color: #FFF6DB;
+}
+
+.kv-sec img {
+    width: 100%;
+
+    object-fit: cover;
+}
+
+.kv-title-wrap {
+    width: 100%;
+    max-width: 1440px;
+    margin: 40px auto 0;
+}
+
+.kv-title-wrap h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #121212;
+    margin-bottom: 10px;
+}
+
+.kv-title-wrap p {
+    font-size: 34px;
+    font-weight: 500;
+    color: #121212;
+}
+
+
+/* =============================================================== */
+
+/* =========================
+Text Wrap
+========================= */
+
+.text-wrap {
+    width: 100%;
+
+    padding: 150px 0;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.text-container {
+    display: flex;
+}
+
+/* =========================
+Left
+========================= */
+
+.text-left-wrap {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================
+Main Title
+========================= */
+
+.text-left-wrap>h2 {
+    margin: 0 0 22px;
+
+    font-family: var(--font-family);
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: var(--color-text-primary);
+}
+
+
+/* =========================
+Category
+========================= */
+
+.border-wrap {
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 70px;
+}
+
+.border-wrap>div {
+    font-family: var(--font-family);
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1;
+
+    padding: 10px 25px;
+
+    border: 1px solid #000000;
+    border-radius: 30px;
+
+    color: var(--color-text-primary);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+Info
+========================= */
+
+.info-wrap {
+    display: flex;
+
+    gap: 100px;
+}
+
+.info-list-wrap,
+.info-list {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    list-style: none;
+}
+
+.info-list-wrap {
+    flex-shrink: 0;
+}
+
+.info-list-wrap>li,
+.info-list>li {
+    margin: 0;
+
+    font-family: var(--font-family);
+    font-size: 24px;
+
+    line-height: 1.2;
+}
+
+.info-list-wrap>li {
+    font-weight: 700;
+}
+
+.info-list>li {
+    font-weight: 400;
+}
+
+
+/* =========================
+Right
+========================= */
+
+.text-right-wrap {
+    display: flex;
+    flex-direction: column;
+
+    gap: 70px;
+}
+
+
+/* =========================
+Right Text
+========================= */
+
+.text-right {
+    width: 50%;
+}
+
+
+/* =========================
+Right Title
+========================= */
+
+.text-right h3 {
+    margin: 0 0 35px;
+
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    color: var(--color-text-primary);
+}
+
+
+/* =========================
+Right Description
+========================= */
+
+.text-right p {
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: var(--color-text-primary);
+
+    white-space: nowrap;
+}
+
+.main-img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =============================================================== */
+
+/* =========================
+Coming
+========================= */
+
+.comming-sec {
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 200px 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+Title
+========================= */
+
+.comming-sec .container>h2 {
+    margin: 0 0 80px;
+
+    font-family: var(--font-family);
+    font-size: 40px;
+    font-weight: 700;
+
+    color: var(--color-text-primary);
+}
+
+
+/* =========================
+Image Wrap
+========================= */
+
+.img-wrap {
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 25px;
+    margin: 0 0 120px;
+}
+
+
+/* =========================
+Image Item
+========================= */
+
+.img-wrap li {
+    width: auto;
+    height: auto;
+}
+
+
+/* =========================
+Image
+========================= */
+
+.img-wrap li a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+.img-wrap img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+List Button
+========================= */
+
+.list-btn {
+    width: max-content;
+
+    align-items: center;
+    text-align: center;
+
+    font-family: var(--font-family);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-text-primary);
+
+    padding: 10px 30px;
+
+    border: 1px solid #121212;
+    border-radius: 30px;
+
+    display: block;
+    margin: 0 auto;
+}
+
+.list-btn:hover {
+    color: var(--color-btn-secondary-default);
+    background-color: #121212;
+}
+
+
+/* =============================================================== */
+
+.footer {
+    width: 100%;
+    background: #F0F0F0;
+}
+
+.footer .container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+
+/* ==========================
+        Top
+========================== */
+
+.footer-top {
+    display: flex;
+    align-items: center;
+
+    height: 100px;
+
+    border-bottom: 1px solid #303030;
+}
+
+.footer-logo img {
+    width: 150px;
+    display: block;
+}
+
+
+/* ==========================
+        Bottom
+========================== */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 20px 0;
+}
+
+
+/* ==========================
+        Left
+========================== */
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* menu */
+
+.footer-menu {
+    display: flex;
+    gap: 40px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-menu a {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: var(--color-text-description);
+}
+
+
+/* company */
+
+.footer-company {
+    margin-top: 18px;
+
+    font-style: normal;
+}
+
+.footer-company p {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 10px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+
+    color: var(--color-text-description);
+}
+
+
+
+/* copy */
+
+.footer-copy {
+    margin-top: 36px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-text-description);
+}
+
+/* ==========================
+        Right
+========================== */
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 10px;
+}
+
+.footer-instagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 42px;
+    height: 42px;
+}
+
+.footer-instagram img {
+    width: 42px;
+    display: block;
+}
+
+.footer-center-title {
+    margin-top: 22px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: var(--color-text-description);
+}
+
+.footer-tel {
+    margin-top: 18px;
+
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: var(--color-text-description);
+}
