@@ -425,15 +425,31 @@ Page Button
     gap: 50px;
 }
 
+
 .page-btn-wrap img {
     display: block;
 
     width: 15px;
     height: 15px;
+    padding: 15px 15px;
 
     object-fit: contain;
 
     cursor: pointer;
+
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 1px 1.33px rgba(0, 0, 0, 0.15);
+}
+
+.prev-btn:hover {
+    filter: brightness(1) invert(0);
+    background-color: #d9d9d9;
+}
+
+.next-btn:hover {
+    filter: brightness(1) invert(0);
+    background-color: #d9d9d9;
 }
 
 

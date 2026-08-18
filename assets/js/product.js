@@ -1,3 +1,5 @@
+
+
 // product-filter ==========================================================
 
 $(function () {
@@ -46,6 +48,99 @@ $(function () {
 });
 
 
+// product ========================================================
+
+$(function () {
+
+    const $list = $(".product-list.active");
+    const $items = $list.children(".product-btn");
+    const $prev = $(".prev-btn");
+    const $next = $(".next-btn");
+
+    const pageSize = 6;
+
+    let page = 0;
+    let moving = false;
+
+    const listWidth = $list.outerWidth();
+
+    $list.css({
+        width: listWidth,
+        minWidth: listWidth
+    });
+
+
+    function render() {
+
+        $items.hide().css({
+            position: "",
+            top: 0,
+            left: 0
+        });
+
+        $items
+            .slice(page * pageSize, page * pageSize + pageSize)
+            .css("display", "block");
+
+        if (page === 1) {
+            $items.slice(6, 8).css({
+                position: "relative",
+                top: 0,
+                left: 0
+            });
+        }
+
+        const maxPage = Math.ceil($items.length / pageSize) - 1;
+
+        $prev.toggleClass("active", page > 0);
+        $next.toggleClass("active", page < maxPage);
+    }
+
+
+    function slide(dir) {
+
+        if (moving) return;
+
+        const maxPage = Math.ceil($items.length / pageSize) - 1;
+        const nextPage = page + dir;
+
+        if (nextPage < 0 || nextPage > maxPage) return;
+
+        moving = true;
+        page = nextPage;
+
+        const move = listWidth * dir;
+
+        $list.animate(
+            { left: -move },
+            600,
+            function () {
+
+                $list.css("left", 0);
+
+                render();
+
+                moving = false;
+            }
+        );
+    }
+
+
+    $prev.on("click", function () {
+        slide(-1);
+    });
+
+    $next.on("click", function () {
+        slide(1);
+    });
+
+
+    render();
+
+});
+
+
+
 // popup ==========================================================
 
 $(function () {
@@ -53,7 +148,11 @@ $(function () {
     const $lists = $(".product-list"),
         $wrap = $(".popup-wrap"),
         $popups = $(".popup"),
-        map = [[0, 1, 2, 3, 4, 5], [8, 9, 10, 11, 1]];
+        map = [
+            [0, 1, 2, 3, 4, 5, 6, 7],
+            [8, 9, 10, 11, 1]
+        ];
+
 
     let scrollTop = 0;
 

@@ -5,560 +5,411 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FRUEN</title>
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/component/font.css">
+    <link rel="stylesheet" href="./assets/component/guide.css">
+    <link rel="stylesheet" href="./assets/component/common.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
 
     <!-- 헤더 -->
     <header class="header">
-
-        <!-- 로고 -->
-        <h1 class="logo">
-            <a href="./index.html">
-                <img src="../assets/images/logo.png" alt="로고">
+        <div class="logo">
+            <a href="/main.html">
+                <img src="./assets/images/logo.png" alt="logo">
             </a>
-        </h1>
+        </div>
 
-        <!-- 헤더 메뉴 -->
-        <nav class="nav-menu">
-            <ul class="nav-wrap">
-                <li class="nav-list">
-                    <a href="../sub_page/about.html">ABOUT</a>
+        <nav class="header-nav">
+            <ul>
+                <li class="header-menu">
+                    <a href="/story.html">STORY</a>
                 </li>
-                <li class="nav-list">
-                    <a href="../sub_page/product.html">PRODUCT</a>
+                <li class="header-menu">
+                    <a href="/product.html">PRODUCT</a>
                 </li>
-                <li class="nav-list">
-                    <a href="../sub_page/story.html">STORY</a>
+                <li class="header-menu">
+                    <a href="/recipe.html">RECIPE</a>
                 </li>
-                <li class="nav-list">
-                    <a href="../sub_page/recipe.html">RECIPE</a>
+                <li class="header-menu">
+                    <a href="/brand.html">LISTED BRAND</a>
                 </li>
-                <li class="nav-list">
-                    <a href="../sub_page/notice.html">NOTICE</a>
-                </li>
-                <li class="nav-list">
-                    <a href="../sub_page/store.html">STORE</a>
+                <li class="header-menu">
+                    <a href="/event.html">EVENT</a>
                 </li>
             </ul>
         </nav>
+
+        <div class="headr-btn">
+            <button class="shop-btn">
+                <a href="#">SHOP <img src="./assets/icon/icon-shop-btn.png" alt="shop-btn"></a>
+            </button>
+            <button class="contact-btn">
+                <a href="/contact.html">CONTACT</a>
+            </button>
+        </div>
     </header>
 
-    <!-- 메인 -->
-    <main>
-
-        <!-- Section Slider -->
-        <section class="slider-sec">
+    <!-- Section Slider -->
+    <section class="slider-sec">
+        <div class="slider-wrap">
             <div class="container">
-
-                <div class="slider-content-wrap">
-
-                    <div class="slider-text-wrap">
-                        <div class="slider-title-wrap">
-                            <h2 class="slider-title">
-                                One
-                                <br>
-                                One
-                            </h2>
-
-                            <div class="color-title">
-                                Fruit
-                                <br>
-                                Stick
-                            </div>
-                        </div>
-                        <p class="slider-desc">언제 어디서나, 한포씩 가볍게</p>
-                        <div class="slider-btn">
-                            <a href="../sub_page/about.html">
-                                <img src="../assets/icon/btn-arrow.svg" alt="About 버튼">
-                            </a>
-                            <p class="slider-btn-desc">ABOUT FRUEN</p>
-                        </div>
-                    </div>
-
-
-                    <!-- 슬라이더 이미지 -->
-                    <div class="slider-wrap">
-                        <img class="slider-img" src="../assets/images/Slider-자몽.png" alt="자몽이미지">
-                        <img class="slider-img" src="../assets/images/Slider-레몬.png" alt="레몬이미지">
-                        <img class="slider-img" src="../assets/images/Slider-샤인머스켓.png" alt="샤인머스켓이미지">
-                        <img class="slider-img" src="../assets/images/Slider-복숭아.png" alt="복숭아이미지">
-                        <img class="slider-img" src="../assets/images/Slider-블루베리.png" alt="블루베리이미지">
-                    </div>
-
-                    <!-- 페이지네이션 -->
-                    <div class="pagenation-wrap">
-
-                        <!-- 상단 UI -->
-                        <div class="page-number">
-                            <!-- Title -->
-                            <div class="fruit-name-box">
-                                <div class="fruit-name-wrap">
-                                    <span class="fruit-name">Grapefruit</span>
-                                    <span class="fruit-name">Lemon</span>
-                                    <span class="fruit-name">Shinemusket</span>
-                                    <span class="fruit-name">Peach</span>
-                                    <span class="fruit-name">Blueberry</span>
-                                    <!-- copy : 자연스러운 변경 -->
-                                    <span class="fruit-name">Grapefruit</span>
-                                </div>
-                            </div>
-                            <!-- Page -->
-                            <div class="visual-page">
-                                <div class="current-wrap">
-                                    <span class="current">01</span>
-                                    <span class="current">02</span>
-                                    <span class="current">03</span>
-                                    <span class="current">04</span>
-                                    <span class="current">05</span>
-                                    <!-- copy : 자연스러운 변경 -->
-                                    <span class="current">01</span>
-                                </div>
-                            </div>
-                            <span class="slash">/</span>
-                            <span class="total">05</span>
-                        </div>
-                        <!-- Indicator -->
-                        <div class="page-bar">
-                            <!-- 활성 라인 -->
-                            <span class="page-bar-line"></span>
-                            <!-- 점 -->
-                            <ul class="page-bar-dots">
-                                <li class="active"></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </div>
-
+                <h2>ONE FRUIT ONE STICK</h2>
+                <div class="slider-text-wrap">
+                    <h3>FRUEN<br>LEMON</h3>
+                    <p>상큼한 레몬을, 한 포로 간편하게</p>
+                </div>
+                <!-- Pagination -->
+                <div class="page-btn-wrap">
+                    <img class="prev-btn" src="./assets/icon/icon-philosophy-slide-prev.svg" alt="이전 버튼">
+                    <img class="next-btn" src="./assets/icon/icon-philosophy-slide-next.svg" alt="다음 버튼">
                 </div>
             </div>
-        </section>
-
-        <!-- Section Problem -->
-        <section class="problem-sec">
-            <img src="../assets/images/promblem-bg.jpg" alt="문제 배경">
+            <div class="slider">
+                <div class="fruit-effect">
+                    <img src="/assets/images/main-lemon-effect.png" alt="과일 이펙트">
+                </div>
+                <div class="main-cup-img">
+                    <img src="/assets/images/main-slider-img-1.png" alt="제품 이미지">
+                </div>
+            </div>
+        </div>
+        <div class="slider-wrap">
             <div class="container">
-                <div class="problem-content-wrap">
-                    <h2 class="problem-title">WHY WE STARTED</h2>
-                    <p class="problem-desc">
-                        좋은 과일청이 냉장고 안에<br>
-                        머물지 않도록 만들었습니다.
-                        <br><br>
-                        다 먹지 못해 남기고<br>
-                        가지고 다니기 어려워 자주 꺼내지 못했던 병 과일청,<br>
-                        프루엔은 그 불편을 한 포의 스틱으로 줄여 원하는 순간<br>
-                        어디서든 간편하게 즐길 수 있도록 했습니다.
+                <h2>ONE FRUIT ONE STICK</h2>
+                <div class="slider-text-wrap">
+                    <h3>FRUEN<br>PEACH</h3>
+                    <p>달콤한 복숭아를, 한 포로 간편하게</p>
+                </div>
+                <!-- Pagination -->
+                <div class="page-btn-wrap">
+                    <img class="prev-btn" src="./assets/icon/icon-philosophy-slide-prev.svg" alt="이전 버튼">
+                    <img class="next-btn" src="./assets/icon/icon-philosophy-slide-next.svg" alt="다음 버튼">
+                </div>
+            </div>
+            <div class="slider">
+                <div class="fruit-effect">
+                    <img src="/assets/images/main-peach-effect.png" alt="과일 이펙트">
+                </div>
+                <div class="main-cup-img">
+                    <img src="/assets/images/main-slider-img-2.png" alt="제품 이미지">
+                </div>
+            </div>
+        </div>
+        <div class="slider-wrap">
+            <div class="container">
+                <h2>ONE FRUIT ONE STICK</h2>
+                <div class="slider-text-wrap">
+                    <h3>FRUEN<br>PASSION FRUIT</h3>
+                    <p>새콤한 패션후르츠를, 한 포로 간편하게</p>
+                </div>
+                <!-- Pagination -->
+                <div class="page-btn-wrap">
+                    <img class="prev-btn" src="./assets/icon/icon-philosophy-slide-prev.svg" alt="이전 버튼">
+                    <img class="next-btn" src="./assets/icon/icon-philosophy-slide-next.svg" alt="다음 버튼">
+                </div>
+            </div>
+            <div class="slider">
+                <div class="fruit-effect">
+                    <img src="/assets/images/main-passion-effect.png" alt="과일 이펙트">
+                </div>
+                <div class="main-cup-img">
+                    <img src="/assets/images/main-slider-img-3.png" alt="제품 이미지">
+                </div>
+            </div>
+        </div>
+        <div class="slider-wrap">
+            <div class="container">
+                <h2>ONE FRUIT ONE STICK</h2>
+                <div class="slider-text-wrap">
+                    <h3>FRUEN<br>GRAPE FRUIT</h3>
+                    <p>달콤쌉쌀한 자몽을, 한 포로 간편하게</p>
+                </div>
+                <!-- Pagination -->
+                <div class="page-btn-wrap">
+                    <img class="prev-btn" src="./assets/icon/icon-philosophy-slide-prev.svg" alt="이전 버튼">
+                    <img class="next-btn" src="./assets/icon/icon-philosophy-slide-next.svg" alt="다음 버튼">
+                </div>
+            </div>
+            <div class="slider">
+                <div class="fruit-effect">
+                    <img src="/assets/images/main-grape-effect.png" alt="과일 이펙트">
+                </div>
+                <div class="main-cup-img">
+                    <img src="/assets/images/main-slider-img-4.png" alt="제품 이미지">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Problem -->
+    <section class="problem-sec">
+        
+    </section>
+
+
+    <!-- Section History -->
+    <section class="history-sec">
+        <h2 class="history-title">
+            무거웠던 일상의 한 잔에 가벼움을 더하다,<br>
+            프루엔의 시작
+        </h2>
+
+        <span class="history-title-line"></span>
+
+        <div class="history-img-wrap">
+            <div class="history-track">
+                <img src="../assets/images/history-img-1.png" alt="history 이미지1">
+                <img src="../assets/images/history-img-2.png" alt="history 이미지2">
+                <img src="../assets/images/history-img-3.png" alt="history 이미지3">
+                <img src="../assets/images/history-img-4.png" alt="history 이미지4">
+            </div>
+        </div>
+
+        <!-- 스크롤바 -->
+        <div class="history-progress">
+
+            <svg class="history-progress-svg" viewBox="0 0 1920 20" preserveAspectRatio="none">
+
+                <!-- 회색 선 -->
+                <path class="progress-track" d="M0 10 L1920 10" />
+
+                <!-- 노란 선 -->
+                <path class="progress-bar" d="M0 10 L1920 10" />
+
+            </svg>
+
+            <!-- 포인터 -->
+            <img class="scrollbar-pointer" src="../assets/images/scroll-pointer.svg" alt="스크롤 포인터">
+
+        </div>
+
+        <div class="container history-text-wrap">
+            <!-- 텍스트 1 -->
+            <div class="history-text-list active">
+                <img src="../assets/images/history-text-line.png" alt="점선">
+                <div class="history-text">
+                    <h3>
+                        일상의 불편함에서<br>
+                        시작된 새로운 고찰
+                    </h3>
+                    <p>
+                        일상 속 작은 불편을<br>
+                        새로운 가능성으로 바라봅니다.
                     </p>
-                    <button class="preview-btn">
-                        자세히 읽기 →
-                    </button>
                 </div>
             </div>
-        </section>
-
-
-        <!-- Section History -->
-        <section class="history-sec">
-            <h2 class="history-title">
-                무거웠던 일상의 한 잔에 가벼움을 더하다,<br>
-                프루엔의 시작
-            </h2>
-
-            <span class="history-title-line"></span>
-
-            <div class="history-img-wrap">
-                <div class="history-track">
-                    <img src="../assets/images/history-img-1.png" alt="history 이미지1">
-                    <img src="../assets/images/history-img-2.png" alt="history 이미지2">
-                    <img src="../assets/images/history-img-3.png" alt="history 이미지3">
-                    <img src="../assets/images/history-img-4.png" alt="history 이미지4">
-                </div>
-            </div>
-
-            <!-- 스크롤바 -->
-            <div class="history-progress">
-
-                <svg class="history-progress-svg" viewBox="0 0 1920 20" preserveAspectRatio="none">
-
-                    <!-- 회색 선 -->
-                    <path class="progress-track" d="M0 10 L1920 10" />
-
-                    <!-- 노란 선 -->
-                    <path class="progress-bar" d="M0 10 L1920 10" />
-
-                </svg>
-
-                <!-- 포인터 -->
-                <img class="scrollbar-pointer" src="../assets/images/scroll-pointer.svg" alt="스크롤 포인터">
-
-            </div>
-
-            <div class="container history-text-wrap">
-                <!-- 텍스트 1 -->
-                <div class="history-text-list active">
-                    <img src="../assets/images/history-text-line.png" alt="점선">
-                    <div class="history-text">
-                        <h3>
-                            일상의 불편함에서<br>
-                            시작된 새로운 고찰
-                        </h3>
-                        <p>
-                            일상 속 작은 불편을<br>
-                            새로운 가능성으로 바라봅니다.
-                        </p>
-                    </div>
-                </div>
-                <!-- 텍스트 2 -->
-                <div class="history-text-list">
-                    <img src="../assets/images/history-text-line.png" alt="점선">
-                    <div class="history-text">
-                        <h3>
-                            자연이 품은 과일의<br>
-                            가능성을 재정의
-                        </h3>
-                        <p>
-                            자연 그대로의 맛을 일상 속에서<br>
-                            쉽게 즐길 수 있도록 연구합니다.
-                        </p>
-                    </div>
-                </div>
-                <!-- 텍스트 3 -->
-                <div class="history-text-list">
-                    <img src="../assets/images/history-text-line.png" alt="점선">
-                    <div class="history-text">
-                        <h3>
-                            가장 가벼운 한 포,<br>
-                            가장 완벽한 기술로 완성
-                        </h3>
-                        <p>
-                            한 포의 간편함 속에<br>
-                            더 높은 완성도를 담아냅니다.
-                        </p>
-                    </div>
-                </div>
-                <!-- 텍스트 4 -->
-                <div class="history-text-list">
-                    <img src="../assets/images/history-text-line.png" alt="점선">
-                    <div class="history-text">
-                        <h3>
-                            국내 과일청이 마주할<br>
-                            단 하나의 새로운 기준, FRUEN
-                        </h3>
-                        <p>
-                            과일청의 새로운 기준을 만들어갑니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Section Prove -->
-        <section class="prove-sec">
-
-            <div class="container">
-
-                <!-- Section Title -->
-                <h2 class="prove-title">
-                    한포로 즐기는<br>
-                    <span>진짜 과일의 맛</span>
-                </h2>
-
-                <div class="prove-content">
-                    <div class="prove-item prove-item-left">
-                        <h3 class="prove-number">93%</h3>
-                        <p class="prove-desc">
-                            재구매율
-                        </p>
-                    </div>
-
-                    <div class="prove-visual">
-
-                        <img class="prove-circle" src="../assets/images/prove-circle-fill.svg" alt="" aria-hidden="true">
-
-                        <img class="prove-pointer" src="../assets/images/prove-circle-pointer.svg" alt=""
-                            aria-hidden="true">
-
-                        <img class="prove-product" src="../assets/images/fruen-box.png" alt="프루엔 제품">
-
-                    </div>
-
-                    <div class="prove-item prove-item-right">
-                        <h3 class="prove-number">4500+</h3>
-                        <p class="prove-desc">
-                            리뷰수
-                        </p>
-                    </div>
-
-                    <div class="prove-pagination">
-                        <span class="prove-dot active"></span>
-                        <span class="prove-dot"></span>
-                        <span class="prove-dot"></span>
-                    </div>
-
-                    <h3 class="prove-bottom-title">
-                        숫자로 증명하는 FRUEN
+            <!-- 텍스트 2 -->
+            <div class="history-text-list">
+                <img src="../assets/images/history-text-line.png" alt="점선">
+                <div class="history-text">
+                    <h3>
+                        자연이 품은 과일의<br>
+                        가능성을 재정의
                     </h3>
+                    <p>
+                        자연 그대로의 맛을 일상 속에서<br>
+                        쉽게 즐길 수 있도록 연구합니다.
+                    </p>
                 </div>
             </div>
-        </section>
+            <!-- 텍스트 3 -->
+            <div class="history-text-list">
+                <img src="../assets/images/history-text-line.png" alt="점선">
+                <div class="history-text">
+                    <h3>
+                        가장 가벼운 한 포,<br>
+                        가장 완벽한 기술로 완성
+                    </h3>
+                    <p>
+                        한 포의 간편함 속에<br>
+                        더 높은 완성도를 담아냅니다.
+                    </p>
+                </div>
+            </div>
+            <!-- 텍스트 4 -->
+            <div class="history-text-list">
+                <img src="../assets/images/history-text-line.png" alt="점선">
+                <div class="history-text">
+                    <h3>
+                        국내 과일청이 마주할<br>
+                        단 하나의 새로운 기준, FRUEN
+                    </h3>
+                    <p>
+                        과일청의 새로운 기준을 만들어갑니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-        <!-- Section Flavor -->
-        <section class="flavor-sec">
-            <div class="flavor-title-wrap">
-                <h2 class="flavor-title">FLAVOR</h2>
-                <p class="flavor-desc">
-                    한 잔의 음료부터 디저트까지,<br>
-                    어디에나 잘 어울리는 다양한 맛
-                </p>
-                <button class="preview-btn">
-                    자세히 보기 →
+    <!-- Section Prove -->
+    <section class="prove-sec">
+
+    </section>
+
+
+    <!-- Section Flavor -->
+    <section class="flavor-sec">
+        <div class="flavor-title-wrap">
+            <h2 class="flavor-title">FLAVOR</h2>
+            <p class="flavor-desc">
+                한 잔의 음료부터 디저트까지,<br>
+                어디에나 잘 어울리는 다양한 맛
+            </p>
+            <button class="preview-btn">
+                자세히 보기 →
+            </button>
+        </div>
+        <div class="flavor-content">
+
+            <!-- FRESH -->
+            <div class="flavor-list-wrap">
+                <h3 class="flavor-list">
+                    FRESH
+                </h3>
+                <div class="flavor-img-wrap">
+                    <img src="../assets/images/flavor-strawberry.png" alt="딸기">
+                    <img src="../assets/images/flavor-blueberry.png" alt="블루베리">
+                    <img src="../assets/images/flavor-pear.png" alt="배">
+                    <img src="../assets/images/flavor-apple.png" alt="사과">
+                </div>
+            </div>
+
+            <!-- SWEET/ -->
+            <div class="flavor-list-wrap">
+                <h3 class="flavor-list">
+                    SWEET
+                </h3>
+                <div class="flavor-img-wrap">
+                    <img src="../assets/images/flavor-peach.png" alt="복숭아">
+                    <img src="../assets/images/flavor-shineMuscat.png" alt="샤인머스켓">
+                    <img src="../assets/images/flavor-yuzu.png" alt="유자">
+                    <img src="../assets/images/flavor-mango.png" alt="망고">
+                </div>
+            </div>
+
+            <!-- SOUR -->
+            <div class="flavor-list-wrap">
+                <h3 class="flavor-list">
+                    SOUR
+                </h3>
+                <div class="flavor-img-wrap">
+                    <img src="../assets/images/flavor-grapefruit.png" alt="자몽">
+                    <img src="../assets/images/flavor-lemon.png" alt="레몬">
+                    <img src="../assets/images/flavor-passionfruit.png" alt="패션후르츠">
+                    <img src="../assets/images/flavor-pineapple.png" alt="파인애플">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Section Recipe -->
+    <section class="recipe-sec">
+        <div class="recipe-img-wrap">
+            <img class="active" src="../assets/images/recipe-ade.png" alt="에이드">
+            <img src="../assets/images/recipe-tea.png" alt="차">
+            <img src="../assets/images/recipe-icecream.png" alt="디저트">
+            <img src="../assets/images/recipe-yogurt.png" alt="요거트">
+            <img src="../assets/images/recipe-smoothie.png" alt="스무디">
+        </div>
+        <ul class="icon-wrap">
+            <li>
+                <button>
+                    <img src="../assets/icon/icon-recipe-ade.svg" alt="에이드">
+                    </btton>
+            </li>
+            <li>
+                <button>
+                    <img src="../assets/icon/icon-recipe-tea.svg" alt="차">
                 </button>
-            </div>
-            <div class="flavor-content">
-
-                <!-- FRESH -->
-                <div class="flavor-list-wrap">
-                    <h3 class="flavor-list">
-                        FRESH
-                    </h3>
-                    <div class="flavor-img-wrap">
-                        <img src="../assets/images/flavor-strawberry.png" alt="딸기">
-                        <img src="../assets/images/flavor-blueberry.png" alt="블루베리">
-                        <img src="../assets/images/flavor-pear.png" alt="배">
-                        <img src="../assets/images/flavor-apple.png" alt="사과">
-                    </div>
-                </div>
-
-                <!-- SWEET/ -->
-                <div class="flavor-list-wrap">
-                    <h3 class="flavor-list">
-                        SWEET
-                    </h3>
-                    <div class="flavor-img-wrap">
-                        <img src="../assets/images/flavor-peach.png" alt="복숭아">
-                        <img src="../assets/images/flavor-shineMuscat.png" alt="샤인머스켓">
-                        <img src="../assets/images/flavor-yuzu.png" alt="유자">
-                        <img src="../assets/images/flavor-mango.png" alt="망고">
-                    </div>
-                </div>
-
-                <!-- SOUR -->
-                <div class="flavor-list-wrap">
-                    <h3 class="flavor-list">
-                        SOUR
-                    </h3>
-                    <div class="flavor-img-wrap">
-                        <img src="../assets/images/flavor-grapefruit.png" alt="자몽">
-                        <img src="../assets/images/flavor-lemon.png" alt="레몬">
-                        <img src="../assets/images/flavor-passionfruit.png" alt="패션후르츠">
-                        <img src="../assets/images/flavor-pineapple.png" alt="파인애플">
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- Section Recipe -->
-        <section class="recipe-sec">
-            <div class="recipe-img-wrap">
-                <img class="active" src="../assets/images/recipe-ade.png" alt="에이드">
-                <img src="../assets/images/recipe-tea.png" alt="차">
-                <img src="../assets/images/recipe-icecream.png" alt="디저트">
-                <img src="../assets/images/recipe-yogurt.png" alt="요거트">
-                <img src="../assets/images/recipe-smoothie.png" alt="스무디">
-            </div>
-            <ul class="icon-wrap">
-                <li>
-                    <button>
-                        <img src="../assets/icon/icon-recipe-ade.svg" alt="에이드">
-                        </btton>
-                </li>
-                <li>
-                    <button>
-                        <img src="../assets/icon/icon-recipe-tea.svg" alt="차">
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <img src="../assets/icon/icon-recipe-icecream.svg" alt="아이스크림">
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <img src="../assets/icon/icon-recipe-yogurt.svg" alt="요거트">
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <img src="../assets/icon/icon-recipe-smoothie.svg" alt="스무디">
-                    </button>
-                </li>
-            </ul>
-            <div class="recipe-text-wrap">
-                <div class="recipe-list recipe-active">
-                    <h2>FRUEN ADE</h2>
-                    <P>
-                        시원한 탄산수 위로<br>
-                        프루엔 한 포를 더해보세요.<br>
-                        톡톡 터지는 청량감과<br>
-                        선명하게 피어나는 과일 본연의 향이<br>
-                        어우러져, 전문 바의 에이드처럼<br>
-                        가볍고 산뜻한 한 잔이 완성됩니다.
-                    </P>
-                </div>
-                <div class="recipe-list">
-                    <h2>FRUEN TEA</h2>
-                    <P>
-                        따뜻한 물이나 차 위로<br>
-                        프루엔 한 포를 더해보세요.<br>
-                        은은하게 퍼지는 과일의 향과<br>
-                        부드럽게 스며드는 자연의 달콤함이<br>
-                        어우러져, 카페에서 즐기던 티처럼<br>
-                        편안하고 깊은 한 잔이 완성됩니다.
-                    </P>
-                </div>
-                <div class="recipe-list">
-                    <h2>FRUEN DESSERT</h2>
-                    <P>
-                        아이스크림이나 팬케이크 위에<br>
-                        프루엔 한 포를 더해보세요.<br>
-                        신선한 과일의 풍미와<br>
-                        부드럽게 녹아드는 달콤함이<br>
-                        어우러져, 카페 디저트처럼<br>
-                        가볍고 특별한 한 접시가 완성됩니다.
-                    </P>
-                </div>
-                <div class="recipe-list">
-                    <h2>FRUEN YOGURT</h2>
-                    <P>
-                        시원한 요거트 위로<br>
-                        프루엔 단 한 포를 더해보세요.<br>
-                        부드럽게 어우러지는 달콤함과<br>
-                        풍성하게 살아나는 과일 본연의 풍미가<br>
-                        조화를 이루어, 카페에서 즐기는 듯한<br>
-                        진하고 산뜻한 요거트 한 컵이 완성됩니다.
-                    </P>
-                </div>
-                <div class="recipe-list">
-                    <h2>FRUEN SMOOTHIE</h2>
-                    <P>
-                        시원한 스무디 위로<br>
-                        프루엔 단 한 포를 더해보세요.<br>
-                        깊고 진한 과일의 풍미와<br>
-                        부드럽게 퍼지는 자연스러운 달콤함이<br>
-                        어우러져, 전문 카페 스무디처럼<br>
-                        신선하고 든든한 한 잔이 완성됩니다.
-                    </P>
-                </div>
-                <button class="preview-btn">
-                    레시피 보러가기 →
+            </li>
+            <li>
+                <button>
+                    <img src="../assets/icon/icon-recipe-icecream.svg" alt="아이스크림">
                 </button>
+            </li>
+            <li>
+                <button>
+                    <img src="../assets/icon/icon-recipe-yogurt.svg" alt="요거트">
+                </button>
+            </li>
+            <li>
+                <button>
+                    <img src="../assets/icon/icon-recipe-smoothie.svg" alt="스무디">
+                </button>
+            </li>
+        </ul>
+        <div class="recipe-text-wrap">
+            <div class="recipe-list recipe-active">
+                <h2>FRUEN ADE</h2>
+                <P>
+                    시원한 탄산수 위로<br>
+                    프루엔 한 포를 더해보세요.<br>
+                    톡톡 터지는 청량감과<br>
+                    선명하게 피어나는 과일 본연의 향이<br>
+                    어우러져, 전문 바의 에이드처럼<br>
+                    가볍고 산뜻한 한 잔이 완성됩니다.
+                </P>
             </div>
-        </section>
-
-
-        <!-- Section-FAQ -->
-        <section class="faq-sec">
-            <div class="container">
-                <div class="faq-content">
-                    <div class="faq-title">
-                        <h2>FAQ</h2>
-                    </div>
-                    <div class="faq-wrap">
-                        <div class="faq-list">
-                            <div class="faq-quest">
-                                <h3>
-                                    한 포에 물을 얼마나 넣으면 가장 맛있나요?
-                                </h3>
-                                <button class="btn-answer">
-                                    <img src="../assets/icon/btn-faq.svg" alt="답변 보기">
-                                </button>
-                            </div>
-                            <div class="answer">
-                                보통 프루엔 한 포에 물이나 탄산수 한 잔 정도를 넣으면 과일 맛을 충분히 느낄 수 있어요.<br>
-                                진하게 마시고 싶은 날에는 물을 조금 적게, 가볍게 마시고 싶은 날에는 얼음과 탄산수를 넉넉히 넣어주세요.
-                            </div>
-                        </div>
-                        <div class="faq-line"></div>
-                        <div class="faq-list">
-                            <div class="faq-quest">
-                                <h3>
-                                    제로슈거면 맛이 밍밍하지 않나요?
-                                </h3>
-                                <button class="btn-answer">
-                                    <img src="../assets/icon/btn-faq.svg" alt="답변 보기">
-                                </button>
-                            </div>
-                            <div class="answer">
-                                당을 줄였다고 과일 맛까지 약하게 만들고 싶지는 않았어요.<br>
-                                프루엔은 단맛만 강하게 남기기보다 과일의 새콤함과 향이 자연스럽게 느껴지도록 균형을 맞췄습니다.
-                            </div>
-                        </div>
-                        <div class="faq-line"></div>
-                        <div class="faq-list">
-                            <div class="faq-quest">
-                                <h3>
-                                    한 포를 꼭 전부 넣어야 하나요?
-                                </h3>
-                                <button class="btn-answer">
-                                    <img src="../assets/icon/btn-faq.svg" alt="답변 보기">
-                                </button>
-                            </div>
-                            <div class="answer">
-                                처음 드실 때는 절반 정도 넣어 맛을 본 뒤 조금씩 추가해도 괜찮습니다.<br>
-                                다만 스틱 한 포는 한 번에 사용하기 편한 양으로 만든 제품이라<br>
-                                개봉 후 남은 내용물은 오래 보관하지 않고 가능한 한 바로 사용하는 것이 좋아요.
-                            </div>
-                        </div>
-                        <div class="faq-line"></div>
-                        <div class="faq-list">
-                            <div class="faq-quest">
-                                <h3>
-                                    차가운 물에도 잘 섞이나요?
-                                </h3>
-                                <button class="btn-answer">
-                                    <img src="../assets/icon/btn-faq.svg" alt="답변 보기">
-                                </button>
-                            </div>
-                            <div class="answer">
-                                네, 차가운 물이나 탄산수에도 섞어 드실 수 있어요.<br>
-                                과육이나 원료가 아래쪽에 살짝 남을 수 있으니 스틱을 개봉하기 전에 가볍게 주물러주고,<br>
-                                컵에 넣은 뒤 한 번 충분히 저어주세요.
-                            </div>
-                        </div>
-                        <div class="faq-line"></div>
-                        <div class="faq-list">
-                            <div class="faq-quest">
-                                <h3>
-                                    프루엔은 어떻게 보관해야 하나요?
-                                </h3>
-                                <button class="btn-answer">
-                                    <img src="../assets/icon/btn-faq.svg" alt="답변 보기">
-                                </button>
-                            </div>
-                            <div class="answer">
-                                개봉 전에는 직사광선과 습기가 많은 곳을 피해 서늘한 실온에 보관해 주세요.<br>
-                                냉장 보관하면 더욱 시원하게 즐길 수 있지만 반드시 냉장해야 하는 제품은 아닙니다.<br>
-                                개봉한 스틱은 남겨두지 않고 바로 드시는 것이 가장 좋으며 소비기한은 제품에 표시된 날짜를 확인해 주세요.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="recipe-list">
+                <h2>FRUEN TEA</h2>
+                <P>
+                    따뜻한 물이나 차 위로<br>
+                    프루엔 한 포를 더해보세요.<br>
+                    은은하게 퍼지는 과일의 향과<br>
+                    부드럽게 스며드는 자연의 달콤함이<br>
+                    어우러져, 카페에서 즐기던 티처럼<br>
+                    편안하고 깊은 한 잔이 완성됩니다.
+                </P>
             </div>
-        </section>
+            <div class="recipe-list">
+                <h2>FRUEN DESSERT</h2>
+                <P>
+                    아이스크림이나 팬케이크 위에<br>
+                    프루엔 한 포를 더해보세요.<br>
+                    신선한 과일의 풍미와<br>
+                    부드럽게 녹아드는 달콤함이<br>
+                    어우러져, 카페 디저트처럼<br>
+                    가볍고 특별한 한 접시가 완성됩니다.
+                </P>
+            </div>
+            <div class="recipe-list">
+                <h2>FRUEN YOGURT</h2>
+                <P>
+                    시원한 요거트 위로<br>
+                    프루엔 단 한 포를 더해보세요.<br>
+                    부드럽게 어우러지는 달콤함과<br>
+                    풍성하게 살아나는 과일 본연의 풍미가<br>
+                    조화를 이루어, 카페에서 즐기는 듯한<br>
+                    진하고 산뜻한 요거트 한 컵이 완성됩니다.
+                </P>
+            </div>
+            <div class="recipe-list">
+                <h2>FRUEN SMOOTHIE</h2>
+                <P>
+                    시원한 스무디 위로<br>
+                    프루엔 단 한 포를 더해보세요.<br>
+                    깊고 진한 과일의 풍미와<br>
+                    부드럽게 퍼지는 자연스러운 달콤함이<br>
+                    어우러져, 전문 카페 스무디처럼<br>
+                    신선하고 든든한 한 잔이 완성됩니다.
+                </P>
+            </div>
+            <button class="preview-btn">
+                레시피 보러가기 →
+            </button>
+        </div>
+    </section>
 
-    </main>
 
 
-    <!-- Footer -->
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -567,9 +418,8 @@
             <div class="footer-top">
 
                 <!-- Logo -->
-                <a href="#" class="footer-logo">
-                    <img src="../assets/images/logo.png" alt="로고">
-                </a>
+                <img src="./assets/images/f-logo.png" alt="로고">
+
             </div>
 
             <!-- Bottom -->
@@ -581,7 +431,6 @@
                     <!-- Policy -->
                     <ul class="footer-menu">
                         <li><a href="#">개인정보처리방침</a></li>
-                        <li><a href="#">회사소개</a></li>
                         <li><a href="#">이용약관</a></li>
                     </ul>
 
@@ -603,17 +452,12 @@
                     <p class="footer-copy">
                         COPYRIGHT © FRUEN. ALL RIGHTS RESERVED.
                     </p>
-
-                    <!-- Designer -->
-                    <p class="footer-design">
-                        DESIGNED BY LGY
-                    </p>
                 </div>
 
                 <!-- Right -->
                 <div class="footer-right">
                     <a href="#" class="footer-instagram">
-                        <img src="../assets/icon/icon-footer-instargram.svg" alt="Instagram">
+                        <img src="./assets/icon/icon-footer-instargram.svg" alt="Instagram">
                     </a>
                     <p class="footer-center-title">
                         고객센터

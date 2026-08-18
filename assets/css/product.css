@@ -232,19 +232,19 @@
     display: flex;
     align-items: center;
 
-    gap: 15px;
+    gap: 30px;
 
-    margin-bottom: 60px;
+    margin-bottom: 45px;
     margin-left: 96px;
 }
 
 .filter-btn {
-    padding: 18px 40px;
+    padding: 10px 30px;
 
     border: 0;
     border-radius: 50px;
 
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 600;
 
     color: var(--color-border-default);
@@ -263,7 +263,11 @@
    Product List
 ========================= */
 
-/* active가 없는 product-list는 숨김 */
+.product-slider-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+
 .product-list {
     display: none;
 
@@ -274,9 +278,10 @@
 
     width: fit-content;
     margin: 0 auto;
+
+    position: relative;
 }
 
-/* active가 붙은 product-list만 표시 */
 .product-list.active {
     display: grid;
 }
@@ -319,34 +324,47 @@
 
 
 /* =========================
-   Pagination
+Page Button
 ========================= */
 
-.page-wrap {
+.page-btn-wrap {
+    width: 100%;
+
+    margin-top: 100px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
-
-    margin-top: 50px;
+    gap: 50px;
 }
 
-.page {
+
+.page-btn-wrap img {
     display: block;
 
     width: 15px;
     height: 15px;
+    padding: 15px 15px;
 
-    border-radius: 50%;
+    object-fit: contain;
 
-    background-color: #e5e7eb;
+    cursor: pointer;
+
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 1px 1.33px rgba(0, 0, 0, 0.15);
 }
 
-.page.active {
-    background-color: var(--color-primary-heavy);
+.prev-btn:hover {
+    filter: brightness(1) invert(0);
+    background-color: #d9d9d9;
 }
 
+.next-btn:hover {
+    filter: brightness(1) invert(0);
+    background-color: #d9d9d9;
+}
 
 /* =============================================================== */
 

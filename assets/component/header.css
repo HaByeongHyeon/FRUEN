@@ -1,34 +1,24 @@
-/* ==================================================
-   Header
-================================================== */
-
-/* 헤더 전체 영역 */
-.header-wrap {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    z-index: 9999;
-}
-
-
+/* 헤더 */
 /* ==================================================
    Header Inner
 ================================================== */
 
 .header {
     width: 100%;
-    max-width: 1440px;
+    height: 150px;
+    background-color: #00000030;
 
     margin: 0 auto;
-    padding-top: 50px;
+    padding: 0 240px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     box-sizing: border-box;
+    position: absolute;
+    z-index: 9999;
+
 }
 
 
@@ -39,6 +29,7 @@
 .logo {
     margin: 0;
     padding: 0;
+    filter: brightness(0) invert(1);
 }
 
 .logo a {
@@ -89,9 +80,13 @@
 .header-menu a {
     display: block;
 
-    color: #5C2300;
+    color: #ffffff;
     text-decoration: none;
     white-space: nowrap;
+}
+
+.header-menu:hover a {
+    color: #404040;
 }
 
 
@@ -103,22 +98,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
+
 }
-
-
-/* 버튼 기본 스타일 초기화 */
-
-.shop-btn,
-.contact-btn {
-    margin: 0;
-    padding: 0;
-
-    border: 0;
-    background: none;
-
-    font: inherit;
-}
-
 
 /* ==================================================
    SHOP Button
@@ -136,10 +117,10 @@
 
     box-sizing: border-box;
 
-    border: 1px solid #5C2300;
+    border: 1px solid #ffffff;
     border-radius: 50px;
 
-    color: #5C2300;
+    color: #ffffff;
 
     font-size: 18px;
     font-weight: 500;
@@ -148,6 +129,7 @@
     white-space: nowrap;
 }
 
+
 .shop-btn img {
     display: block;
 
@@ -155,8 +137,17 @@
     height: auto;
 
     margin-left: 4px;
+    filter: brightness(0) invert(1);
 }
 
+.shop-btn:hover a {
+    background-color: var(--color-btn-secondary-hover);
+    color: var(--color-btn-secondary-default);
+}
+
+.shop-btn:hover img {
+    filter: brightness(0) invert(1);
+}
 
 /* ==================================================
    CONTACT Button
@@ -176,12 +167,17 @@
 
     border-radius: 50px;
 
-    background-color: #5C2300;
-    color: #fff;
+    background-color: var(--color-btn-secondary-default);
+    color: var(--color-btn-secondary-hover);
 
     font-size: 18px;
     font-weight: 500;
 
     text-decoration: none;
     white-space: nowrap;
+}
+
+.contact-btn:hover a {
+    background-color: var(--color-btn-secondary-hover);
+    color: var(--color-btn-secondary-default);
 }

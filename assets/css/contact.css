@@ -1,0 +1,676 @@
+/* 헤더 */
+/* ==================================================
+   Header Inner
+================================================== */
+
+.header {
+    width: 100%;
+    height: 150px;
+    background-color: #00000030;
+
+    margin: 0 auto;
+    padding: 0 240px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 9999;
+
+}
+
+
+/* ==================================================
+   Logo
+================================================== */
+
+.logo {
+    margin: 0;
+    padding: 0;
+    filter: brightness(0) invert(1);
+}
+
+.logo a {
+    display: block;
+
+    width: 185px;
+    height: 40px;
+}
+
+.logo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   Navigation
+================================================== */
+
+.header-nav {
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.header-menu {
+    margin: 0;
+    padding: 0;
+}
+
+.header-menu a {
+    display: block;
+
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.header-menu:hover a {
+    color: #404040;
+}
+
+
+/* ==================================================
+   Header Button
+================================================== */
+
+.headr-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+/* ==================================================
+   SHOP Button
+================================================== */
+
+.shop-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 132px;
+    height: 44px;
+
+    padding: 12px 32px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+.shop-btn img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    margin-left: 4px;
+    filter: brightness(0) invert(1);
+}
+
+.shop-btn:hover a {
+    background-color: var(--color-btn-secondary-hover);
+    color: var(--color-btn-secondary-default);
+}
+
+.shop-btn:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* ==================================================
+   CONTACT Button
+================================================== */
+
+.contact-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 154px;
+    height: 44px;
+
+    padding: 12px 32px;
+
+    box-sizing: border-box;
+
+    border-radius: 50px;
+
+    background-color: var(--color-btn-secondary-default);
+    color: var(--color-btn-secondary-hover);
+
+    font-size: 18px;
+    font-weight: 500;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.contact-btn:hover a {
+    background-color: var(--color-btn-secondary-hover);
+    color: var(--color-btn-secondary-default);
+}
+
+
+/* =============================================================== */
+
+.kv-sec {
+    width: 100%;
+    height: 1080px;
+    /* padding-bottom: 160px; */
+
+    background-color: var(--color-bg-contact);
+}
+
+.kv-sec img {
+    width: 100%;
+
+    object-fit: cover;
+}
+
+.kv-title-wrap {
+    width: 100%;
+    max-width: 1440px;
+    margin: 40px auto 0;
+}
+
+.kv-title-wrap h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #121212;
+    margin-bottom: 10px;
+}
+
+.kv-title-wrap p {
+    font-size: 34px;
+    font-weight: 500;
+    color: #121212;
+}
+
+
+/* =============================================================== */
+
+/* =========================
+Contact Form
+========================= */
+
+.contact-form-sec {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 84px 0;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+Form Area
+========================= */
+
+.contact-form-wrap {
+    width: 55.5%;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    padding-left: 240px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+}
+
+
+/* =========================
+Title
+========================= */
+
+.contact-title-wrap {
+    display: flex;
+    align-items: baseline;
+
+    gap: 14px;
+
+    margin-bottom: 60px;
+}
+
+.contact-title-wrap h2 {
+    margin: 0;
+
+    font-family: var(--font-family);
+
+
+    color: var(--color-text-primary);
+}
+
+.contact-title-wrap p {
+
+    font-family: var(--font-family);
+    font-size: 30px;
+    font-weight: 400;
+
+    color: var(--color-text-secondary);
+}
+
+
+/* =========================
+Form
+========================= */
+
+.contact-form {
+    width: 100%;
+}
+
+
+/* =========================
+Form Row
+========================= */
+
+.form-row {
+    width: 85%;
+
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    align-items: center;
+
+    column-gap: 30px;
+
+    margin-bottom: 40px;
+}
+
+.form-row label {
+    font-family: var(--font-family);
+    font-size: 30px;
+    font-weight: 600;
+
+    color: var(--color-text-secondary);
+}
+
+.form-row label span {
+    color: var(--color-primary);
+}
+
+.form-row input,
+.form-row select {
+    width: 100%;
+
+    margin-left: 0;
+
+    padding: 15px 20px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #A8A8A8;
+    border-radius: 40px;
+
+    background-color: var(--color-white);
+
+    font-family: var(--font-family);
+    font-size: 24px;
+    font-weight: 400;
+
+    outline: none;
+}
+
+.form-row select {
+    padding-right: 60px;
+
+    background-image: url("/assets/icon/btn-down-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 24px;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    color: #A8A8A8;
+
+    cursor: pointer;
+}
+
+.inquiry option {
+    color: #A8A8A8;
+}
+
+
+/* =========================
+Select
+========================= */
+
+.form-row select {
+    appearance: none;
+
+    background-repeat: no-repeat;
+}
+
+
+/* =========================
+Message
+========================= */
+
+.form-message {
+    width: 100%;
+
+    margin-top: 1.2vw;
+}
+
+.form-message textarea {
+    width: 85%;
+    height: 10.2vw;
+
+    padding: 0.8vw;
+
+    box-sizing: border-box;
+
+    resize: none;
+
+    border: 0.05vw solid #CECECE;
+    border-radius: 1vw;
+
+    background-color: var(--color-white);
+
+    font-family: var(--font-family);
+    font-size: 0.75vw;
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: var(--color-text-secondary);
+
+    outline: none;
+}
+
+
+/* =========================
+Privacy
+========================= */
+
+.privacy-wrap {
+    width: 100%;
+
+    margin-top: 1vw;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.25vw;
+}
+
+.privacy-check {
+    display: flex;
+    align-items: center;
+
+    gap: 0.35vw;
+
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 400;
+
+    color: var(--color-text-secondary);
+}
+
+.privacy-check input {
+    width: 0.9vw;
+    height: 0.9vw;
+}
+
+.privacy-wrap a {
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 400;
+
+    text-decoration: underline;
+
+    color: #323232;
+}
+
+
+/* =========================
+Submit
+========================= */
+
+.submit-btn {
+    width: 85%;
+
+    margin-top: 36px;
+    padding: 15px 0;
+
+    border: 1px solid #5C2300;
+    border-radius: 1.2vw;
+
+    background-color: transparent;
+
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 500;
+
+    text-align: center;
+
+    color: #676767;
+
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #676767;
+    color: #ffffff;
+}
+
+
+/* =========================
+Image
+========================= */
+
+.contact-img-wrap {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 44.5%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.contact-img-wrap img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+
+/* =============================================================== */
+
+.footer {
+    width: 100%;
+    background: #F0F0F0;
+}
+
+.footer .container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+
+/* ==========================
+        Top
+========================== */
+
+.footer-top {
+    display: flex;
+    align-items: center;
+
+    height: 100px;
+
+    border-bottom: 1px solid #303030;
+}
+
+.footer-logo img {
+    width: 150px;
+    display: block;
+}
+
+
+/* ==========================
+        Bottom
+========================== */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 20px 0;
+}
+
+
+/* ==========================
+        Left
+========================== */
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* menu */
+
+.footer-menu {
+    display: flex;
+    gap: 40px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-menu a {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: var(--color-text-description);
+}
+
+
+/* company */
+
+.footer-company {
+    margin-top: 18px;
+
+    font-style: normal;
+}
+
+.footer-company p {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 10px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+
+    color: var(--color-text-description);
+}
+
+
+
+/* copy */
+
+.footer-copy {
+    margin-top: 36px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-text-description);
+}
+
+/* ==========================
+        Right
+========================== */
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 10px;
+}
+
+.footer-instagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 42px;
+    height: 42px;
+}
+
+.footer-instagram img {
+    width: 42px;
+    display: block;
+}
+
+.footer-center-title {
+    margin-top: 22px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: var(--color-text-description);
+}
+
+.footer-tel {
+    margin-top: 18px;
+
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: var(--color-text-description);
+}
