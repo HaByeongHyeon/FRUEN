@@ -1,0 +1,345 @@
+/* ==================================================
+   Footer placeholder
+================================================== */
+
+[data-component="footer"] {
+    display: block;
+    min-height: 220px;
+    background: #ffffff;
+}
+
+
+/* ==================================================
+   Footer
+================================================== */
+
+.footer {
+    width: 100%;
+    background: #ffffff;
+}
+
+.footer .container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+
+/* ==========================
+        Top
+========================== */
+
+.footer-top {
+    display: flex;
+    align-items: center;
+
+    padding-left: 240px;
+    height: 100px;
+
+    border-bottom: 1px solid #303030;
+    border-top: 1px solid #eaeaea;
+}
+
+.footer-top img,
+.footer-logo img {
+    width: 150px;
+    display: block;
+}
+
+
+/* ==========================
+        Bottom
+========================== */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 30px 0;
+}
+
+
+/* ==========================
+        Left
+========================== */
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-menu a {
+    font-size: 18px;
+    font-weight: 400;
+
+    color: var(--color-text-description);
+}
+
+.footer-company {
+    margin-top: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-company p {
+    display: flex;
+    flex-wrap: wrap;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    color: var(--color-text-description);
+}
+
+.footer-copy {
+    margin-top: 27px;
+    font-size: 18px;
+    font-weight: 600;
+
+    color: var(--color-text-description);
+}
+
+
+/* ==========================
+        Right
+========================== */
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.footer-instagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 42px;
+    height: 42px;
+}
+
+.footer-instagram img {
+    width: 42px;
+    display: block;
+}
+
+.footer-center-title {
+    margin-top: 18px;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    color: var(--color-text-description);
+}
+
+.footer-tel {
+    margin-top: 10px;
+
+    font-size: 24px;
+    font-weight: 400;
+
+    color: var(--color-text-description);
+}
+
+
+/* ==================================================
+   Tablet
+================================================== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    :root {
+        --fluid-t: min(1, max(0, (100vw - 768px) / 256px));
+    }
+
+    .footer .container {
+        padding-left: calc(20px + 28px * var(--fluid-t));
+        padding-right: calc(20px + 28px * var(--fluid-t));
+        box-sizing: border-box;
+    }
+
+    .footer-top {
+        padding-left: calc(20px + 28px * var(--fluid-t));
+        padding-right: calc(20px + 28px * var(--fluid-t));
+        height: calc(64px + 16px * var(--fluid-t));
+    }
+
+    .footer-top img {
+        width: calc(96px + 24px * var(--fluid-t));
+        height: auto;
+        display: block;
+    }
+
+    .footer-bottom {
+        padding: calc(20px + 4px * var(--fluid-t)) 0 calc(28px + 4px * var(--fluid-t));
+        gap: 24px;
+    }
+
+    .footer-menu a,
+    .footer-company p,
+    .footer-copy {
+        font-size: calc(12px + 2px * var(--fluid-t));
+    }
+
+    .footer-company {
+        margin-top: calc(12px + 4px * var(--fluid-t));
+    }
+
+    .footer-copy {
+        margin-top: calc(12px + 4px * var(--fluid-t));
+    }
+
+    .footer-instagram {
+        width: calc(20px + 22px * var(--fluid-t));
+        height: calc(20px + 22px * var(--fluid-t));
+    }
+
+    .footer-instagram img {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer-center-title {
+        margin-top: calc(5px + 13px * var(--fluid-t));
+        font-size: calc(12px + 3px * var(--fluid-t));
+    }
+
+    .footer-tel {
+        font-size: calc(12px + 8px * var(--fluid-t));
+    }
+
+}
+
+
+/* ==================================================
+   Fluid: 1025px ~ 1920px
+================================================== */
+
+@media (min-width: 1025px) {
+
+    :root {
+        --fluid: min(1, (100vw - 1024px) / 896px);
+    }
+
+    .footer-top {
+        padding-left: calc(48px + 192px * var(--fluid));
+        height: calc(80px + 20px * var(--fluid));
+    }
+
+    .footer-top img,
+    .footer-logo img {
+        width: calc(120px + 30px * var(--fluid));
+    }
+
+    .footer-bottom {
+        padding: calc(24px + 6px * var(--fluid)) 0 calc(32px - 2px * var(--fluid));
+    }
+
+    .footer-menu a,
+    .footer-company p,
+    .footer-copy {
+        font-size: calc(14px + 4px * var(--fluid));
+    }
+
+    .footer-company,
+    .footer-copy {
+        margin-top: calc(16px + 11px * var(--fluid));
+    }
+
+    .footer-tel {
+        font-size: calc(20px + 4px * var(--fluid));
+    }
+
+}
+
+
+/* ==================================================
+   Mobile (~430px)
+================================================== */
+
+@media (max-width: 767px) {
+
+    .footer .container {
+        padding: 0 20px;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    .footer-top {
+        padding: 0 20px;
+        height: 64px;
+    }
+
+    .footer-top img,
+    .footer-logo img {
+        width: 96px;
+        height: auto;
+    }
+
+    .footer-bottom {
+        flex-direction: flex;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 20px 0 28px;
+    }
+
+    .footer-menu {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .footer-menu a,
+    .footer-company p,
+    .footer-copy {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .footer-company {
+        margin-top: 12px;
+        gap: 6px;
+    }
+
+    .footer-company p {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .footer-copy {
+        margin-top: 12px;
+    }
+
+    .footer-right {
+        align-items: flex-end;
+        height: max-content;
+    }
+
+    .footer-instagram {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-instagram img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .footer-center-title {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    .footer-tel {
+        text-align: right;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+}

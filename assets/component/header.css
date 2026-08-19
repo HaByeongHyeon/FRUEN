@@ -1,4 +1,14 @@
-/* 헤더 */
+/* ==================================================
+   Header placeholder (load 전 높이 유지)
+================================================== */
+
+[data-component="header"] {
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+
 /* ==================================================
    Header Inner
 ================================================== */
@@ -17,7 +27,6 @@
     box-sizing: border-box;
     position: absolute;
     z-index: 9999;
-
 }
 
 
@@ -91,8 +100,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
-
 }
+
 
 /* ==================================================
    SHOP Button
@@ -122,7 +131,6 @@
     white-space: nowrap;
 }
 
-
 .shop-btn img {
     display: block;
 
@@ -140,6 +148,7 @@
 .shop-btn:hover img {
     filter: brightness(0) invert(1);
 }
+
 
 /* ==================================================
    CONTACT Button
@@ -170,14 +179,228 @@
 }
 
 .contact-btn:hover a {
-    background-color: var(--color-btn-secondary-hover);
-    color: var(--color-btn-secondary-default);
+    background-color: #121212;
+    color: #fff;
 }
 
+
 /* =========================
-Hamburger Menu
+   Hamburger Menu
 ========================= */
 
 .hamburger-menu {
     display: none;
+}
+
+
+/* ==================================================
+   Sub page overlay header (기존 서브페이지 스타일 유지)
+================================================== */
+
+body.theme-header-light .header {
+    background-color: #00000030;
+}
+
+body.theme-header-light .logo {
+    margin: 0;
+    padding: 0;
+    filter: brightness(0) invert(1);
+}
+
+body.theme-header-light .header-menu a {
+    color: #ffffff;
+}
+
+body.theme-header-light .shop-btn a {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+body.theme-header-light .shop-btn img {
+    filter: brightness(0) invert(1);
+}
+
+body.theme-header-light .contact-btn a {
+    background-color: var(--color-btn-secondary-default);
+    color: var(--color-btn-secondary-hover);
+}
+
+body.theme-header-light .contact-btn:hover a {
+    background-color: #121212;
+    color: #fff;
+}
+
+
+/* ==================================================
+   Tablet
+================================================== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    :root {
+        --fluid-t: min(1, max(0, (100vw - 768px) / 256px));
+    }
+
+    [data-component="header"] {
+        height: 0;
+    }
+
+    .header {
+        width: 100%;
+        max-width: 1024px;
+        height: calc(56px + 24px * var(--fluid-t));
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        background-color: #fff;
+    }
+
+    .logo a {
+        width: calc(110px + 38px * var(--fluid-t));
+        height: calc(24px + 8px * var(--fluid-t));
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    .headr-btn {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hamburger-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(28px + 4px * var(--fluid-t));
+        height: calc(28px + 4px * var(--fluid-t));
+    }
+
+    .hamburger-menu-btn img {
+        display: block;
+        width: calc(24px + 4px * var(--fluid-t));
+        height: auto;
+    }
+
+    body.theme-header-light .header {
+        background-color: #fff;
+    }
+
+    body.theme-header-light .logo {
+        filter: none;
+    }
+
+    body.theme-header-light .hamburger-menu-btn img {
+        filter: none;
+    }
+
+}
+
+
+/* ==================================================
+   Fluid: 1025px ~ 1920px (Tablet 값 ↔ Desktop 값)
+   1024px Tablet 규칙은 위 미디어쿼리 유지
+================================================== */
+
+@media (min-width: 1025px) {
+
+    :root {
+        --fluid: min(1, (100vw - 1024px) / 896px);
+    }
+
+    .header {
+        height: calc(80px + 70px * var(--fluid));
+        padding: 0 calc(30px + 210px * var(--fluid));
+    }
+
+    .logo a {
+        width: calc(148px + 37px * var(--fluid));
+        height: calc(32px + 8px * var(--fluid));
+    }
+
+    .header-nav ul {
+        gap: calc(16px + 24px * var(--fluid));
+        font-size: calc(16px + 4px * var(--fluid));
+    }
+
+    .shop-btn a {
+        width: calc(120px + 12px * var(--fluid));
+        height: calc(40px + 4px * var(--fluid));
+        font-size: calc(16px + 2px * var(--fluid));
+        padding: calc(10px + 2px * var(--fluid)) calc(24px + 8px * var(--fluid));
+    }
+
+    .contact-btn a {
+        width: calc(140px + 14px * var(--fluid));
+        height: calc(40px + 4px * var(--fluid));
+        font-size: calc(16px + 2px * var(--fluid));
+        padding: calc(10px + 2px * var(--fluid)) calc(24px + 8px * var(--fluid));
+    }
+
+}
+
+
+/* ==================================================
+   Mobile (~430px, Tablet 768~1024 와 비충돌)
+================================================== */
+
+@media (max-width: 767px) {
+
+    :root {
+        --fluid-m: min(1, max(0, (100vw - 430px) / 337px));
+    }
+
+    .header {
+        height: 56px;
+        padding: 0 20px;
+        max-width: 100%;
+        background-color: #fff;
+    }
+
+    .logo a {
+        width: 110px;
+        height: 24px;
+    }
+
+    .header-nav,
+    .headr-btn {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hamburger-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+    }
+
+    .hamburger-menu-btn img {
+        display: block;
+        width: 24px;
+        height: auto;
+    }
+
+    body.theme-header-light .header {
+        background-color: #fff;
+    }
+
+    body.theme-header-light .logo {
+        filter: none;
+    }
+
+    body.theme-header-light .hamburger-menu-btn img {
+        filter: none;
+    }
+
 }

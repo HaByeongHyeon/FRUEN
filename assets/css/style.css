@@ -1,187 +1,3 @@
-/* ==================================================
-   Header
-================================================== */
-
-.header {
-    width: 100%;
-    height: 150px;
-
-    margin: 0 auto;
-    padding: 0 240px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    box-sizing: border-box;
-    position: absolute;
-    z-index: 9999;
-
-}
-
-
-/* ==================================================
-   Logo
-================================================== */
-
-.logo a {
-    display: block;
-
-    width: 185px;
-    height: 40px;
-}
-
-.logo img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-}
-
-
-/* ==================================================
-   Navigation
-================================================== */
-
-.header-nav {
-    margin: 0;
-    padding: 0;
-}
-
-.header-nav ul {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.header-menu {
-    margin: 0;
-    padding: 0;
-}
-
-.header-menu a {
-    display: block;
-
-    color: var(--color-primary-normal);
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.header-menu:hover a {
-    color: #404040;
-}
-
-
-/* ==================================================
-   Header Button
-================================================== */
-
-.headr-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-}
-
-/* ==================================================
-   SHOP Button
-================================================== */
-
-.shop-btn a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 132px;
-    height: 44px;
-
-    padding: 12px 32px;
-
-    box-sizing: border-box;
-
-    border: 1px solid #5C2300;
-    border-radius: 50px;
-
-    color: var(--color-primary-normal);
-
-    font-size: 18px;
-    font-weight: 500;
-
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-
-.shop-btn img {
-    display: block;
-
-    width: auto;
-    height: auto;
-
-    margin-left: 4px;
-}
-
-.shop-btn:hover a {
-    background-color: var(--color-btn-secondary-hover);
-    color: var(--color-btn-secondary-default);
-}
-
-.shop-btn:hover img {
-    filter: brightness(0) invert(1);
-}
-
-/* ==================================================
-   CONTACT Button
-================================================== */
-
-.contact-btn a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 154px;
-    height: 44px;
-
-    padding: 12px 32px;
-
-    box-sizing: border-box;
-
-    border-radius: 50px;
-
-    background-color: var(--color-primary-normal);
-    color: #fff;
-
-    font-size: 18px;
-    font-weight: 500;
-
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.contact-btn:hover a {
-    background-color: var(--color-btn-secondary-hover);
-    color: var(--color-btn-secondary-default);
-}
-
-/* =========================
-Hamburger Menu
-========================= */
-
-.hamburger-menu {
-    display: none;
-}
-
-
 /* Slider ========================== */
 
 /* =========================
@@ -277,6 +93,10 @@ Main Title
     white-space: nowrap;
 
     z-index: 1;
+}
+
+.container h2 br {
+    display: none;
 }
 
 
@@ -397,7 +217,7 @@ Pagination
 .slider-wrap .container {
     position: relative;
     padding: 0 30px;
-    
+
 }
 
 
@@ -450,9 +270,21 @@ Pagination
 /* Problem ========================== */
 
 .sec-2-img {
+    width: 100%;
     position: fixed;
     top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
     z-index: -1;
+}
+
+.sec-2-img img {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
 }
 
 .problem-sec {
@@ -512,7 +344,7 @@ Pagination
     width: 3px;
     height: 106px;
     background: #5C2300;
-    margin: 76px auto 51px;
+    margin: 80px auto;
 }
 
 .history-img-wrap {
@@ -665,8 +497,14 @@ Pointer
 
 .prove-sec h2 {
     color: #fff;
-
+    line-height: 1;
     margin-bottom: 80px;
+}
+
+.prove-sec h2 br {
+    content: "";
+    display: block;
+    height: 10px;
 }
 
 /* =========================
@@ -951,6 +789,10 @@ Unit
     filter: brightness(0) invert(1);
 }
 
+.icon-wrap button.active {
+    background: #121212;
+}
+
 
 /* ==========================
         Right Content
@@ -991,6 +833,7 @@ Unit
 ========================== */
 
 .preview-btn {
+    width: fit-content;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1055,147 +898,256 @@ Unit
 }
 
 
-/* Footer ========================================= */
+/* ==================================================
+   Fluid: 1025px ~ 1920px
+   Tablet(1024px) 미디어쿼리는 변경하지 않음
+   value = tablet + (desktop - tablet) * --fluid
+================================================== */
+
+@media (min-width: 1025px) {
+
+    :root {
+        --fluid: min(1, (100vw - 1024px) / 896px);
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1440px;
+        box-sizing: border-box;
+    }
+
+    /* =========================================
+       Slider
+    ========================================= */
+
+    .slider-sec {
+        min-height: calc(1366px - 766px * var(--fluid));
+    }
+
+    .slider-wrap .container {
+        width: min(1440px, 100%);
+        max-width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    .slider-wrap .container>h2,
+    .container h2 {
+        top: calc(25% - 5% * var(--fluid));
+        font-size: calc(77px + 33px * var(--fluid));
+        font-weight: 700;
+        letter-spacing: 0.1em;
+    }
+
+    .main-cup-img {
+        width: calc(650px + 55px * var(--fluid));
+        top: calc(45% + 5% * var(--fluid));
+        transform: translate(-50%, calc(-36% - 4% * var(--fluid)));
+    }
+
+    .slider-text-wrap {
+        bottom: calc(176px + 4px * var(--fluid));
+    }
+
+    .slider-text-wrap h3 {
+        margin: 0 0 calc(10px + 6px * var(--fluid));
+        font-size: calc(40px + 8px * var(--fluid));
+    }
+
+    .slider-text-wrap p {
+        font-size: calc(18px + 6px * var(--fluid));
+    }
+
+    .page-btn-wrap {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    .page-btn-wrap img {
+        width: calc(48px + 14px * var(--fluid));
+        height: calc(48px + 14px * var(--fluid));
+        padding: calc(14px + 6px * var(--fluid));
+    }
 
 
-.footer {
-    width: 100%;
-    background: #F0F0F0;
-}
+    /* =========================================
+       Problem
+    ========================================= */
 
-.footer .container {
-    max-width: 1440px;
-    margin: 0 auto;
-}
+    .problem-sec {
+        padding: calc(380px - 140px * var(--fluid)) 0;
+    }
 
-/* ==========================
-        Top
-========================== */
+    .problem-sec h2 {
+        margin-bottom: calc(25px + 25px * var(--fluid));
+    }
 
-.footer-top {
-    display: flex;
-    align-items: center;
+    .problem-sec p,
+    .problem-sec .description {
+        margin-bottom: calc(100px - 20px * var(--fluid));
+    }
 
-    padding-left: 240px;
-    height: 100px;
-
-    border-bottom: 1px solid #303030;
-}
-
-.footer-logo img {
-    width: 150px;
-    display: block;
-}
+    .problem-sec button {
+        font-size: calc(20px + 4px * var(--fluid));
+        padding: calc(15px + 5px * var(--fluid)) calc(30px + 10px * var(--fluid));
+    }
 
 
-/* ==========================
-        Bottom
-========================== */
+    /* =========================================
+       History
+    ========================================= */
 
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    .history-sec {
+        padding: calc(150px - 10px * var(--fluid)) 0 calc(200px - 60px * var(--fluid));
+    }
 
-    padding: 30px 0;
-}
+    .history-text-list.active h3,
+    .history-text h3 {
+        font-size: calc(34px - 6px * var(--fluid));
+    }
 
-
-/* ==========================
-        Left
-========================== */
-
-.footer-left {
-    display: flex;
-    flex-direction: column;
-}
+    .history-text-list.active p,
+    .history-text p {
+        font-size: calc(30px - 8px * var(--fluid));
+    }
 
 
-/* menu */
+    /* =========================================
+       Prove
+    ========================================= */
 
-.footer-menu {
-    display: flex;
-    gap: 15px;
-}
+    .prove-sec {
+        padding: calc(210px - 60px * var(--fluid)) 0 calc(210px + 20px * var(--fluid));
+    }
 
-.footer-menu a {
-    font-size: 18px;
-    font-weight: 400;
+    .prove-sec h2 {
+        margin-bottom: calc(50px + 30px * var(--fluid));
+    }
 
-    color: var(--color-text-description);
-}
+    .count-wrap {
+        width: calc(78% - 28% * var(--fluid));
+        margin: 0 auto 100px;
+    }
 
+    .count-item p {
+        font-size: calc(30px - 2px * var(--fluid));
+    }
 
-/* company */
+    .count-item span,
+    .count-item em {
+        font-size: calc(40px + 12px * var(--fluid));
+    }
 
-.footer-company {
-    margin-top: 27px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.footer-company p {
-    display: flex;
-    flex-wrap: wrap;
-
-    font-size: 18px;
-    font-weight: 400;
-
-    color: var(--color-text-description);
-}
+    .product-wrap {
+        gap: calc(112px - 22px * var(--fluid));
+    }
 
 
-/* copy */
+    /* =========================================
+       Flavor
+    ========================================= */
 
-.footer-copy {
-    margin-top: 27px;
-    font-size: 18px;
-    font-weight: 600;
+    .flavor-sec {
+        padding: calc(140px + 10px * var(--fluid)) 0 calc(140px + 60px * var(--fluid)) calc(30px + 210px * var(--fluid));
+    }
 
-    color: var(--color-text-description);
-}
+    .flavor-title-wrap .main-title-2 {
+        font-size: calc(38px + 22px * var(--fluid));
+    }
 
-/* ==========================
-        Right
-========================== */
+    .flavor-desc {
+        font-size: calc(18px + 6px * var(--fluid));
+        margin-bottom: calc(40px - 10px * var(--fluid));
+    }
 
-.footer-right {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-}
+    .flavor-content {
+        margin-left: calc(120px * var(--fluid));
+        gap: calc(56px + 144px * var(--fluid));
+    }
 
-.footer-instagram {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .flavor-list-wrap {
+        margin-left: calc(400px * var(--fluid));
+    }
 
-    width: 42px;
-    height: 42px;
-}
+    .flavor-list {
+        font-size: calc(22px + 8px * var(--fluid));
+        padding: calc(10px + 5px * var(--fluid)) calc(30px + 10px * var(--fluid));
+    }
 
-.footer-instagram img {
-    width: 42px;
-    display: block;
-}
+    .flavor-img-wrap {
+        gap: calc(28px + 32px * var(--fluid));
+    }
 
-.footer-center-title {
-    margin-top: 18px;
+    .flavor-img-wrap img {
+        width: calc(200px + 100px * var(--fluid));
+    }
 
-    font-size: 15px;
-    font-weight: 400;
 
-    color: var(--color-text-description);
-}
+    /* =========================================
+       Recipe
+    ========================================= */
 
-.footer-tel {
-    margin-top: 10px;
+    .icon-wrap {
+        gap: calc(16px + 14px * var(--fluid));
+    }
 
-    font-size: 24px;
-    font-weight: 400;
+    .icon-wrap button {
+        width: calc(56px + 28px * var(--fluid));
+        height: calc(56px + 28px * var(--fluid));
+    }
 
-    color: var(--color-text-description);
+    .icon-wrap button img {
+        width: calc(30px + 15px * var(--fluid));
+        height: calc(30px + 15px * var(--fluid));
+    }
+
+    .recipe-text-wrap {
+        padding-left: calc(80px + 70px * var(--fluid));
+    }
+
+    .recipe-text-wrap h2 {
+        font-size: calc(38px + 2px * var(--fluid));
+        margin-bottom: calc(15px + 25px * var(--fluid));
+    }
+
+    .recipe-text-wrap p {
+        font-size: calc(18px + 12px * var(--fluid));
+        margin-bottom: calc(40px + 0px * var(--fluid));
+    }
+
+
+    /* =========================================
+       Brand
+    ========================================= */
+
+    .brand-sec {
+        padding: calc(65px + 5px * var(--fluid)) 0;
+    }
+
+    .brand-wrap {
+        gap: calc(80px + 60px * var(--fluid));
+    }
+
+
+    /* =========================================
+       SNS
+    ========================================= */
+
+    .sns-sec {
+        padding: calc(100px + 20px * var(--fluid)) 0;
+    }
+
+    .sns-sec h2 {
+        font-size: calc(40px + 10px * var(--fluid));
+        margin-bottom: calc(45px + 75px * var(--fluid));
+    }
+
+    .sns-wrap {
+        gap: 50px;
+    }
+
 }
 
 
@@ -1205,66 +1157,33 @@ Unit
 
 @media (min-width: 768px) and (max-width: 1024px) {
 
+    :root {
+        --fluid-t: min(1, max(0, (100vw - 768px) / 256px));
+    }
+
     /* =========================================
        Tablet - Common / Container
     ========================================= */
 
-    /* =========================================
-       Header
-    ========================================= */
-
-    .header {
-        height: 80px;
-        padding: 0 30px;
-        background-color: #fff;
+    .container,
+    .slider-wrap .container {
+        width: 100%;
+        max-width: 1024px;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
     }
-
-    .logo a {
-        width: 148px;
-        height: 32px;
-    }
-
-    /* nav */
-    .header-nav {
-        display: none;
-    }
-
-    .headr-btn {
-        display: none;
-    }
-
-    .hamburger-menu {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .hamburger-menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-    }
-
-    .hamburger-menu-btn img {
-        display: block;
-        width: 28px;
-        height: auto;
-    }
-
 
     /* =========================================
        Slider
     ========================================= */
 
     .slider-sec {
-        min-height: 1366px;
+        min-height: calc(720px + 646px * var(--fluid-t));
     }
 
 
     .slider-wrap .container>h2 {
-        font-size: 77px;
+        font-size: calc(50px + 27px * var(--fluid-t));
         font-weight: 800;
 
         top: 25%;
@@ -1273,41 +1192,49 @@ Unit
     }
 
     .fruit-effect img {
-        top: 50%;
+        top: 45%;
         width: 100%;
         height: auto;
         transform: translate(-50%, -18%);
     }
 
     .main-cup-img {
-        width: 650px;
+        width: calc(100% * (1 - var(--fluid-t)) + 650px * var(--fluid-t));
+        max-width: 650px;
 
         top: 45%;
         left: 50%;
-        
+
         transform: translate(-50%, -36%);
     }
 
     .slider-text-wrap {
         left: 0;
-        bottom: 176px;
+        bottom: calc(56px + 120px * var(--fluid-t));
 
-        padding: 0 30px;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
     }
 
     .slider-text-wrap h3 {
-        margin: 0 0 10px;
-        font-size: 40px;
+        margin: 0 0 calc(8px + 2px * var(--fluid-t));
+        font-size: calc(32px + 8px * var(--fluid-t));
     }
 
     .slider-text-wrap p {
-        font-size: 18px;
+        font-size: calc(16px + 2px * var(--fluid-t));
+    }
+
+    .page-btn-wrap {
+        width: 100%;
+        max-width: 1024px;
+        padding: 0 calc(16px + 14px * var(--fluid-t));
+        box-sizing: border-box;
     }
 
     .page-btn-wrap img {
-        width: 48px;
-        height: 48px;
-        padding: 14px;
+        width: calc(40px + 8px * var(--fluid-t));
+        height: calc(40px + 8px * var(--fluid-t));
+        padding: calc(12px + 2px * var(--fluid-t));
     }
 
 
@@ -1334,23 +1261,23 @@ Unit
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        padding: 88px 48px;
+        padding: calc(80px + 300px * var(--fluid-t)) calc(20px * (1 - var(--fluid-t)));
         box-sizing: border-box;
     }
 
     .problem-sec h2 {
-        font-size: 72px;
-        margin-bottom: 28px;
+        font-size: calc(52px + 48px * var(--fluid-t));
+        margin-bottom: calc(16px + 9px * var(--fluid-t));
     }
 
     .problem-sec p,
     .problem-sec .description {
-        margin-bottom: 40px;
+        margin-bottom: calc(85px + 15px * var(--fluid-t));
     }
 
     .problem-sec button {
-        font-size: 18px;
-        padding: 14px 32px;
+        font-size: calc(14px + 6px * var(--fluid-t));
+        padding: calc(12px + 3px * var(--fluid-t)) calc(24px + 6px * var(--fluid-t));
     }
 
 
@@ -1359,24 +1286,30 @@ Unit
     ========================================= */
 
     .history-sec {
-        padding: 88px 0 72px;
+        padding: calc(64px + 86px * var(--fluid-t)) 0 calc(72px + 128px * var(--fluid-t));
     }
 
     .history-title {
-        font-size: 32px;
-        padding: 0 48px;
-        box-sizing: border-box;
+        font-size: calc(20px + 30px * var(--fluid-t));
+        color: var(--color-primary-heavy);
+        margin-bottom: 110px;
     }
 
     .history-title-line {
-        height: 72px;
-        margin: 40px auto 36px;
+        display: none;
+    }
+
+    .history-track>img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
     }
 
     .history-text-wrap {
         display: flex;
         justify-content: center;
-        margin-top: 36px;
+        margin-top: calc(50px + 30px * var(--fluid-t));
         gap: 0;
     }
 
@@ -1388,25 +1321,25 @@ Unit
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: calc(12px + 4px * var(--fluid-t));
         width: 100%;
         text-align: center;
     }
 
     .history-text-list>img {
-        height: 48px;
+        display: none;
     }
 
     .history-text-list.active h3,
     .history-text h3 {
-        font-size: 22px;
+        font-size: calc(20px + 14px * var(--fluid-t));
         text-align: center;
     }
 
     .history-text-list.active p,
     .history-text p {
-        margin-top: 12px;
-        font-size: 16px;
+        margin-top: calc(12px + 33px * var(--fluid-t));
+        font-size: calc(16px + 14px * var(--fluid-t));
         text-align: center;
     }
 
@@ -1416,45 +1349,46 @@ Unit
     ========================================= */
 
     .prove-sec {
-        padding: 100px 0 120px;
+        padding: calc(72px + 138px * var(--fluid-t)) 0 calc(80px + 130px * var(--fluid-t));
         background-size: cover;
         background-position: center;
     }
 
     .prove-sec h2 {
-        margin-bottom: 48px;
+        font-size: calc(32px + 28px * var(--fluid-t));
+        margin-bottom: calc(30px + 20px * var(--fluid-t));
     }
 
     .count-wrap {
-        width: 78%;
-        margin: 0 auto 64px;
-        gap: 24px;
+        width: calc(100% - 22% * var(--fluid-t));
+        margin: 0 auto calc(40px + 60px * var(--fluid-t));
+        gap: calc(8px + 16px * var(--fluid-t));
     }
 
     .count-item {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .count-item p {
-        margin: 8px 0 0;
-        font-size: 16px;
+        font-size: calc(11px + 19px * var(--fluid-t));
     }
 
     .count-item span,
     .count-item em {
-        font-size: 40px;
+        font-size: calc(24px + 16px * var(--fluid-t));
     }
 
     .product-wrap {
         justify-content: center;
-        gap: 16px;
-        padding: 0 48px;
+        gap: calc(12px + 100px * var(--fluid-t));
+        padding: 0 calc(20px + 28px * var(--fluid-t));
         box-sizing: border-box;
         overflow: hidden;
     }
 
     .product-wrap img {
-        width: 100px;
+        width: 50%;
+        max-width: calc(184px + 131px * var(--fluid-t));
         height: auto;
         flex-shrink: 0;
         object-fit: contain;
@@ -1468,23 +1402,41 @@ Unit
     .flavor-sec {
         flex-direction: column;
         align-items: flex-start;
-        padding: 88px 48px 100px;
+        padding: calc(64px + 76px * var(--fluid-t)) calc(20px + 10px * var(--fluid-t)) calc(72px + 68px * var(--fluid-t));
     }
 
     .flavor-title-wrap {
         width: 100%;
-        margin-bottom: 48px;
+        margin-bottom: calc(90px + 60px * var(--fluid-t));
+    }
+
+    .flavor-title-wrap .main-title-2 {
+        font-size: calc(32px + 6px * var(--fluid-t));
+        margin-bottom: 10px;
     }
 
     .flavor-desc {
-        font-size: 18px;
-        margin-bottom: 24px;
+        font-size: calc(16px + 2px * var(--fluid-t));
+        margin-bottom: calc(25px + 15px * var(--fluid-t));
+        line-height: 1.5;
+    }
+
+    .preview-btn {
+        font-size: calc(14px + 4px * var(--fluid-t));
+        font-weight: 500;
+        padding: calc(8px + 2px * var(--fluid-t)) calc(16px + 4px * var(--fluid-t));
+        color: #121212;
+        border: 1px solid #121212;
+    }
+
+    .preview-btn:hover {
+        background-color: #121212;
     }
 
     .flavor-content {
         width: 100%;
         margin-left: 0;
-        gap: 56px;
+        gap: calc(75px - 19px * var(--fluid-t));
     }
 
     .flavor-list-wrap {
@@ -1492,19 +1444,21 @@ Unit
     }
 
     .flavor-list {
-        font-size: 20px;
-        padding: 10px 28px;
-        margin-bottom: 20px;
+        font-size: calc(14px + 8px * var(--fluid-t));
+        padding: calc(8px + 2px * var(--fluid-t)) calc(18px + 12px * var(--fluid-t));
+        margin-bottom: calc(16px + 34px * var(--fluid-t));
+
+        background-color: #121212;
     }
 
     .flavor-img-wrap {
-        flex-wrap: wrap;
-        gap: 20px 28px;
+        /* flex-wrap: wrap; */
+        gap: calc(0px + 20px * var(--fluid-t)) calc(0px + 28px * var(--fluid-t));
         overflow: visible;
     }
 
     .flavor-img-wrap img {
-        width: 140px;
+        width: calc(96px + 104px * var(--fluid-t));
     }
 
 
@@ -1519,45 +1473,68 @@ Unit
     }
 
     .recipe-img-wrap {
-        min-height: 640px;
+        min-height: 0;
+        height: auto;
+        overflow: visible;
+    }
+
+    .recipe-img-wrap img {
+        position: absolute;
+        inset: auto;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .recipe-img-wrap img.active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
     }
 
     .icon-wrap {
         left: 50%;
         right: 48px;
-        top: auto;
-        bottom: 88px;
+        top: 15%;
         transform: none;
         flex-direction: row;
         justify-content: flex-start;
         gap: 16px;
-        padding-left: 40px;
+        padding-left: calc(32px + 48px * var(--fluid-t));
         box-sizing: border-box;
     }
 
     .icon-wrap button {
-        width: 56px;
-        height: 56px;
+        width: calc(48px + 8px * var(--fluid-t));
+        height: calc(48px + 8px * var(--fluid-t));
     }
 
     .icon-wrap button img {
-        width: 30px;
-        height: 30px;
+        width: calc(24px + 6px * var(--fluid-t));
+        height: calc(24px + 6px * var(--fluid-t));
     }
 
     .recipe-text-wrap {
-        padding: 72px 48px 168px 40px;
+        padding: calc(40px * (1 - var(--fluid-t))) calc(32px + 48px * var(--fluid-t));
         box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .recipe-text-wrap h2 {
-        font-size: 28px;
-        margin-bottom: 24px;
+        font-size: calc(32px + 6px * var(--fluid-t));
+        margin-bottom: 15px;
+        color: var(--color-primary-heavy);
     }
 
     .recipe-text-wrap p {
-        font-size: 18px;
-        margin-bottom: 28px;
+        font-size: calc(16px + 2px * var(--fluid-t));
+        margin-bottom: calc(45px - 1px * var(--fluid-t));
+        color: var(--color-text-description);
     }
 
 
@@ -1566,19 +1543,19 @@ Unit
     ========================================= */
 
     .brand-sec {
-        padding: 48px 40px;
+        padding: calc(28px + 37px * var(--fluid-t)) calc(16px + 24px * var(--fluid-t));
     }
 
     .brand-wrap {
         justify-content: center;
-        gap: 16px;
+        gap: calc(30px + 50px * var(--fluid-t));
         flex-wrap: nowrap;
     }
 
     .brand-wrap img {
-        height: 28px;
-        width: auto;
-        max-width: 64px;
+        width: 100%;
+        max-width: calc(75px + 39px * var(--fluid-t));
+        height: auto;
         object-fit: contain;
         flex-shrink: 1;
     }
@@ -1589,23 +1566,479 @@ Unit
     ========================================= */
 
     .sns-sec {
-        padding: 88px 48px;
-        box-sizing: border-box;
+        padding: calc(80px + 20px * var(--fluid-t)) 0 calc(120px - 20px * var(--fluid-t));
     }
 
     .sns-sec h2 {
-        font-size: 36px;
-        margin-bottom: 56px;
+        font-size: calc(32px + 8px * var(--fluid-t));
+        margin-bottom: calc(50px - 5px * var(--fluid-t));
     }
 
     .sns-wrap {
-        flex-wrap: wrap;
+        display: flex;
         justify-content: center;
-        gap: 24px;
+        gap: calc(25px + 25px * var(--fluid-t));
+    }
+
+    .sns-wrap img {
+        display: block;
+        width: calc(180px + 78px * var(--fluid-t));
+        height: auto;
+        object-fit: contain;
+    }
+
+}
+
+
+/* ==================================================
+   Mobile (~430px)
+   Tablet(768~1024)과 겹치지 않음. 430px Figma 기준.
+================================================== */
+
+@media (max-width: 767px) {
+
+    :root {
+        --fluid-m: min(1, max(0, (100vw - 430px) / 337px));
+    }
+
+    .container,
+    .slider-wrap .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+
+    /* =========================================
+       Slider
+    ========================================= */
+
+    .slider-sec {
+        height: 100vh;
+        min-height: 720px;
+    }
+
+    .slider-wrap .container>h2,
+    .container h2 {
+        width: 100%;
+        top: 12%;
+        font-size: 50px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        white-space: normal;
+        line-height: 1.05;
+        text-align: center;
+    }
+
+    .slider-wrap .container>h2 br,
+    .container h2 br {
+        display: unset;
+    }
+
+    .fruit-effect img {
+        display: none;
+    }
+
+    .main-cup-img {
+        width: min(650px, 100%);
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -42%);
+    }
+
+    .slider-text-wrap {
+        left: 0;
+        bottom: 56px;
+        padding: 0 20px;
+    }
+
+    .slider-text-wrap h3 {
+        margin: 0 0 8px;
+        font-size: clamp(22px, 5.6vw, 32px);
+        line-height: 1.15;
+    }
+
+    .slider-text-wrap p {
+        font-size: clamp(12px, 3.2vw, 16px);
+        line-height: 1.4;
+        max-width: 220px;
+    }
+
+    .page-btn-wrap {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+
+    .page-btn-wrap img {
+        width: 40px;
+        height: 40px;
+        padding: 12px;
+    }
+
+
+    /* =========================================
+       Problem
+    ========================================= */
+
+    .sec-2-img {
+        width: 100%;
+        left: 0;
+    }
+
+    .sec-2-img img {
+        display: block;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .problem-sec {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 80px 20px;
+        box-sizing: border-box;
+    }
+
+    .problem-sec h2 {
+        font-size: 52px;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+
+    .problem-sec p,
+    .problem-sec .description {
+        font-size: clamp(13px, 3.4vw, 16px);
+        line-height: 1.6;
+        margin-bottom: 85px;
+        max-width: 320px;
+    }
+
+    .problem-sec button {
+        font-size: 14px;
+        padding: 12px 24px;
+    }
+
+
+    /* =========================================
+       History
+    ========================================= */
+
+    .history-sec {
+        padding: 64px 0 72px;
+    }
+
+    .history-title {
+        font-size: 20px;
+        padding: 0 20px;
+        margin-bottom: 110px;
+        box-sizing: border-box;
+
+        color: var(--color-primary-heavy);
+    }
+
+    .history-title-line {
+        display: none;
+    }
+
+    .history-track img {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .scrollbar-pointer {
+        width: 30px;
+        height: 30px;
+        top: 50%;
+    }
+
+    .history-text-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        padding: 0 20px;
+    }
+
+    .history-text-list {
+        display: none;
+    }
+
+    .history-text-list.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .history-text-list>img {
+        display: none;
+    }
+
+    .history-text-list.active h3,
+    .history-text h3 {
+        font-size: clamp(16px, 4.2vw, 20px);
+        text-align: center;
+    }
+
+    .history-text-list.active p,
+    .history-text p {
+        margin-top: 12px;
+        font-size: clamp(13px, 3.4vw, 16px);
+        text-align: center;
+    }
+
+
+    /* =========================================
+       Prove
+    ========================================= */
+
+    .prove-sec {
+        padding: 72px 0 80px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .prove-sec h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .count-wrap {
+        width: 100%;
+        padding: 0 16px;
+        margin: 0 auto 40px;
+        gap: 8px;
+        box-sizing: border-box;
+    }
+
+    .count-item p {
+        font-size: 11px;
+        margin: 0 0 4px;
+    }
+
+    .count-item span,
+    .count-item em {
+        font-size: clamp(18px, 5vw, 24px);
+    }
+
+    .product-wrap {
+        justify-content: center;
+        gap: 12px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .product-wrap img {
+        width: 50%;
+        max-width: 184px;
+        height: auto;
+        flex-shrink: 0;
+        object-fit: contain;
+    }
+
+
+    /* =========================================
+       Flavor
+    ========================================= */
+
+    .flavor-sec {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 64px 20px 72px;
+    }
+
+    .flavor-title-wrap {
+        width: 100%;
+        margin-bottom: 90px;
+    }
+
+    .flavor-title-wrap .main-title-2 {
+        font-size: 32px;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    .flavor-desc {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .flavor-sec .preview-btn {
+        font-size: 14px;
+        font-weight: 400;
+        padding: 8px 16px;
+        color: var(--color-primary-heavy);
+        border: 1px solid var(--color-primary-heavy);
+    }
+
+    .flavor-sec .preview-btn:hover {
+        background: var(--color-primary-heavy);
+        color: #fff;
+    }
+
+    .flavor-content {
+        width: 100%;
+        margin-left: 0;
+        gap: 75px;
+    }
+
+    .flavor-list-wrap {
+        margin-left: 0;
+    }
+
+    .flavor-list {
+        font-size: 14px;
+        padding: 8px 18px;
+        margin-bottom: 16px;
+    }
+
+    .flavor-img-wrap {
+        display: flex;
+        gap: 0px;
+        overflow: visible;
+    }
+
+    .flavor-img-wrap img {
+        width: 100%;
+        max-width: 96px;
+    }
+
+
+    /* =========================================
+       Recipe
+    ========================================= */
+
+    .recipe-sec {
+        flex-direction: column;
+        height: auto;
+        min-height: 0;
+        align-items: stretch;
+    }
+
+    .recipe-img-wrap {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: auto;
+        overflow: visible;
+    }
+
+    .recipe-img-wrap img {
+        position: absolute;
+        inset: auto;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .recipe-img-wrap img.active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .icon-wrap {
+        display: none;
+    }
+
+    .recipe-text-wrap {
+        width: 100%;
+        padding: 40px 32px;
+        box-sizing: border-box;
+    }
+
+    .recipe-text-wrap h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+        color: var(--color-primary-heavy);
+    }
+
+    .recipe-text-wrap p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 45px;
+    }
+
+    .preview-btn {
+        font-size: 18px;
+        font-weight: 500;
+        padding: 10px 20px;
+        color: #121212;
+        border: 1px solid #121212;
+    }
+
+    .preview-btn:hover {
+        background-color: #121212;
+    }
+
+
+    /* =========================================
+       Brand
+    ========================================= */
+
+    .brand-sec {
+        padding: 28px 16px;
+        overflow: hidden;
+    }
+
+    .brand-wrap {
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: nowrap;
+    }
+
+    .brand-wrap img {
+        width: auto;
+        height: 22px;
+        max-width: 75px;
+        object-fit: contain;
+        flex-shrink: 1;
+    }
+
+
+    /* =========================================
+       SNS
+    ========================================= */
+
+    .sns-sec {
+        padding: 80px 0 120px;
+        overflow: hidden;
+    }
+
+    .sns-sec h2 {
+        font-size: 32px;
+        margin-bottom: 50px;
+    }
+
+    .sns-wrap {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 25px;
+        padding: 0 20px;
+        overflow-x: auto;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
     }
 
     .sns-wrap a {
-        width: calc((100% - 48px) / 3);
+        flex: 0 0 72%;
         max-width: 280px;
     }
 
@@ -1613,48 +2046,7 @@ Unit
         display: block;
         width: 100%;
         height: auto;
-        object-fit: cover;
-        aspect-ratio: 1 / 1;
-    }
-
-
-    /* =========================================
-       Footer
-    ========================================= */
-
-    .footer-top {
-        padding-left: 48px;
-        padding-right: 48px;
-        height: 80px;
-    }
-
-    .footer-top img {
-        width: 120px;
-        height: auto;
-        display: block;
-    }
-
-    .footer-bottom {
-        padding: 24px 0 32px;
-        gap: 24px;
-    }
-
-    .footer-menu a,
-    .footer-company p,
-    .footer-copy {
-        font-size: 14px;
-    }
-
-    .footer-company {
-        margin-top: 16px;
-    }
-
-    .footer-copy {
-        margin-top: 16px;
-    }
-
-    .footer-tel {
-        font-size: 20px;
+        object-fit: contain;
     }
 
 }
