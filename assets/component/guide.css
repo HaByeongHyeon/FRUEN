@@ -102,210 +102,386 @@
    --caption-letter-spacing: 0;
 
 
-
-
-
-
-
-
    /* =========================
    Color Guide
 ========================= */
 
 
-/* =========================
+   /* =========================
    Brand Core
 ========================= */
 
-/* Brand Point / Key Visual */
---color-brand-point: #FFE65F; 
+   /* Brand Point / Key Visual */
+   --color-brand-point: #FFE65F;
 
-/* Sub Background / Surface */
---color-sub-background: #FFFFEB;
+   /* Sub Background / Surface */
+   --color-sub-background: #FFFFEB;
 
-/* Main Background / Section */
---color-main-background: #F6FAFF;
+   /* Main Background / Section */
+   --color-main-background: #F6FAFF;
 
 
-/* =========================
+   /* =========================
    UI System
 ========================= */
 
 
-/* -------------------------
+   /* -------------------------
    Primary
 ------------------------- */
 
-/* Heavy */
---color-primary-heavy: #121212;
+   /* Heavy */
+   --color-primary-heavy: #121212;
 
-/* Strong */
---color-primary-strong: #321300;
+   /* Strong */
+   --color-primary-strong: #321300;
 
-/* Normal */
---color-primary-normal: #5C2300;
+   /* Normal */
+   --color-primary-normal: #5C2300;
 
 
-/* -------------------------
+   /* -------------------------
    Text Secondary
 ------------------------- */
 
-/* Description */
---color-text-description: #303030;
+   /* Description */
+   --color-text-description: #303030;
 
-/* Disabled Text */
---color-text-disabled: #474747;
+   /* Disabled Text */
+   --color-text-disabled: #474747;
 
-/* Caption / Metadata */
---color-text-caption: #868686;
+   /* Caption / Metadata */
+   --color-text-caption: #868686;
 
-/* Assistive Text */
---color-text-assistive: #B0B0B0;
+   /* Assistive Text */
+   --color-text-assistive: #B0B0B0;
 
-/* Secondary Emphasis */
---color-text-secondary-emphasis: #F6FAFF;
+   /* Secondary Emphasis */
+   --color-text-secondary-emphasis: #F6FAFF;
 
 
-/* -------------------------
+   /* -------------------------
    Background
 ------------------------- */
 
-/* Section */
---color-bg-section: #F6FAFF;
+   /* Section */
+   --color-bg-section: #F6FAFF;
 
-/* Story */
---color-bg-story: #FFF2F2;
+   /* Story */
+   --color-bg-story: #FFF2F2;
 
-/* Product */
---color-bg-product: #FEFFEA;
+   /* Product */
+   --color-bg-product: #FEFFEA;
 
-/* Recipe */
---color-bg-recipe: #DEF7FF;
+   /* Recipe */
+   --color-bg-recipe: #DEF7FF;
 
-/* Listed Brand */
---color-bg-listed-brand: #EBF7BE;
+   /* Listed Brand */
+   --color-bg-listed-brand: #EBF7BE;
 
-/* Event */
---color-bg-event: #FFF5DB;
+   /* Event */
+   --color-bg-event: #FFF5DB;
 
-/* Shop */
---color-bg-shop: #FFBFB9;
+   /* Shop */
+   --color-bg-shop: #FFBFB9;
 
-/* Contact */
---color-bg-contact: #FFEDDD;
+   /* Contact */
+   --color-bg-contact: #FFEDDD;
 
 
-/* -------------------------
+   /* -------------------------
    Border
 ------------------------- */
 
-/* Default */
---color-border-default: #C4C4C4;
+   /* Default */
+   --color-border-default: #C4C4C4;
 
-/* Brand */
---color-border-brand: #8A8A8A;
+   /* Brand */
+   --color-border-brand: #8A8A8A;
 
-/* Strong */
---color-border-strong: #321300;
+   /* Strong */
+   --color-border-strong: #321300;
 
-/* High Contrast */
---color-border-high-contrast: #121212;
+   /* High Contrast */
+   --color-border-high-contrast: #121212;
 
 
-/* -------------------------
+   /* -------------------------
    Button
 ------------------------- */
 
-/* Secondary Default */
---color-btn-secondary-default: #FFFFFF;
+   /* Secondary Default */
+   --color-btn-secondary-default: #FFFFFF;
 
-/* Disabled */
---color-btn-disabled: #E3E3E3;
+   /* Disabled */
+   --color-btn-disabled: #E3E3E3;
 
-/* Inactive */
---color-btn-inactive: #C4C4C4;
+   /* Inactive */
+   --color-btn-inactive: #C4C4C4;
 
-/* Primary Default */
---color-btn-primary-default: #8A8A8A;
+   /* Primary Default */
+   --color-btn-primary-default: #8A8A8A;
 
-/* Primary Hover */
---color-btn-primary-hover: #321300;
+   /* Primary Hover */
+   --color-btn-primary-hover: #321300;
 
-/* Secondary Hover */
---color-btn-secondary-hover: #121212;
+   /* Secondary Hover */
+   --color-btn-secondary-hover: #121212;
 
 
-/* -------------------------
+   /* -------------------------
    Icon
 ------------------------- */
 
-/* Secondary */
---color-icon-secondary: #969696;
+   /* Secondary */
+   --color-icon-secondary: #969696;
 
-/* Default */
---color-icon-default: #8A8A8A;
+   /* Default */
+   --color-icon-default: #8A8A8A;
 
-/* Disabled */
---color-icon-disabled: #C4C4C4;
+   /* Disabled */
+   --color-icon-disabled: #C4C4C4;
 
-/* Primary */
---color-icon-primary: #121212;
+   /* Primary */
+   --color-icon-primary: #121212;
 
 
-/* =========================
+   /* =========================
    Accent (Flavor)
 ========================= */
 
-/* Strawberry */
---color-flavor-strawberry: #FF6262;
+   /* Strawberry */
+   --color-flavor-strawberry: #FF6262;
 
-/* Grapefruit */
---color-flavor-grapefruit: #FF978E;
+   /* Grapefruit */
+   --color-flavor-grapefruit: #FF978E;
 
-/* Shine Muscat */
---color-flavor-shine-muscat: #99ED47;
+   /* Shine Muscat */
+   --color-flavor-shine-muscat: #99ED47;
 
-/* Pineapple */
---color-flavor-pineapple: #FEE06C;
+   /* Pineapple */
+   --color-flavor-pineapple: #FEE06C;
 
-/* Passion Fruit */
---color-flavor-passion-fruit: #B2B1DD;
+   /* Passion Fruit */
+   --color-flavor-passion-fruit: #B2B1DD;
 
-/* Mango */
---color-flavor-mango: #FFCA00;
+   /* Mango */
+   --color-flavor-mango: #FFCA00;
 
-/* Citron */
---color-flavor-citron: #FAE5B5;
+   /* Citron */
+   --color-flavor-citron: #FAE5B5;
 
-/* Apple */
---color-flavor-apple: #EF4D42;
+   /* Apple */
+   --color-flavor-apple: #EF4D42;
 
-/* Lemon */
---color-flavor-lemon: #FFE65F;
+   /* Lemon */
+   --color-flavor-lemon: #FFE65F;
 
-/* Pear */
---color-flavor-pear: #E8BD86;
+   /* Pear */
+   --color-flavor-pear: #E8BD86;
 
-/* Peach */
---color-flavor-peach: #FFBBBB;
+   /* Peach */
+   --color-flavor-peach: #FFBBBB;
 
-/* Blueberry */
---color-flavor-blueberry: #C089CB;
+   /* Blueberry */
+   --color-flavor-blueberry: #C089CB;
 
 
-/* =========================
+   /* =========================
    Fill
 ========================= */
 
-/* Normal */
---color-fill-normal: #F4F4F5;
+   /* Normal */
+   --color-fill-normal: #F4F4F5;
 
-/* Strong */
---color-fill-strong: #E8E8EA;
+   /* Strong */
+   --color-fill-strong: #E8E8EA;
 
-/* Alternative */
---color-fill-alternative: #F8F8F8;
+   /* Alternative */
+   --color-fill-alternative: #F8F8F8;
 
 }
 
 
+/* =========================================================
+   Typography Guide
+   Tablet / Mobile
+========================================================= */
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 1024px) {
+
+   :root {
+
+      /* =========================
+           Font Family
+        ========================= */
+
+      --font-family: "Pretendard", sans-serif;
+
+
+      /* =========================
+           Display
+        ========================= */
+
+      --display-1-size: 50px;
+      --display-1-weight: 700;
+      --display-1-line-height: 150px;
+      --display-1-letter-spacing: 0;
+
+      --display-2-size: 40px;
+      --display-2-weight: 600;
+      --display-2-line-height: 48px;
+      --display-2-letter-spacing: 0;
+
+
+      /* =========================
+           Title
+        ========================= */
+
+      --title-1-size: 38px;
+      --title-1-weight: 700;
+      --title-1-line-height: 46px;
+      --title-1-letter-spacing: 0;
+
+      --title-2-size: 28px;
+      --title-2-weight: 400;
+      --title-2-line-height: 34px;
+      --title-2-letter-spacing: 0;
+
+      --title-3-size: 26px;
+      --title-3-weight: 400;
+      --title-3-line-height: 140px;
+      --title-3-letter-spacing: 0;
+
+
+      /* =========================
+           Heading
+        ========================= */
+
+      --heading-1-size: 22px;
+      --heading-1-weight: 600;
+      --heading-1-line-height: 160px;
+      --heading-1-letter-spacing: 0;
+
+
+      /* =========================
+           Body
+        ========================= */
+
+      --body-2-size: 18px;
+      --body-2-weight: 300;
+      --body-2-line-height: 21px;
+      --body-2-letter-spacing: 0;
+
+      --body-3-size: 14px;
+      --body-3-weight: 400;
+      --body-3-line-height: 17px;
+      --body-3-letter-spacing: 0;
+
+
+      /* =========================
+           Caption
+        ========================= */
+
+      --caption-size: 10px;
+      --caption-weight: 400;
+      --caption-line-height: 12px;
+      --caption-letter-spacing: 0;
+
+   }
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 430px) {
+
+   :root {
+
+      /* =========================
+           Font Family
+        ========================= */
+
+      --font-family: "Pretendard", sans-serif;
+
+
+      /* =========================
+           Display
+        ========================= */
+
+      --display-1-size: 32px;
+      --display-1-weight: 700;
+      --display-1-line-height: 38px;
+      --display-1-letter-spacing: 0;
+
+
+      /* =========================
+           Title
+        ========================= */
+
+      --title-1-size: 30px;
+      --title-1-weight: 700;
+      --title-1-line-height: 36px;
+      --title-1-letter-spacing: 0;
+
+      --title-2-size: 28px;
+      --title-2-weight: 700;
+      --title-2-line-height: 33px;
+      --title-2-letter-spacing: 0;
+
+
+      /* =========================
+           Heading
+        ========================= */
+
+      --heading-1-size: 32px;
+      --heading-1-weight: 600;
+      --heading-1-line-height: 38px;
+      --heading-1-letter-spacing: 0;
+
+      --heading-2-size: 20px;
+      --heading-2-weight: 600;
+      --heading-2-line-height: 28px;
+      --heading-2-letter-spacing: 0;
+
+      --heading-3-size: 14px;
+      --heading-3-weight: 600;
+      --heading-3-line-height: 20px;
+      --heading-3-letter-spacing: 0;
+
+
+      /* =========================
+           Body
+        ========================= */
+
+      --body-3-size: 16px;
+      --body-3-weight: 500;
+      --body-3-line-height: 22px;
+      --body-3-letter-spacing: 0;
+
+
+      /* =========================
+           Caption
+        ========================= */
+
+      --caption-1-size: 14px;
+      --caption-1-weight: 800;
+      --caption-1-line-height: 17px;
+      --caption-1-letter-spacing: 0;
+
+      --caption-3-size: 12px;
+      --caption-3-weight: 600;
+      --caption-3-line-height: 17px;
+      --caption-3-letter-spacing: 0;
+
+   }
+
+}

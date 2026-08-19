@@ -1,6 +1,5 @@
-/* 헤더 */
 /* ==================================================
-   Header Inner
+   Header
 ================================================== */
 
 .header {
@@ -174,6 +173,14 @@
     color: var(--color-btn-secondary-default);
 }
 
+/* =========================
+Hamburger Menu
+========================= */
+
+.hamburger-menu {
+    display: none;
+}
+
 
 /* Slider ========================== */
 
@@ -190,9 +197,7 @@ Slider Section
 
     display: flex;
 
-    /* overflow: hidden; */
-
-    /* background-color: #FFE65C; */
+    overflow: hidden;
 }
 
 .slider-wrap:nth-child(1) {
@@ -391,7 +396,10 @@ Pagination
 
 .slider-wrap .container {
     position: relative;
+    padding: 0 30px;
+    
 }
+
 
 .page-btn-wrap {
     position: absolute;
@@ -400,6 +408,7 @@ Pagination
     left: 0;
 
     width: 100%;
+    padding: 0 30px;
 
     margin: 0;
 
@@ -440,6 +449,43 @@ Pagination
 
 /* Problem ========================== */
 
+.sec-2-img {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+.problem-sec {
+    width: 100%;
+    padding: 240px 0;
+    text-align: center;
+}
+
+.problem-sec h2 {
+    font-size: 100px;
+    font-weight: bold;
+    color: #F6FF01;
+    line-height: 1.2;
+
+    margin-bottom: 50px;
+}
+
+.problem-sec p {
+    color: #F6FF01;
+    line-height: 1.7;
+
+    margin-bottom: 80px;
+}
+
+.problem-sec button {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-text-description);
+
+    padding: 20px 40px;
+    background-color: #fff;
+    border-radius: 50px;
+}
 
 
 /* History ========================== */
@@ -449,6 +495,7 @@ Pagination
     padding: 140px 0;
     background: #F6F5F4;
     text-align: center;
+
     overflow: hidden;
 }
 
@@ -470,7 +517,6 @@ Pagination
 
 .history-img-wrap {
     width: 100%;
-    overflow: hidden;
 }
 
 .history-track {
@@ -489,18 +535,28 @@ Pagination
 
 .history-progress {
     position: relative;
+
+    width: 100%;
+    height: 6px;
 }
 
 .history-progress-svg {
     display: block;
+
     width: 100%;
-    height: 20px;
+    height: 6px;
+
+    margin: 0;
+
+    overflow: visible;
 }
 
 .progress-track {
     fill: none;
     stroke: #D9D9D9;
     stroke-width: 6;
+
+    vector-effect: non-scaling-stroke;
 }
 
 .progress-bar {
@@ -508,24 +564,32 @@ Pagination
     stroke: #5C2300;
     stroke-width: 6;
 
-    /* GSAP 애니메이션용 */
     stroke-dasharray: 1920;
     stroke-dashoffset: 1920;
+
+    vector-effect: non-scaling-stroke;
 }
 
-/* 레몬 포인터 */
+/* =========================
+Pointer
+========================= */
 
 .scrollbar-pointer {
     position: absolute;
+
+    top: 10px;
     left: 0;
-    top: 50%;
+
+    display: block;
+
     transform: translateY(-50%);
 }
-
 
 .history-text-wrap {
     display: flex;
     justify-content: space-between;
+
+    height: max-content;
 }
 
 /* active */
@@ -587,20 +651,210 @@ Pagination
 }
 
 
-/* Prove ========================== */
+/* Prove ========================================= */
+
+.prove-sec {
+    background-image: url(/assets/images/prove-bg.png);
+
+    padding: 150px 0 230px;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.prove-sec h2 {
+    color: #fff;
+
+    margin-bottom: 80px;
+}
+
+/* =========================
+Count Wrap
+========================= */
+
+.count-wrap {
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    margin: 0 auto 100px;
+}
+
+
+/* =========================
+Count Item
+========================= */
+
+.count-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================
+Count
+========================= */
+
+.count {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+
+/* =========================
+Label
+========================= */
+
+.count-item p {
+    margin: 0 0 8px;
+
+    font-family: var(--font-family);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+
+    color: #fff;
+}
+
+
+/* =========================
+Number
+========================= */
+
+.count-item span {
+    font-family: var(--font-family);
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1;
+
+    color: #00FF3C;
+}
+
+
+/* =========================
+Unit
+========================= */
+
+.count-item em {
+    margin-left: 3px;
+
+    font-family: var(--font-family);
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1;
+
+    color: #00FF3C;
+
+    font-style: normal;
+}
+
+.product-wrap {
+    display: flex;
+    gap: 90px;
+}
 
 
 
 
-/* flavor ========================== */
+/* flavor ======================================== */
 .flavor-sec {
     width: 100%;
     overflow: hidden;
     display: flex;
     align-items: flex-start;
-    padding: 150px 0 150px 240px;
+    padding: 150px 0 200px 240px;
     background-color: #FFFFEC;
     box-sizing: border-box;
+}
+
+
+
+
+/* Recipe ======================================== */
+
+.flavor-title-wrap {
+    flex: 0 0 auto;
+    align-self: flex-start;
+}
+
+.flavor-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #5C2300;
+    margin-bottom: 10px;
+}
+
+.flavor-desc {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.flavor-content {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 200px;
+
+    margin-left: 120px;
+    overflow: hidden;
+}
+
+.flavor-list-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-left: 400px;
+}
+
+.flavor-list {
+    width: fit-content;
+    padding: 15px 40px;
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+
+    color: #fff;
+    background-color: #5C2300;
+    border-radius: 50px;
+}
+
+.flavor-img-wrap {
+    display: flex;
+    overflow: hidden;
+    gap: 60px;
+}
+
+.flavor-img-wrap img {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+/* Recipe ========================== */
+.recipe-sec {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #fff;
+    overflow: hidden;
 }
 
 .recipe-img-wrap {
@@ -625,84 +879,6 @@ Pagination
 .recipe-img-wrap img.active {
     opacity: 1;
     visibility: visible;
-
-    z-index: 2;
-}
-
-.flavor-title-wrap {
-    flex: 0 0 auto;
-    align-self: flex-start;
-}
-
-.flavor-title {
-    font-size: 40px;
-    font-weight: 700;
-    color: #5C2300;
-    margin-bottom: 10px;
-}
-
-.flavor-desc {
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 70px;
-}
-
-.flavor-content {
-    flex: 1;
-    min-width: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 200px;
-
-    margin-left: 120px;
-    overflow: hidden;
-}
-
-.flavor-list-wrap {
-    display: flex;
-    flex-direction: column;
-}
-
-.flavor-list {
-    width: fit-content;
-    padding: 15px 40px;
-    margin-left: 83px;
-
-    text-align: center;
-    font-size: 30px;
-    font-weight: 500;
-
-    color: #fff;
-    background-color: #5C2300;
-    border-radius: 50px;
-}
-
-.flavor-img-wrap {
-    display: flex;
-    overflow: hidden;
-    gap: 100px;
-    margin-left: 30px;
-}
-
-.flavor-img-wrap img {
-    width: 300px;
-    flex-shrink: 0;
-}
-
-/* Recipe ========================== */
-.recipe-sec {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    width: 100%;
-    height: 100vh;
-
-    background: #fff;
-    overflow: hidden;
 }
 
 
@@ -767,7 +943,7 @@ Pagination
 }
 
 .icon-wrap button:hover {
-    background: #5C2300;
+    background: #121212;
 }
 
 .icon-wrap button:hover img,
@@ -818,13 +994,14 @@ Pagination
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 246px;
-    height: 65px;
+
+    padding: 12px 30px;
+
     border: 2px solid #8A4318;
     border-radius: 999px;
     background: transparent;
     color: #8A4318;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 600;
     cursor: pointer;
 }
@@ -835,9 +1012,61 @@ Pagination
 }
 
 
+/* Brand ========================================= */
+
+.brand-sec {
+    padding: 70px 0;
+    background-color: #fff;
+
+    overflow: hidden;
+}
+
+.brand-wrap {
+    display: flex;
+
+    align-items: center;
+    gap: 140px;
+}
 
 
+/* SNS ========================================= */
 
+.sns-sec {
+    padding: 120px 0;
+    background-image: url(/assets/images/sns-sec-bg.png);
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.sns-sec h2 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+
+    margin-bottom: 120px;
+}
+
+.sns-wrap {
+    display: flex;
+    gap: 50px;
+}
+
+
+/* Footer ========================================= */
+
+
+.footer {
+    width: 100%;
+    background: #F0F0F0;
+}
+
+.footer .container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
 
 /* ==========================
         Top
@@ -847,6 +1076,7 @@ Pagination
     display: flex;
     align-items: center;
 
+    padding-left: 240px;
     height: 100px;
 
     border-bottom: 1px solid #303030;
@@ -867,7 +1097,7 @@ Pagination
     justify-content: space-between;
     align-items: flex-start;
 
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 
@@ -885,18 +1115,12 @@ Pagination
 
 .footer-menu {
     display: flex;
-    gap: 40px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
+    gap: 15px;
 }
 
 .footer-menu a {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 1;
 
     color: var(--color-text-description);
 }
@@ -905,33 +1129,30 @@ Pagination
 /* company */
 
 .footer-company {
-    margin-top: 18px;
-
-    font-style: normal;
+    margin-top: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .footer-company p {
     display: flex;
     flex-wrap: wrap;
 
-    margin-top: 10px;
-
     font-size: 18px;
     font-weight: 400;
-    line-height: 1.6;
 
     color: var(--color-text-description);
 }
 
 
-
 /* copy */
 
 .footer-copy {
-    margin-top: 36px;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1;
+    margin-top: 27px;
+    font-size: 18px;
+    font-weight: 600;
+
     color: var(--color-text-description);
 }
 
@@ -943,7 +1164,6 @@ Pagination
     display: flex;
     flex-direction: column;
     align-items: end;
-    margin-top: 10px;
 }
 
 .footer-instagram {
@@ -961,21 +1181,480 @@ Pagination
 }
 
 .footer-center-title {
-    margin-top: 22px;
+    margin-top: 18px;
 
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 1;
 
     color: var(--color-text-description);
 }
 
 .footer-tel {
-    margin-top: 18px;
+    margin-top: 10px;
 
-    font-size: 36px;
+    font-size: 24px;
     font-weight: 400;
-    line-height: 1;
 
     color: var(--color-text-description);
+}
+
+
+/* ==================================================
+   Tablet (768px ~ 1024px)
+================================================== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* =========================================
+       Tablet - Common / Container
+    ========================================= */
+
+    /* =========================================
+       Header
+    ========================================= */
+
+    .header {
+        height: 80px;
+        padding: 0 30px;
+        background-color: #fff;
+    }
+
+    .logo a {
+        width: 148px;
+        height: 32px;
+    }
+
+    /* nav */
+    .header-nav {
+        display: none;
+    }
+
+    .headr-btn {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hamburger-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+    }
+
+    .hamburger-menu-btn img {
+        display: block;
+        width: 28px;
+        height: auto;
+    }
+
+
+    /* =========================================
+       Slider
+    ========================================= */
+
+    .slider-sec {
+        min-height: 1366px;
+    }
+
+
+    .slider-wrap .container>h2 {
+        font-size: 77px;
+        font-weight: 800;
+
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .fruit-effect img {
+        top: 50%;
+        width: 100%;
+        height: auto;
+        transform: translate(-50%, -18%);
+    }
+
+    .main-cup-img {
+        width: 650px;
+
+        top: 45%;
+        left: 50%;
+        
+        transform: translate(-50%, -36%);
+    }
+
+    .slider-text-wrap {
+        left: 0;
+        bottom: 176px;
+
+        padding: 0 30px;
+    }
+
+    .slider-text-wrap h3 {
+        margin: 0 0 10px;
+        font-size: 40px;
+    }
+
+    .slider-text-wrap p {
+        font-size: 18px;
+    }
+
+    .page-btn-wrap img {
+        width: 48px;
+        height: 48px;
+        padding: 14px;
+    }
+
+
+    /* =========================================
+       Problem
+    ========================================= */
+
+    .sec-2-img {
+        width: 100%;
+        left: 0;
+    }
+
+    .sec-2-img img {
+        display: block;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .problem-sec {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 88px 48px;
+        box-sizing: border-box;
+    }
+
+    .problem-sec h2 {
+        font-size: 72px;
+        margin-bottom: 28px;
+    }
+
+    .problem-sec p,
+    .problem-sec .description {
+        margin-bottom: 40px;
+    }
+
+    .problem-sec button {
+        font-size: 18px;
+        padding: 14px 32px;
+    }
+
+
+    /* =========================================
+       History
+    ========================================= */
+
+    .history-sec {
+        padding: 88px 0 72px;
+    }
+
+    .history-title {
+        font-size: 32px;
+        padding: 0 48px;
+        box-sizing: border-box;
+    }
+
+    .history-title-line {
+        height: 72px;
+        margin: 40px auto 36px;
+    }
+
+    .history-text-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 36px;
+        gap: 0;
+    }
+
+    .history-text-list {
+        display: none;
+    }
+
+    .history-text-list.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .history-text-list>img {
+        height: 48px;
+    }
+
+    .history-text-list.active h3,
+    .history-text h3 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .history-text-list.active p,
+    .history-text p {
+        margin-top: 12px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+
+    /* =========================================
+       Prove
+    ========================================= */
+
+    .prove-sec {
+        padding: 100px 0 120px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .prove-sec h2 {
+        margin-bottom: 48px;
+    }
+
+    .count-wrap {
+        width: 78%;
+        margin: 0 auto 64px;
+        gap: 24px;
+    }
+
+    .count-item {
+        flex-direction: column-reverse;
+    }
+
+    .count-item p {
+        margin: 8px 0 0;
+        font-size: 16px;
+    }
+
+    .count-item span,
+    .count-item em {
+        font-size: 40px;
+    }
+
+    .product-wrap {
+        justify-content: center;
+        gap: 16px;
+        padding: 0 48px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .product-wrap img {
+        width: 100px;
+        height: auto;
+        flex-shrink: 0;
+        object-fit: contain;
+    }
+
+
+    /* =========================================
+       Flavor
+    ========================================= */
+
+    .flavor-sec {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 88px 48px 100px;
+    }
+
+    .flavor-title-wrap {
+        width: 100%;
+        margin-bottom: 48px;
+    }
+
+    .flavor-desc {
+        font-size: 18px;
+        margin-bottom: 24px;
+    }
+
+    .flavor-content {
+        width: 100%;
+        margin-left: 0;
+        gap: 56px;
+    }
+
+    .flavor-list-wrap {
+        margin-left: 0;
+    }
+
+    .flavor-list {
+        font-size: 20px;
+        padding: 10px 28px;
+        margin-bottom: 20px;
+    }
+
+    .flavor-img-wrap {
+        flex-wrap: wrap;
+        gap: 20px 28px;
+        overflow: visible;
+    }
+
+    .flavor-img-wrap img {
+        width: 140px;
+    }
+
+
+    /* =========================================
+       Recipe
+    ========================================= */
+
+    .recipe-sec {
+        min-height: 640px;
+        height: auto;
+        align-items: stretch;
+    }
+
+    .recipe-img-wrap {
+        min-height: 640px;
+    }
+
+    .icon-wrap {
+        left: 50%;
+        right: 48px;
+        top: auto;
+        bottom: 88px;
+        transform: none;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 16px;
+        padding-left: 40px;
+        box-sizing: border-box;
+    }
+
+    .icon-wrap button {
+        width: 56px;
+        height: 56px;
+    }
+
+    .icon-wrap button img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .recipe-text-wrap {
+        padding: 72px 48px 168px 40px;
+        box-sizing: border-box;
+    }
+
+    .recipe-text-wrap h2 {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .recipe-text-wrap p {
+        font-size: 18px;
+        margin-bottom: 28px;
+    }
+
+
+    /* =========================================
+       Brand
+    ========================================= */
+
+    .brand-sec {
+        padding: 48px 40px;
+    }
+
+    .brand-wrap {
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: nowrap;
+    }
+
+    .brand-wrap img {
+        height: 28px;
+        width: auto;
+        max-width: 64px;
+        object-fit: contain;
+        flex-shrink: 1;
+    }
+
+
+    /* =========================================
+       SNS
+    ========================================= */
+
+    .sns-sec {
+        padding: 88px 48px;
+        box-sizing: border-box;
+    }
+
+    .sns-sec h2 {
+        font-size: 36px;
+        margin-bottom: 56px;
+    }
+
+    .sns-wrap {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .sns-wrap a {
+        width: calc((100% - 48px) / 3);
+        max-width: 280px;
+    }
+
+    .sns-wrap img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+    }
+
+
+    /* =========================================
+       Footer
+    ========================================= */
+
+    .footer-top {
+        padding-left: 48px;
+        padding-right: 48px;
+        height: 80px;
+    }
+
+    .footer-top img {
+        width: 120px;
+        height: auto;
+        display: block;
+    }
+
+    .footer-bottom {
+        padding: 24px 0 32px;
+        gap: 24px;
+    }
+
+    .footer-menu a,
+    .footer-company p,
+    .footer-copy {
+        font-size: 14px;
+    }
+
+    .footer-company {
+        margin-top: 16px;
+    }
+
+    .footer-copy {
+        margin-top: 16px;
+    }
+
+    .footer-tel {
+        font-size: 20px;
+    }
+
 }

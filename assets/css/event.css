@@ -453,7 +453,8 @@ Page Button
 }
 
 
-/* =============================================================== */
+/* Footer ========================================= */
+
 
 .footer {
     width: 100%;
@@ -465,7 +466,6 @@ Page Button
     margin: 0 auto;
 }
 
-
 /* ==========================
         Top
 ========================== */
@@ -474,6 +474,7 @@ Page Button
     display: flex;
     align-items: center;
 
+    padding-left: 240px;
     height: 100px;
 
     border-bottom: 1px solid #303030;
@@ -494,7 +495,7 @@ Page Button
     justify-content: space-between;
     align-items: flex-start;
 
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 
@@ -512,18 +513,12 @@ Page Button
 
 .footer-menu {
     display: flex;
-    gap: 40px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
+    gap: 15px;
 }
 
 .footer-menu a {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 1;
 
     color: var(--color-text-description);
 }
@@ -532,33 +527,30 @@ Page Button
 /* company */
 
 .footer-company {
-    margin-top: 18px;
-
-    font-style: normal;
+    margin-top: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .footer-company p {
     display: flex;
     flex-wrap: wrap;
 
-    margin-top: 10px;
-
     font-size: 18px;
     font-weight: 400;
-    line-height: 1.6;
 
     color: var(--color-text-description);
 }
 
 
-
 /* copy */
 
 .footer-copy {
-    margin-top: 36px;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1;
+    margin-top: 27px;
+    font-size: 18px;
+    font-weight: 600;
+
     color: var(--color-text-description);
 }
 
@@ -570,7 +562,6 @@ Page Button
     display: flex;
     flex-direction: column;
     align-items: end;
-    margin-top: 10px;
 }
 
 .footer-instagram {
@@ -588,21 +579,19 @@ Page Button
 }
 
 .footer-center-title {
-    margin-top: 22px;
+    margin-top: 18px;
 
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 1;
 
     color: var(--color-text-description);
 }
 
 .footer-tel {
-    margin-top: 18px;
+    margin-top: 10px;
 
-    font-size: 36px;
+    font-size: 24px;
     font-weight: 400;
-    line-height: 1;
 
     color: var(--color-text-description);
 }

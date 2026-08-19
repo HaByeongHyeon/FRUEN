@@ -6,7 +6,6 @@
 .header {
     width: 100%;
     height: 150px;
-    background-color: #00000030;
 
     margin: 0 auto;
     padding: 0 240px;
@@ -25,12 +24,6 @@
 /* ==================================================
    Logo
 ================================================== */
-
-.logo {
-    margin: 0;
-    padding: 0;
-    filter: brightness(0) invert(1);
-}
 
 .logo a {
     display: block;
@@ -80,7 +73,7 @@
 .header-menu a {
     display: block;
 
-    color: #ffffff;
+    color: var(--color-primary-normal);
     text-decoration: none;
     white-space: nowrap;
 }
@@ -117,10 +110,10 @@
 
     box-sizing: border-box;
 
-    border: 1px solid #ffffff;
+    border: 1px solid #5C2300;
     border-radius: 50px;
 
-    color: #ffffff;
+    color: var(--color-primary-normal);
 
     font-size: 18px;
     font-weight: 500;
@@ -137,7 +130,6 @@
     height: auto;
 
     margin-left: 4px;
-    filter: brightness(0) invert(1);
 }
 
 .shop-btn:hover a {
@@ -167,8 +159,8 @@
 
     border-radius: 50px;
 
-    background-color: var(--color-btn-secondary-default);
-    color: var(--color-btn-secondary-hover);
+    background-color: var(--color-primary-normal);
+    color: #fff;
 
     font-size: 18px;
     font-weight: 500;
@@ -180,4 +172,12 @@
 .contact-btn:hover a {
     background-color: var(--color-btn-secondary-hover);
     color: var(--color-btn-secondary-default);
+}
+
+/* =========================
+Hamburger Menu
+========================= */
+
+.hamburger-menu {
+    display: none;
 }

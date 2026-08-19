@@ -1,164 +1,9 @@
 
 // slider =======================================
 
-$(function () {
-
-    const $slides = $(".slider-img");
-
-    const $fruitWrap = $(".fruit-name-wrap");
-    const $fruitNames = $(".fruit-name");
-
-    const $currentWrap = $(".current-wrap");
-    const $currentNumbers = $(".current");
-
-    // Color Target
-    const $colorTitle = $(".color-title");
-    const $sliderBtn = $(".slider-btn a");
-
-    const colorClasses = [
-        "grapefruit",
-        "lemon",
-        "shinemuscat",
-        "peach",
-        "blueberry"
-    ];
-
-    let current = 0;
-
-    const interval = 3000;
-    const fadeSpeed = 800;
-
-    const totalSlides = $slides.length;
-
-    const fruitHeight = $fruitNames.outerHeight();
-    const currentHeight = $currentNumbers.outerHeight();
-
-    // ==========================
-    // 초기 설정
-    // ==========================
-
-    $slides.css({
-        opacity: 0,
-        zIndex: 1
-    });
-
-    $slides.eq(0).css({
-        opacity: 1,
-        zIndex: 2
-    }).addClass("active");
-
-    $fruitWrap.css({
-        position: "relative",
-        top: 0
-    });
-
-    $currentWrap.css({
-        position: "relative",
-        top: 0
-    });
-
-    // 첫 번째 색상 적용
-    $colorTitle.addClass(colorClasses[0]);
-    $sliderBtn.addClass(colorClasses[0]);
-
-    // ==========================
-    // 자동 슬라이드
-    // ==========================
-
-    setInterval(function () {
-
-        const next = (current + 1) % totalSlides;
-
-        // --------------------------
-        // Color Change
-        // --------------------------
-
-        $colorTitle
-            .removeClass(colorClasses.join(" "))
-            .addClass(colorClasses[next]);
-
-        $sliderBtn
-            .removeClass(colorClasses.join(" "))
-            .addClass(colorClasses[next]);
-
-        // --------------------------
-        // Fruit Name
-        // --------------------------
-
-        if (next === 0) {
-
-            $fruitWrap.stop().animate({
-                top: -(totalSlides * fruitHeight)
-            }, fadeSpeed, function () {
-
-                $(this).css("top", 0);
-
-            });
-
-        } else {
-
-            $fruitWrap.stop().animate({
-                top: -(next * fruitHeight)
-            }, fadeSpeed);
-
-        }
-
-        // --------------------------
-        // Current Number
-        // --------------------------
-
-        if (next === 0) {
-
-            $currentWrap.stop().animate({
-                top: -(totalSlides * currentHeight)
-            }, fadeSpeed, function () {
-
-                $(this).css("top", 0);
-
-            });
-
-        } else {
-
-            $currentWrap.stop().animate({
-                top: -(next * currentHeight)
-            }, fadeSpeed);
-
-        }
-
-        // --------------------------
-        // Image Fade
-        // --------------------------
-
-        $slides.eq(next)
-            .css("z-index", 3)
-            .stop(true)
-            .animate({
-                opacity: 1
-            }, fadeSpeed);
-
-        $slides.eq(current)
-            .css("z-index", 2)
-            .stop(true)
-            .animate({
-                opacity: 0
-            }, fadeSpeed, function () {
-
-                $(this)
-                    .removeClass("active")
-                    .css("z-index", 1);
-
-            });
-
-        $slides.eq(next).addClass("active");
-
-        current = next;
-
-    }, interval);
-
-});
 
 
-// ========================================================================
+// History ======================================================
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -247,85 +92,21 @@ ScrollTrigger.create({
     }
 
 });
-// ========================================================================
+
+
+// Problem ===============================================================
+
+$(function () {
+    $(".problem-sec button").on("click", function () {
+        location.href = "/brand.html";
+    });
+});
 
 
 // Prove ========================================================================
 
 
-// ========================================================================
 
-$(function () {
-
-    $(".answer").hide();
-
-    $(".btn-answer").on("click", function () {
-
-        const $btn = $(this);
-        const $icon = $btn.find("img");
-        const $faq = $btn.closest(".faq-list");
-        const $answer = $faq.find(".answer");
-
-        const isOpen = $answer.is(":visible");
-
-        // 다른 답변 닫기
-        $(".faq-list").not($faq).each(function () {
-
-            const $otherAnswer = $(this).find(".answer");
-            const $otherBtn = $(this).find(".btn-answer");
-            const $otherIcon = $otherBtn.find("img");
-
-            $otherAnswer.stop(true, true).slideUp(300);
-
-            $otherBtn.removeClass("active");
-
-            $otherIcon.stop(true).animate({
-                deg: 0
-            }, {
-                duration: 300,
-                step: function (now) {
-                    $(this).css("transform", "rotate(" + now + "deg)");
-                }
-            });
-
-        });
-
-        // 현재 답변 토글
-        if (isOpen) {
-
-            $answer.stop(true, true).slideUp(300);
-
-            $btn.removeClass("active");
-
-            $icon.stop(true).animate({
-                deg: 0
-            }, {
-                duration: 300,
-                step: function (now) {
-                    $(this).css("transform", "rotate(" + now + "deg)");
-                }
-            });
-
-        } else {
-
-            $answer.stop(true, true).slideDown(300);
-
-            $btn.addClass("active");
-
-            $icon.stop(true).animate({
-                deg: 45
-            }, {
-                duration: 300,
-                step: function (now) {
-                    $(this).css("transform", "rotate(" + now + "deg)");
-                }
-            });
-
-        }
-
-    });
-
-});
 
 
 // ========================================================================
