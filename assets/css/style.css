@@ -977,7 +977,8 @@ Unit
     ========================================= */
 
     .problem-sec {
-        padding: calc(380px - 140px * var(--fluid)) 0;
+        padding: calc(380px - 140px * var(--fluid)) calc(30px * (1 - var(--fluid)));
+        box-sizing: border-box;
     }
 
     .problem-sec h2 {
@@ -1019,7 +1020,8 @@ Unit
     ========================================= */
 
     .prove-sec {
-        padding: calc(210px - 60px * var(--fluid)) 0 calc(210px + 20px * var(--fluid));
+        padding: calc(210px - 60px * var(--fluid)) calc(30px * (1 - var(--fluid))) calc(210px + 20px * var(--fluid));
+        box-sizing: border-box;
     }
 
     .prove-sec h2 {
@@ -1050,7 +1052,7 @@ Unit
     ========================================= */
 
     .flavor-sec {
-        padding: calc(140px + 10px * var(--fluid)) 0 calc(140px + 60px * var(--fluid)) calc(30px + 210px * var(--fluid));
+        padding: calc(140px + 10px * var(--fluid)) calc(30px * (1 - var(--fluid))) calc(140px + 60px * var(--fluid)) calc(30px + 210px * var(--fluid));
     }
 
     .flavor-title-wrap .main-title-2 {
@@ -1123,7 +1125,7 @@ Unit
     ========================================= */
 
     .brand-sec {
-        padding: calc(65px + 5px * var(--fluid)) 0;
+        padding: calc(65px + 5px * var(--fluid)) calc(40px * (1 - var(--fluid)));
     }
 
     .brand-wrap {
@@ -1136,7 +1138,8 @@ Unit
     ========================================= */
 
     .sns-sec {
-        padding: calc(100px + 20px * var(--fluid)) 0;
+        padding: calc(100px + 20px * var(--fluid)) calc(30px * (1 - var(--fluid)));
+        box-sizing: border-box;
     }
 
     .sns-sec h2 {
@@ -1261,7 +1264,7 @@ Unit
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        padding: calc(80px + 300px * var(--fluid-t)) calc(20px * (1 - var(--fluid-t)));
+        padding: calc(80px + 300px * var(--fluid-t)) calc(20px + 10px * var(--fluid-t));
         box-sizing: border-box;
     }
 
@@ -1293,6 +1296,8 @@ Unit
         font-size: calc(20px + 30px * var(--fluid-t));
         color: var(--color-primary-heavy);
         margin-bottom: 110px;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
     }
 
     .history-title-line {
@@ -1349,9 +1354,10 @@ Unit
     ========================================= */
 
     .prove-sec {
-        padding: calc(72px + 138px * var(--fluid-t)) 0 calc(80px + 130px * var(--fluid-t));
+        padding: calc(72px + 138px * var(--fluid-t)) calc(20px + 10px * var(--fluid-t)) calc(80px + 130px * var(--fluid-t));
         background-size: cover;
         background-position: center;
+        box-sizing: border-box;
     }
 
     .prove-sec h2 {
@@ -1381,7 +1387,7 @@ Unit
     .product-wrap {
         justify-content: center;
         gap: calc(12px + 100px * var(--fluid-t));
-        padding: 0 calc(20px + 28px * var(--fluid-t));
+        padding: 0 calc(18px * var(--fluid-t));
         box-sizing: border-box;
         overflow: hidden;
     }
@@ -1467,9 +1473,11 @@ Unit
     ========================================= */
 
     .recipe-sec {
-        min-height: 640px;
+        min-height: calc(640px * var(--fluid-t));
         height: auto;
         align-items: stretch;
+        padding-bottom: calc(24px * (1 - var(--fluid-t)));
+        box-sizing: border-box;
     }
 
     .recipe-img-wrap {
@@ -1517,7 +1525,7 @@ Unit
     }
 
     .recipe-text-wrap {
-        padding: calc(40px * (1 - var(--fluid-t))) calc(32px + 48px * var(--fluid-t));
+        padding: 0 calc(32px + 48px * var(--fluid-t));
         box-sizing: border-box;
 
         display: flex;
@@ -1566,7 +1574,8 @@ Unit
     ========================================= */
 
     .sns-sec {
-        padding: calc(80px + 20px * var(--fluid-t)) 0 calc(120px - 20px * var(--fluid-t));
+        padding: calc(80px + 20px * var(--fluid-t)) calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
     }
 
     .sns-sec h2 {

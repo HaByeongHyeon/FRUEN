@@ -43,6 +43,7 @@
 
 .comming-sec {
     width: 100%;
+    max-width: 1440px;
 
     margin: 0 auto;
     padding-bottom: 200px;
@@ -50,62 +51,15 @@
     box-sizing: border-box;
 }
 
-
-/* =========================
-Title
-========================= */
-
-.comming-sec .container>h2 {
-    margin: 0 0 80px;
-
-    font-family: var(--font-family);
-    font-size: 40px;
-    font-weight: 700;
-
-    color: var(--color-text-primary);
+.comming-sec>a:not(.list-btn) {
+    display: block;
 }
 
+.comming-sec>a:not(.list-btn) img {
+    display: block;
 
-/* =========================
-Image Wrap
-========================= */
-
-.img-wrap {
-
-    display: flex;
-    align-items: flex-start;
-
-    gap: 25px;
-    margin: 0 0 120px;
-}
-
-
-/* =========================
-Image Item
-========================= */
-
-.img-wrap li {
-    width: auto;
+    width: 100%;
     height: auto;
-}
-
-
-/* =========================
-Image
-========================= */
-
-.img-wrap li a {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-}
-
-.img-wrap img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
 
     object-fit: cover;
 }
@@ -138,5 +92,224 @@ List Button
 .list-btn:hover {
     color: var(--color-btn-secondary-default);
     background-color: #121212;
+}
+
+
+/* ==================================================
+   Fluid: 1025px ~ 1920px
+================================================== */
+
+@media (min-width: 1025px) {
+
+    :root {
+        --fluid: min(1, (100vw - 1024px) / 896px);
+    }
+
+    .kv-sec {
+        height: calc(640px + 440px * var(--fluid));
+    }
+
+    .kv-sec img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .kv-title-wrap {
+        padding: 0 calc(30px * (1 - var(--fluid)));
+        box-sizing: border-box;
+        margin-top: calc(24px + 16px * var(--fluid));
+    }
+
+    .kv-title-wrap h2 {
+        font-size: calc(48px + 12px * var(--fluid));
+        line-height: 1.2;
+    }
+
+    .kv-title-wrap p {
+        font-size: calc(24px + 10px * var(--fluid));
+        line-height: 1.3;
+    }
+
+    .contents-sec {
+        padding: calc(80px + 220px * var(--fluid));
+    }
+
+    .contents-sec .container img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .comming-sec {
+        padding-bottom: calc(80px + 120px * var(--fluid));
+        padding-left: calc(30px * (1 - var(--fluid)));
+        padding-right: calc(30px * (1 - var(--fluid)));
+    }
+
+    .list-btn {
+        font-size: calc(16px + 8px * var(--fluid));
+        padding: calc(8px + 2px * var(--fluid)) calc(20px + 10px * var(--fluid));
+    }
+
+}
+
+
+/* ==================================================
+   Event End - Tablet (768px ~ 1024px)
+================================================== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    :root {
+        --fluid-t: min(1, max(0, (100vw - 768px) / 256px));
+    }
+
+    .kv-sec {
+        height: auto;
+        min-height: 0;
+        padding-bottom: calc(64px + 24px * var(--fluid-t));
+    }
+
+    .kv-sec img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .kv-title-wrap {
+        width: 100%;
+        max-width: 1024px;
+        margin: calc(40px + 16px * var(--fluid-t)) auto 0;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
+    }
+
+    .kv-title-wrap h2 {
+        font-size: calc(36px + 12px * var(--fluid-t));
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .kv-title-wrap p {
+        font-size: calc(18px + 6px * var(--fluid-t));
+        line-height: 1.4;
+    }
+
+    .contents-sec {
+        padding: calc(64px + 24px * var(--fluid-t)) calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
+    }
+
+    .contents-sec .container {
+        width: 100%;
+        max-width: 1024px;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .contents-sec .container img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .comming-sec {
+        padding: 0 calc(20px + 10px * var(--fluid-t)) calc(72px + 24px * var(--fluid-t));
+    }
+
+    .comming-sec>a:not(.list-btn) img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .list-btn {
+        font-size: calc(14px + 2px * var(--fluid-t));
+        padding: 8px 24px;
+    }
+
+}
+
+
+/* ==================================================
+   Event End - Mobile (~430px)
+================================================== */
+
+@media (max-width: 767px) {
+
+    :root {
+        --fluid-m: min(1, max(0, (100vw - 430px) / 337px));
+    }
+
+    .kv-sec {
+        height: auto;
+        min-height: 0;
+        padding-bottom: calc(158px - 94px * var(--fluid-m));
+    }
+
+    .kv-sec img {
+        display: block;
+        width: 100%;
+        height: calc(190px + 98px * var(--fluid-m));
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .kv-title-wrap {
+        width: 100%;
+        max-width: 100%;
+        margin: calc(68px - 28px * var(--fluid-m)) auto 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .kv-title-wrap h2 {
+        font-size: calc(28px + 8px * var(--fluid-m));
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .kv-title-wrap p {
+        font-size: calc(16px + 2px * var(--fluid-m));
+        line-height: 1.4;
+    }
+
+    .contents-sec {
+        padding: calc(24px + 40px * var(--fluid-m)) 20px;
+        box-sizing: border-box;
+    }
+
+    .contents-sec .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .contents-sec .container img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .comming-sec {
+        padding: calc(40px + 24px * var(--fluid-m)) 20px calc(56px + 16px * var(--fluid-m));
+    }
+
+    .list-btn {
+        font-size: 14px;
+        padding: 8px 22px;
+    }
+
 }
 

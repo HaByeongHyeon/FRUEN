@@ -265,3 +265,378 @@ Page Button
     background-color: #d9d9d9;
 }
 
+
+/* ==================================================
+   Fluid: 1025px ~ 1920px
+================================================== */
+
+@media (min-width: 1025px) {
+
+    :root {
+        --fluid: min(1, (100vw - 1024px) / 896px);
+    }
+
+    .kv-sec {
+        height: calc(640px + 440px * var(--fluid));
+    }
+
+    .kv-sec img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .kv-title-wrap {
+        padding: 0 calc(30px * (1 - var(--fluid)));
+        box-sizing: border-box;
+        margin-top: calc(24px + 16px * var(--fluid));
+    }
+
+    .kv-title-wrap h2 {
+        font-size: calc(48px + 12px * var(--fluid));
+        line-height: 1.2;
+    }
+
+    .kv-title-wrap p {
+        font-size: calc(24px + 10px * var(--fluid));
+        line-height: 1.3;
+    }
+
+    .event-sec {
+        padding: calc(80px + 220px * var(--fluid)) 0 calc(96px + 84px * var(--fluid));
+    }
+
+    .event-sec .container {
+        padding: 0 calc(30px * (1 - var(--fluid)));
+        box-sizing: border-box;
+    }
+
+    .main-title-2 {
+        font-size: calc(36px + 24px * var(--fluid));
+        line-height: 1.3;
+    }
+
+    .filter-wrap {
+        width: min(1440px, calc(100% - 40px));
+        margin-top: calc(48px + 42px * var(--fluid));
+        gap: calc(10px + 5px * var(--fluid));
+    }
+
+    .filter-wrap button {
+        padding: calc(8px + 7px * var(--fluid)) calc(18px + 12px * var(--fluid));
+        font-size: calc(14px + 6px * var(--fluid));
+        line-height: 1.3;
+    }
+
+    .event-content {
+        max-width: 1440px;
+        margin-top: calc(32px + 18px * var(--fluid));
+        padding: 0 calc(30px * (1 - var(--fluid)));
+        box-sizing: border-box;
+    }
+
+    .page-btn-wrap {
+        margin-top: calc(56px + 44px * var(--fluid));
+        gap: calc(24px + 26px * var(--fluid));
+    }
+
+}
+
+
+/* ==================================================
+   Event - Tablet (768px ~ 1024px)
+================================================== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    :root {
+        --fluid-t: min(1, max(0, (100vw - 768px) / 256px));
+    }
+
+    .kv-sec {
+        height: auto;
+        min-height: 0;
+        padding-bottom: calc(64px + 24px * var(--fluid-t));
+    }
+
+    .kv-sec img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .kv-title-wrap {
+        width: 100%;
+        max-width: 1024px;
+        margin: calc(40px + 16px * var(--fluid-t)) auto 0;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
+    }
+
+    .kv-title-wrap h2 {
+        font-size: calc(36px + 12px * var(--fluid-t));
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .kv-title-wrap p {
+        font-size: calc(18px + 6px * var(--fluid-t));
+        line-height: 1.4;
+    }
+
+    .event-sec {
+        padding: calc(64px + 16px * var(--fluid-t)) 0 calc(72px + 24px * var(--fluid-t));
+    }
+
+    .event-sec .container {
+        width: 100%;
+        max-width: 1024px;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
+    }
+
+    .main-title-2 {
+        font-size: calc(28px + 8px * var(--fluid-t));
+        line-height: 1.35;
+        font-weight: 700;
+    }
+
+    .filter-wrap {
+        width: 100%;
+        max-width: 1024px;
+        margin: calc(32px + 16px * var(--fluid-t)) auto 0;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
+        gap: calc(8px + 4px * var(--fluid-t));
+        flex-wrap: wrap;
+    }
+
+    .filter-wrap button {
+        padding: calc(7px + 1px * var(--fluid-t)) calc(14px + 6px * var(--fluid-t));
+        font-size: calc(13px + 1px * var(--fluid-t));
+        line-height: 1.2;
+    }
+
+    .event-content {
+        width: 100%;
+        max-width: 1024px;
+        margin: calc(28px + 8px * var(--fluid-t)) auto 0;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
+        overflow: hidden;
+        container-type: inline-size;
+    }
+
+    .event-wrap {
+        position: relative;
+        width: max-content;
+        display: flex;
+        flex-direction: row;
+        gap: calc(12px + 4px * var(--fluid-t));
+    }
+
+    .event-soon,
+    .event-ing,
+    .event-end {
+        width: max-content;
+        flex: 0 0 auto;
+    }
+
+    .event-list,
+    .event-list.active {
+        display: flex;
+        width: max-content;
+        gap: calc(12px + 4px * var(--fluid-t));
+    }
+
+    .event-list li {
+        flex: 0 0 auto;
+        width: calc((100cqi - 2 * (12px + 4px * var(--fluid-t))) / 3);
+        min-width: 0;
+    }
+
+    .event-list img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .event-list h3 {
+        margin: calc(10px + 4px * var(--fluid-t)) 0 0;
+        font-size: calc(14px + 2px * var(--fluid-t));
+        line-height: 1.35;
+    }
+
+    .event-list p {
+        margin: calc(12px + 8px * var(--fluid-t)) 0 0;
+        font-size: calc(12px + 2px * var(--fluid-t));
+        line-height: 1.3;
+    }
+
+    .page-btn-wrap {
+        margin-top: calc(40px + 16px * var(--fluid-t));
+        gap: calc(20px + 8px * var(--fluid-t));
+    }
+
+    .page-btn-wrap img {
+        width: 12px;
+        height: 12px;
+        padding: 12px;
+    }
+
+}
+
+
+/* ==================================================
+   Event - Mobile (~430px)
+================================================== */
+
+@media (max-width: 767px) {
+
+    :root {
+        --fluid-m: min(1, max(0, (100vw - 430px) / 337px));
+    }
+
+    .kv-sec {
+        height: auto;
+        min-height: 0;
+        padding-bottom: calc(158px - 94px * var(--fluid-m));
+    }
+
+    .kv-sec img {
+        display: block;
+        width: 100%;
+        height: calc(190px + 98px * var(--fluid-m));
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .kv-title-wrap {
+        width: 100%;
+        max-width: 100%;
+        margin: calc(68px - 28px * var(--fluid-m)) auto 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .kv-title-wrap h2 {
+        font-size: calc(28px + 8px * var(--fluid-m));
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .kv-title-wrap p {
+        font-size: calc(16px + 2px * var(--fluid-m));
+        line-height: 1.4;
+    }
+
+    .event-sec {
+        padding: calc(80px - 16px * var(--fluid-m)) 0 calc(56px + 8px * var(--fluid-m));
+    }
+
+    .event-sec .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .main-title-2 {
+        font-size: calc(20px + 8px * var(--fluid-m));
+        line-height: 1.4;
+        font-weight: 700;
+    }
+
+    .filter-wrap {
+        width: 100%;
+        max-width: 100%;
+        margin: calc(40px - 8px * var(--fluid-m)) auto 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .filter-wrap button {
+        padding: 7px 14px;
+        font-size: 12px;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    .event-content {
+        width: 100%;
+        max-width: 100%;
+        margin: calc(16px + 12px * var(--fluid-m)) auto 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+        container-type: inline-size;
+    }
+
+    .event-wrap {
+        position: relative;
+        width: max-content;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .event-soon,
+    .event-ing,
+    .event-end {
+        width: max-content;
+        flex: 0 0 auto;
+    }
+
+    .event-list,
+    .event-list.active {
+        display: flex;
+        width: max-content;
+        gap: 12px;
+    }
+
+    .event-list li {
+        flex: 0 0 auto;
+        width: calc((100cqi - 12px) / 2);
+        min-width: 0;
+    }
+
+    .event-list img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .event-list h3,
+    .event-list .card-title {
+        margin: 10px 0 0;
+        font-size: calc(13px + 1px * var(--fluid-m));
+        line-height: 1.35;
+    }
+
+    .event-list p {
+        margin: 8px 0 0;
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .page-btn-wrap {
+        margin-top: calc(32px + 8px * var(--fluid-m));
+        gap: 16px;
+    }
+
+    .page-btn-wrap img {
+        width: 12px;
+        height: 12px;
+        padding: 10px;
+    }
+
+}
+

@@ -166,3 +166,362 @@ Brand Card
     box-sizing: border-box;
 }
 
+
+/* ==================================================
+   Fluid: 1025px ~ 1920px
+   1920px Desktop 값 유지, 1025px에서 Tablet에 근접
+================================================== */
+
+@media (min-width: 1025px) {
+
+    :root {
+        --fluid: min(1, (100vw - 1024px) / 896px);
+    }
+
+    .kv-sec {
+        height: calc(640px + 440px * var(--fluid));
+        padding-bottom: calc(80px + 80px * var(--fluid));
+    }
+
+    .kv-sec img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .kv-title-wrap {
+        padding: 0 calc(30px * (1 - var(--fluid)));
+        box-sizing: border-box;
+        margin-top: calc(24px + 16px * var(--fluid));
+    }
+
+    .kv-title-wrap h2 {
+        font-size: calc(48px + 12px * var(--fluid));
+        line-height: 1.2;
+        margin-bottom: calc(8px + 2px * var(--fluid));
+    }
+
+    .kv-title-wrap p {
+        font-size: calc(24px + 10px * var(--fluid));
+        line-height: 1.3;
+    }
+
+    .brand-sec {
+        padding: calc(80px + 270px * var(--fluid)) 0 calc(96px + 104px * var(--fluid));
+    }
+
+    .brand-sec .container {
+        padding: 0 calc(30px * (1 - var(--fluid)));
+        box-sizing: border-box;
+    }
+
+    .brand.main-title-1 {
+        font-size: calc(36px + 24px * var(--fluid));
+        line-height: 1.2;
+    }
+
+    .brand-wrap {
+        margin-top: calc(48px + 92px * var(--fluid));
+    }
+
+    .section-title {
+        font-size: calc(24px + 16px * var(--fluid));
+        line-height: 1.2;
+    }
+
+    .online-brand .section-title {
+        padding-right: calc(20px + 25px * var(--fluid));
+    }
+
+    .offline-brand .section-title {
+        padding-right: calc(14px + 12px * var(--fluid));
+    }
+
+    .brand-list {
+        margin-left: calc(148px + 82px * var(--fluid));
+    }
+
+    .online {
+        row-gap: calc(16px + 8px * var(--fluid));
+        margin-bottom: calc(48px + 52px * var(--fluid));
+    }
+
+    .offline {
+        row-gap: calc(16px + 8px * var(--fluid));
+    }
+
+    .brand-list img {
+        width: calc(160px + 60px * var(--fluid));
+        height: calc(160px + 60px * var(--fluid));
+    }
+
+}
+
+
+/* ==================================================
+   Brand - Tablet (768px ~ 1024px)
+   1024px 첨부 이미지 기준
+================================================== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    :root {
+        --fluid-t: min(1, max(0, (100vw - 768px) / 256px));
+    }
+
+    .kv-sec {
+        height: auto;
+        min-height: 0;
+        padding-bottom: calc(80px + 40px * var(--fluid-t));
+    }
+
+    .kv-sec img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .kv-title-wrap {
+        width: 100%;
+        max-width: 1024px;
+        margin: calc(56px + 40px * var(--fluid-t)) auto 0;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
+    }
+
+    .kv-title-wrap h2 {
+        font-size: calc(36px + 12px * var(--fluid-t));
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .kv-title-wrap p {
+        font-size: calc(18px + 6px * var(--fluid-t));
+        line-height: 1.35;
+    }
+
+    .kv-title-wrap p br {
+        display: none;
+    }
+
+    .brand-sec {
+        padding: calc(56px + 24px * var(--fluid-t)) 0 calc(64px + 32px * var(--fluid-t));
+        text-align: center;
+    }
+
+    .brand-sec .container {
+        width: 100%;
+        max-width: 1024px;
+        padding: 0 calc(20px + 10px * var(--fluid-t));
+        box-sizing: border-box;
+    }
+
+    .brand.main-title-1 {
+        width: 100%;
+        margin: 0 auto;
+        font-size: calc(24px + 12px * var(--fluid-t));
+        font-weight: 700;
+        line-height: 1.35;
+        color: var(--color-primary-heavy);
+    }
+
+    .brand-wrap {
+        margin-top: calc(40px + 24px * var(--fluid-t));
+        width: 100%;
+    }
+
+    .online-brand,
+    .offline-brand {
+        position: relative;
+        width: 100%;
+        text-align: left;
+    }
+
+    .section-title,
+    .online-brand .section-title,
+    .offline-brand .section-title {
+        position: static;
+        top: auto;
+        left: auto;
+        height: auto;
+        width: auto;
+        margin: 0 0 calc(24px + 16px * var(--fluid-t));
+        padding: 0;
+        border-right: 0;
+        text-align: left;
+        font-size: calc(24px + 4px * var(--fluid-t));
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.04em;
+    }
+
+    .brand-list {
+        position: relative;
+        width: 100%;
+        margin-left: 0;
+        box-sizing: border-box;
+    }
+
+    .online,
+    .offline {
+        --brand-card-size: calc(232px + 18px * var(--fluid-t));
+
+        display: grid;
+        grid-template-columns: repeat(3, var(--brand-card-size));
+        justify-content: start;
+        justify-items: start;
+        align-content: start;
+        column-gap: calc(12px + 4px * var(--fluid-t));
+        row-gap: calc(16px + 8px * var(--fluid-t));
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .online {
+        margin-bottom: calc(48px + 24px * var(--fluid-t));
+    }
+
+    .brand-list img {
+        width: var(--brand-card-size);
+        height: var(--brand-card-size);
+        object-fit: contain;
+        object-position: center;
+    }
+
+}
+
+
+/* ==================================================
+   Brand - Mobile (~430px)
+   430px 첨부 이미지 기준
+================================================== */
+
+@media (max-width: 767px) {
+
+    :root {
+        --fluid-m: min(1, max(0, (100vw - 430px) / 337px));
+    }
+
+    .kv-sec {
+        height: auto;
+        min-height: 0;
+        padding-bottom: calc(48px + 16px * var(--fluid-m));
+    }
+
+    .kv-sec img {
+        display: block;
+        width: 100%;
+        height: calc(200px + 48px * var(--fluid-m));
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .kv-title-wrap {
+        width: 100%;
+        max-width: 100%;
+        margin: calc(28px + 12px * var(--fluid-m)) auto 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .kv-title-wrap h2 {
+        font-size: calc(28px + 4px * var(--fluid-m));
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .kv-title-wrap p {
+        font-size: calc(16px + 2px * var(--fluid-m));
+        line-height: 1.4;
+    }
+
+    .brand-sec {
+        padding: calc(40px + 12px * var(--fluid-m)) 0 calc(48px + 16px * var(--fluid-m));
+        text-align: center;
+    }
+
+    .brand-sec .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .brand.main-title-1 {
+        width: 100%;
+        margin: 0 auto;
+        font-size: calc(22px + 4px * var(--fluid-m));
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--color-primary-heavy);
+    }
+
+    .brand-wrap {
+        margin-top: calc(32px + 12px * var(--fluid-m));
+        width: 100%;
+    }
+
+    .online-brand,
+    .offline-brand {
+        position: relative;
+        width: 100%;
+        text-align: left;
+    }
+
+    .section-title,
+    .online-brand .section-title,
+    .offline-brand .section-title {
+        position: static;
+        top: auto;
+        left: auto;
+        height: auto;
+        width: auto;
+        margin: 0 0 calc(10px + 14px * var(--fluid-m));
+        padding: 0;
+        border-right: 0;
+        text-align: left;
+        font-size: calc(20px + 4px * var(--fluid-m));
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.04em;
+    }
+
+    .brand-list {
+        position: relative;
+        width: 100%;
+        margin-left: 0;
+        box-sizing: border-box;
+    }
+
+    .online,
+    .offline {
+        --brand-card-size: calc(188px + 44px * var(--fluid-m));
+
+        display: grid;
+        grid-template-columns: repeat(2, var(--brand-card-size));
+        justify-content: start;
+        justify-items: start;
+        align-content: start;
+        column-gap: calc(10px + 4px * var(--fluid-m));
+        row-gap: calc(12px + 6px * var(--fluid-m));
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .online {
+        margin-bottom: calc(36px + 12px * var(--fluid-m));
+    }
+
+    .brand-list img {
+        width: var(--brand-card-size);
+        height: var(--brand-card-size);
+        object-fit: contain;
+        object-position: center;
+    }
+
+}
+

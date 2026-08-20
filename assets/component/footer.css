@@ -35,8 +35,8 @@
     padding-left: 240px;
     height: 100px;
 
-    border-bottom: 1px solid #303030;
-    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
 }
 
 .footer-top img,
@@ -226,6 +226,12 @@
 
     :root {
         --fluid: min(1, (100vw - 1024px) / 896px);
+    }
+
+    .footer .container {
+        padding-left: calc(48px * (1 - var(--fluid)));
+        padding-right: calc(48px * (1 - var(--fluid)));
+        box-sizing: border-box;
     }
 
     .footer-top {
