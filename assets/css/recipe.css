@@ -359,6 +359,8 @@
 
     z-index: 10;
 
+    background: transparent;
+
     pointer-events: none;
 }
 
@@ -551,6 +553,14 @@ Mobile Popup Wrap (default hidden)
         object-fit: contain;
     }
 
+    .slide-menu.dessert-2 .slide-img img {
+        margin-top: calc((829 / 753 - 515 / 710) * 50%);
+    }
+
+    .slide-menu.dessert-3 .slide-img img {
+        margin-top: calc((829 / 753 - 614 / 715) * 50%);
+    }
+
     .slide-btn-wrap {
         left: 50%;
         width: min(1380px, calc(100vw * 1380 / 1920));
@@ -719,7 +729,7 @@ Mobile Popup Wrap (default hidden)
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: calc(48px + 16px * var(--fluid-t)) 24px calc(28px + 8px * var(--fluid-t));
+        padding: calc(48px + 16px * var(--fluid-t)) 24px calc(108px + 16px * var(--fluid-t));
         box-sizing: border-box;
     }
 
@@ -767,11 +777,20 @@ Mobile Popup Wrap (default hidden)
         object-fit: contain;
     }
 
+    .slide-menu.dessert-2 .slide-img img {
+        margin-top: calc(12px + 12px * var(--fluid-t));
+    }
+
+    .slide-menu.dessert-3 .slide-img img {
+        margin-top: calc(8px + 10px * var(--fluid-t));
+    }
+
     .slide-btn-wrap {
-        position: relative;
+        position: absolute;
         top: auto;
-        left: auto;
-        bottom: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
         flex: 0 0 auto;
         width: 100%;
         max-width: none;
@@ -780,6 +799,7 @@ Mobile Popup Wrap (default hidden)
         justify-content: center;
         gap: 12px;
         margin: 0;
+        background: transparent;
         pointer-events: none;
     }
 
@@ -971,7 +991,7 @@ Mobile Popup Wrap (default hidden)
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: calc(36px + 12px * var(--fluid-m)) 20px calc(20px + 8px * var(--fluid-m));
+        padding: calc(36px + 12px * var(--fluid-m)) 20px calc(84px + 16px * var(--fluid-m));
         box-sizing: border-box;
     }
 
@@ -1019,11 +1039,20 @@ Mobile Popup Wrap (default hidden)
         object-fit: contain;
     }
 
+    .slide-menu.dessert-2 .slide-img img {
+        margin-top: calc(6px + 10px * var(--fluid-m));
+    }
+
+    .slide-menu.dessert-3 .slide-img img {
+        margin-top: calc(4px + 8px * var(--fluid-m));
+    }
+
     .slide-btn-wrap {
-        position: relative;
+        position: absolute;
         top: auto;
-        left: auto;
-        bottom: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
         flex: 0 0 auto;
         width: 100%;
         max-width: none;
@@ -1032,6 +1061,7 @@ Mobile Popup Wrap (default hidden)
         justify-content: center;
         gap: 10px;
         margin: 0;
+        background: transparent;
         pointer-events: none;
     }
 

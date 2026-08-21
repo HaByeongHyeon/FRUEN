@@ -348,8 +348,16 @@ body {
     pointer-events: none;
 }
 
+.solution-img-wrap > [data-aos] {
+    flex-shrink: 0;
+    width: max-content;
+}
+
 .solution-img-wrap img {
-    width: 342px;
+    display: block;
+
+    width: 410.4px;
+    height: auto;
 
     flex-shrink: 0;
 }
@@ -358,6 +366,16 @@ body {
 /* =========================
    Image Position
 ========================= */
+
+.solution-img-wrap > [data-aos]:has(.solution-img-right) {
+    align-self: flex-end;
+    margin-right: 48px;
+}
+
+.solution-img-wrap > [data-aos]:has(.solution-img-left) {
+    align-self: flex-start;
+    margin-left: 48px;
+}
 
 .solution-img-right {
     align-self: flex-end;
@@ -580,6 +598,10 @@ body {
     color: var(--color-primary-heavy);
 }
 
+.standard-sec .main-title-1 {
+    line-height: 1;
+}
+
 .standard-text-wrap>p {
     margin: 0;
 
@@ -773,7 +795,16 @@ body {
     }
 
     .solution-img-wrap img {
-        width: calc(240px + 102px * var(--fluid));
+        width: calc(288px + 122.4px * var(--fluid));
+        height: auto;
+    }
+
+    .solution-img-wrap > [data-aos]:has(.solution-img-right) {
+        margin-right: calc(24px + 24px * var(--fluid));
+    }
+
+    .solution-img-wrap > [data-aos]:has(.solution-img-left) {
+        margin-left: calc(24px + 24px * var(--fluid));
     }
 
     .philosophy-sec .container {
@@ -792,7 +823,7 @@ body {
 
     .standard-text-wrap h2 {
         font-size: calc(36px + 24px * var(--fluid));
-        line-height: 1.2;
+        line-height: 1;
         margin-bottom: calc(12px + 3px * var(--fluid));
     }
 
@@ -829,7 +860,6 @@ body {
     .kv-sec img {
         display: block;
         width: 100%;
-        height: calc(220px + 40px * var(--fluid-t));
         object-fit: cover;
         object-position: center top;
     }
@@ -1047,8 +1077,17 @@ body {
     }
 
     .solution-img-wrap img {
-        width: calc(180px + 60px * var(--fluid-t));
+        width: calc(216px + 72px * var(--fluid-t));
+        height: auto;
         border-radius: 12px;
+    }
+
+    .solution-img-wrap > [data-aos]:has(.solution-img-right) {
+        margin-right: calc(16px + 8px * var(--fluid-t));
+    }
+
+    .solution-img-wrap > [data-aos]:has(.solution-img-left) {
+        margin-left: calc(16px + 8px * var(--fluid-t));
     }
 
 
@@ -1175,7 +1214,6 @@ body {
     .kv-sec img {
         display: block;
         width: 100%;
-        height: calc(220px + (8px * (1 - var(--fluid-m))));
         object-fit: cover;
         object-position: center top;
     }
@@ -1390,8 +1428,17 @@ body {
     }
 
     .solution-img-wrap img {
-        width: calc(120px + 60px * var(--fluid-m));
+        width: calc(144px + 72px * var(--fluid-m));
+        height: auto;
         border-radius: 12px;
+    }
+
+    .solution-img-wrap > [data-aos]:has(.solution-img-right) {
+        margin-right: calc(12px + 8px * var(--fluid-m));
+    }
+
+    .solution-img-wrap > [data-aos]:has(.solution-img-left) {
+        margin-left: calc(12px + 8px * var(--fluid-m));
     }
 
 
@@ -1408,12 +1455,24 @@ body {
     .philosophy-title-wrap h2 {
         font-size: calc(22px + 6px * var(--fluid-m));
         margin-bottom: 12px;
+        width: 100%;
+        max-width: 100%;
+        word-break: keep-all;
+        overflow-wrap: break-word;
     }
 
     .philosophy-title-wrap p {
+        width: 100%;
+        max-width: 100%;
         margin: 0 0 calc(28px + 12px * var(--fluid-m));
         font-size: calc(13px + 2px * var(--fluid-m));
         line-height: 1.7;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    .philosophy-title-wrap p br {
+        display: none;
     }
 
     .philosophy-slider-wrap img {

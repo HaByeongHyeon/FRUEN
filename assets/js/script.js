@@ -1,97 +1,132 @@
-
 // slider =======================================
 
+$(function () {
+    var $sec = $(".slider-sec");
+    var $slides = $sec.children(".slider-wrap");
+    var total = $slides.length;
+    var index = 0;
+    var animating = false;
+    var DURATION = 600;
+
+    if (!$sec.length || total < 2) return;
+
+    $slides.css("transition", "transform " + DURATION + "ms ease");
+
+    function go(dir) {
+        if (animating) return;
+        animating = true;
+        index = (index + dir + total) % total;
+        $slides.css("transform", "translateX(" + (-index * 100) + "%)");
+        window.setTimeout(function () {
+            animating = false;
+        }, DURATION);
+    }
+
+    $sec.on("click", ".next-btn", function () {
+        go(1);
+    });
+
+    $sec.on("click", ".prev-btn", function () {
+        go(-1);
+    });
+});
 
 
-// History ======================================================
+gsap.registerPlugin(ScrollTrigger);
 
-// gsap.registerPlugin(ScrollTrigger);
 
-// // 요소 선택
-// const progressBar = document.querySelector(".progress-bar");
-// const pointer = document.querySelector(".scrollbar-pointer");
+// Prove marquee / Brand marquee / SNS marquee ==================
 
-// // SVG 길이
-// const totalLength = progressBar.getTotalLength();
+function duplicateMarqueeChildren(selector) {
+    var wrap = document.querySelector(selector);
+    if (!wrap || wrap.getAttribute("data-marquee") === "1") return;
 
-// // 초기 상태
-// gsap.set(progressBar, {
-//     strokeDasharray: totalLength,
-//     strokeDashoffset: totalLength
-// });
+    var nodes = Array.prototype.slice.call(wrap.children);
+    if (!nodes.length) return;
 
-// gsap.set(pointer, {
-//     x: 0
-// });
+    nodes.forEach(function (node) {
+        wrap.appendChild(node.cloneNode(true));
+    });
 
-// // Timeline
-// const tl = gsap.timeline({
-//     scrollTrigger: {
-//         trigger: ".history-track",
-//         pin: ".history-sec",
-//         start: "top top",
-//         end: "+=4000",
-//         scrub: true,
-//         // markers: true
-//     }
-// });
+    wrap.setAttribute("data-marquee", "1");
+}
 
-// // 노란 선 채우기
-// tl.to(progressBar, {
-//     strokeDashoffset: 0,
-//     ease: "none"
-// }, 0);
+duplicateMarqueeChildren(".product-wrap");
+duplicateMarqueeChildren(".brand-wrap");
+duplicateMarqueeChildren(".sns-wrap");
 
-// // 포인터 이동
-// tl.to(pointer, {
-//     x: () => {
-//         const svg = document.querySelector(".history-progress-svg");
-//         return svg.getBoundingClientRect().width - pointer.offsetWidth;
-//     },
-//     ease: "none"
-// }, 0);
 
-// // ===== 텍스트 Active 변경 =====
+// Prove countUp =================================================
 
-// const textItems = document.querySelectorAll(".history-text-list");
+(function () {
+    var proveSec = document.querySelector(".prove-sec");
+    if (!proveSec) return;
 
-// ScrollTrigger.create({
+    var spans = proveSec.querySelectorAll(".count span");
+    if (!spans.length) return;
 
-//     trigger: ".history-sec",
+    var items = [];
+    var started = false;
 
-//     start: "top top",
+    spans.forEach(function (span) {
+        var sample = (span.textContent || "").trim();
+        var numeric = parseFloat(sample.replace(/,/g, ""));
+        if (isNaN(numeric)) return;
 
-//     end: "+=4000",
+        items.push({
+            el: span,
+            sample: sample,
+            target: numeric
+        });
 
-//     scrub: true,
+        span.textContent = formatCount(0, sample);
+    });
 
-//     onUpdate: (self) => {
+    function formatCount(value, sample) {
+        var hasComma = sample.indexOf(",") !== -1;
+        var decimals = 0;
 
-//         const progress = self.progress;
+        if (sample.indexOf(".") !== -1) {
+            decimals = (sample.split(".")[1] || "").replace(/\D/g, "").length;
+        }
 
-//         textItems.forEach(item => item.classList.remove("active"));
+        var rounded = value.toFixed(decimals);
 
-//         if (progress < 0.315625) {
+        if (!hasComma) return rounded;
 
-//             textItems[0].classList.add("active");
+        var parts = rounded.split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
 
-//         } else if (progress < 0.507812) {
+    function playCountUp() {
+        if (started) return;
+        started = true;
 
-//             textItems[1].classList.add("active");
+        items.forEach(function (item) {
+            var state = { val: 0 };
 
-//         } else if (progress < 0.697916) {
+            gsap.to(state, {
+                val: item.target,
+                duration: 0.5,
+                ease: "none",
+                onUpdate: function () {
+                    item.el.textContent = formatCount(state.val, item.sample);
+                },
+                onComplete: function () {
+                    item.el.textContent = item.sample;
+                }
+            });
+        });
+    }
 
-//             textItems[2].classList.add("active");
-
-//         } else {
-
-//             textItems[3].classList.add("active");
-
-//         }
-
-//     }
-
-// });
+    ScrollTrigger.create({
+        trigger: proveSec,
+        start: "top top",
+        once: true,
+        onEnter: playCountUp
+    });
+})();
 
 
 // Problem ===============================================================
@@ -103,11 +138,24 @@ $(function () {
 });
 
 
-// Prove ========================================================================
+// Recipe ===============================================================
 
+$(function () {
+    $(".icon-wrap button").on("click", function () {
+        var i = $(this).closest("li").index();
 
+        $(".icon-wrap button").removeClass("active");
+        $(this).addClass("active");
 
+        $(".recipe-img-wrap img").removeClass("active").eq(i).addClass("active");
+        $(".recipe-list").removeClass("recipe-active").eq(i).addClass("recipe-active");
+    });
 
+    $(".recipe-sec .preview-btn").on("click", function () {
+        location.href = "/recipe.html";
+    });
 
-// ========================================================================
-
+    $(".flavor-sec .preview-btn").on("click", function () {
+        location.href = "/product.html";
+    });
+});

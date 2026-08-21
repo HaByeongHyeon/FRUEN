@@ -53,6 +53,19 @@ $(function () {
 });
 
 
+$(function () {
+
+    if (window.AOS) {
+        AOS.init({
+            once: true,
+            offset: 80,
+            easing: "ease"
+        });
+    }
+
+});
+
+
 /* 문제 제기 =============================================================== */
 
 
@@ -101,6 +114,10 @@ $(function () {
                 gsap.set(solutionImg, {
                     autoAlpha: 1
                 });
+
+                if (window.AOS) {
+                    AOS.refresh();
+                }
             },
             onLeaveBack: function () {
                 gsap.set(solutionImg, {

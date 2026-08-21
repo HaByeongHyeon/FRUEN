@@ -61,23 +61,9 @@ $(document).ready(function () {
         $slides.removeClass("active").eq(cat).addClass("active");
     }
 
-    function syncSlideChrome() {
-        var el = getVisibleMenu();
-        if (!el) return;
-        var bg = window.getComputedStyle(el).backgroundColor;
-        if (getViewportType() === "desktop") {
-            $btnWrap.css("background-color", "");
-            $slideContents.css("background-color", "");
-            return;
-        }
-        $btnWrap.css("background-color", bg);
-        $slideContents.css("background-color", bg);
-    }
-
     function syncAll() {
         syncCurrentIndex();
         syncCategory();
-        syncSlideChrome();
     }
 
     function clearTrackMotion($track) {
@@ -92,7 +78,6 @@ $(document).ready(function () {
     function finishSlide(index) {
         currentIndex = index;
         syncCategory();
-        syncSlideChrome();
         isAnimating = false;
     }
 
@@ -371,7 +356,6 @@ $(document).ready(function () {
         }
         clearTrackMotion($targetSlide);
         currentIndex = getMenuIndex(firstMenu);
-        syncSlideChrome();
     });
 
     $btnWrap.find("button").eq(0).on("click", function () {
