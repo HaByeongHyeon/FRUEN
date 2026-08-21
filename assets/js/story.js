@@ -3,27 +3,51 @@ $(function () {
 
     const $yearBtns = $(".year-text-wrap > span");
     const $yearImgs = $(".year-img-wrap");
+    const isDesktop = () => window.innerWidth >= 1025;
 
-    // 1번 이미지는 페이지 접속 시 표시
-    $yearImgs.css("opacity", 0);
-    $yearImgs.eq(0).css("opacity", 1);
+    function syncHistoryDisplay() {
+        $yearImgs.stop(true, true);
+
+        if (isDesktop()) {
+            $yearImgs.css("opacity", 0);
+            $yearImgs.eq(0).css("opacity", 1);
+            return;
+        }
+
+        $yearImgs.css("opacity", 1);
+    }
+
+    syncHistoryDisplay();
 
     $yearBtns.on("mouseenter", function () {
 
+        if (!isDesktop()) {
+            return;
+        }
+
         const index = $yearBtns.index(this);
 
-        // 전체 이미지 숨김
         $yearImgs.stop(true, true).animate({
             opacity: 0
         }, 200);
 
-        // 선택한 이미지 표시
         $yearImgs.eq(index)
             .stop(true, true)
             .animate({
                 opacity: 1
             }, 300);
 
+    });
+
+    let wasDesktop = isDesktop();
+
+    $(window).on("resize.storyHistory", function () {
+        const nowDesktop = isDesktop();
+
+        if (nowDesktop !== wasDesktop) {
+            syncHistoryDisplay();
+            wasDesktop = nowDesktop;
+        }
     });
 
 });
@@ -39,78 +63,63 @@ $(function () {
     const solutionSec = document.querySelector(".solution-sec");
     const solutionImg = document.querySelector(".solution-img-wrap");
 
-    function solutionAnimation() {
-
-        const secHeight = solutionSec.offsetHeight;
-
-        // 이미지 초기 위치
-        gsap.set(solutionImg, {
-            y: secHeight,
-            autoAlpha: 0
-        });
-
-        /*
-        이미지가 이동해야 하는 거리
-
-        시작:
-        solution-img-wrap bottom
-        ↓
-        화면 아래
-
-        종료:
-        solution-img-wrap bottom
-        ↓
-        화면 중앙
-        */
-
-        const imgRect = solutionImg.getBoundingClientRect();
-        const screenCenter = window.innerHeight / 2;
-
-        const moveDistance = imgRect.bottom - screenCenter - 1500;
-
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: solutionSec,
-
-                // solution-sec 중앙 = 화면 중앙
-                start: "center center",
-
-                // 이미지 bottom = 화면 중앙
-                end: "+=" + moveDistance,
-
-                pin: true,
-                pinSpacing: true,
-
-                scrub: true,
-
-                invalidateOnRefresh: true,
-
-                onEnter: function () {
-
-                    gsap.set(solutionImg, {
-                        autoAlpha: 1
-                    });
-
-                },
-
-                onLeaveBack: function () {
-
-                    gsap.set(solutionImg, {
-                        autoAlpha: 0
-                    });
-
-                }
-            }
-        })
-
-            .to(solutionImg, {
-                y: -moveDistance,
-                ease: "none"
-            });
-
+    if (!solutionSec || !solutionImg) {
+        return;
     }
 
-    solutionAnimation();
+    function getMoveDistance() {
+        const secHeight = solutionSec.offsetHeight;
+        const imgHeight = solutionImg.scrollHeight;
+        const screenCenter = window.innerHeight / 2;
+
+        let sectionTop = 0;
+        let el = solutionSec;
+
+        while (el) {
+            sectionTop += el.offsetTop;
+            el = el.offsetParent;
+        }
+
+        return Math.max(sectionTop + secHeight + imgHeight - screenCenter - 1500, 400);
+    }
+
+    gsap.set(solutionImg, {
+        y: () => solutionSec.offsetHeight,
+        autoAlpha: 0
+    });
+
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: solutionSec,
+            start: "center center",
+            end: () => "+=" + getMoveDistance(),
+            pin: true,
+            pinSpacing: true,
+            scrub: true,
+            invalidateOnRefresh: true,
+            onEnter: function () {
+                gsap.set(solutionImg, {
+                    autoAlpha: 1
+                });
+            },
+            onLeaveBack: function () {
+                gsap.set(solutionImg, {
+                    autoAlpha: 0
+                });
+            }
+        }
+    }).to(solutionImg, {
+        y: () => -getMoveDistance(),
+        ease: "none"
+    });
+
+    $(window).on("resize.storySolution", function () {
+        ScrollTrigger.refresh();
+    });
+
+    $(window).on("load.storySolution", function () {
+        ScrollTrigger.refresh();
+    });
 
 });
 
@@ -129,56 +138,77 @@ $(function () {
 
     const $pagination = $(".page-pagination span");
 
+    const isDesktop = () => window.innerWidth >= 1025;
 
-    // =========================
-    // 다음 버튼
-    // =========================
+    function goTo(index) {
+        current = (index + $slides.length) % $slides.length;
+
+        $slides.css(
+            "transform",
+            "translateX(-" + (current * 100) + "%)"
+        );
+
+        $pagination
+            .removeClass("active")
+            .eq(current)
+            .addClass("active");
+    }
 
     $nextBtn.on("click", function () {
-
-        current++;
-
-        // 3번 → 1번
-        if (current >= $slides.length) {
-            current = 0;
-        }
-
-        $slides.css(
-            "transform",
-            "translateX(-" + (current * 100) + "%)"
-        );
-
-        $pagination
-            .removeClass("active")
-            .eq(current)
-            .addClass("active");
-
+        goTo(current + 1);
     });
 
-
-    // =========================
-    // 이전 버튼
-    // =========================
-
     $prevBtn.on("click", function () {
+        goTo(current - 1);
+    });
 
-        current--;
+    let swipeActive = false;
+    let swipePointerId = null;
+    let swipeStartX = 0;
+    let swipeStartY = 0;
 
-        // 1번 → 3번
-        if (current < 0) {
-            current = $slides.length - 1;
+    function swipeThreshold() {
+        return Math.max(48, Math.min(72, window.innerWidth * 0.14));
+    }
+
+    $slider.on("pointerdown", function (e) {
+        if (isDesktop()) return;
+        if ($(e.target).closest("button").length) return;
+
+        swipeActive = true;
+        swipePointerId = e.pointerId;
+        swipeStartX = e.clientX;
+        swipeStartY = e.clientY;
+    });
+
+    $slider.on("pointermove", function (e) {
+        if (!swipeActive || swipePointerId !== e.pointerId) return;
+
+        const dx = e.clientX - swipeStartX;
+        const dy = e.clientY - swipeStartY;
+
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
+            e.preventDefault();
         }
+    });
 
-        $slides.css(
-            "transform",
-            "translateX(-" + (current * 100) + "%)"
-        );
+    $slider.on("pointerup pointercancel", function (e) {
+        if (!swipeActive || swipePointerId !== e.pointerId) return;
 
-        $pagination
-            .removeClass("active")
-            .eq(current)
-            .addClass("active");
+        const dx = e.clientX - swipeStartX;
+        const dy = e.clientY - swipeStartY;
 
+        swipeActive = false;
+        swipePointerId = null;
+
+        if (Math.abs(dx) < swipeThreshold()) return;
+        if (Math.abs(dx) < Math.abs(dy)) return;
+
+        if (dx < 0) {
+            goTo(current + 1);
+        } else {
+            goTo(current - 1);
+        }
     });
 
 });
@@ -249,6 +279,61 @@ $(function () {
 
     $(".slider-pagenation button").eq(0).on("click", () => slide(-1));
     $(".slider-pagenation button").eq(1).on("click", () => slide(1));
+
+    let swipeActive = false;
+    let swipePointerId = null;
+    let swipeStartX = 0;
+    let swipeStartY = 0;
+
+    const isDesktop = () => window.innerWidth >= 1025;
+
+    function swipeThreshold() {
+        return Math.max(48, Math.min(72, window.innerWidth * 0.14));
+    }
+
+    const $cardWrap = $(".standard-card-wrap");
+
+    $cardWrap.on("pointerdown", function (e) {
+        if (isDesktop()) return;
+        if (moving) return;
+        if ($(e.target).closest("button").length) return;
+
+        swipeActive = true;
+        swipePointerId = e.pointerId;
+        swipeStartX = e.clientX;
+        swipeStartY = e.clientY;
+    });
+
+    $cardWrap.on("pointermove", function (e) {
+        if (!swipeActive || swipePointerId !== e.pointerId) return;
+
+        const dx = e.clientX - swipeStartX;
+        const dy = e.clientY - swipeStartY;
+
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
+            e.preventDefault();
+        }
+    });
+
+    $cardWrap.on("pointerup pointercancel", function (e) {
+        if (!swipeActive || swipePointerId !== e.pointerId) return;
+
+        const dx = e.clientX - swipeStartX;
+        const dy = e.clientY - swipeStartY;
+
+        swipeActive = false;
+        swipePointerId = null;
+
+        if (moving) return;
+        if (Math.abs(dx) < swipeThreshold()) return;
+        if (Math.abs(dx) < Math.abs(dy)) return;
+
+        if (dx < 0) {
+            slide(1);
+        } else {
+            slide(-1);
+        }
+    });
 
     update();
 
