@@ -61,4 +61,6 @@ a {
 button {
 	all: unset;
 	cursor: pointer;
+	border: none;
+	background-color: transparent;
 }
