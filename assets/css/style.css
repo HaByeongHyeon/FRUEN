@@ -14,21 +14,22 @@ Slider Section
     display: flex;
 
     overflow: hidden;
+    touch-action: pan-y;
 }
 
-.slider-wrap:nth-child(1) {
+.slider-wrap:nth-child(1)::before {
     background-color: var(--color-flavor-lemon);
 }
 
-.slider-wrap:nth-child(2) {
+.slider-wrap:nth-child(2)::before {
     background-color: var(--color-flavor-peach);
 }
 
-.slider-wrap:nth-child(3) {
+.slider-wrap:nth-child(3)::before {
     background-color: var(--color-flavor-passion-fruit);
 }
 
-.slider-wrap:nth-child(4) {
+.slider-wrap:nth-child(4)::before {
     background-color: var(--color-flavor-grapefruit);
 }
 
@@ -38,12 +39,52 @@ Slider Wrap
 ========================= */
 
 .slider-wrap {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     width: 100%;
     height: 100%;
 
     flex-shrink: 0;
+
+    --bg-x: 0;
+
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.slider-wrap::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    transform: translate3d(calc(var(--bg-x) * 1%), 0, 0);
+
+    z-index: 0;
+}
+
+.slider-wrap:nth-child(1),
+.slider-wrap.is-active,
+.slider-wrap.is-transition {
+    visibility: visible;
+}
+
+.slider-wrap:nth-child(1),
+.slider-wrap.is-active {
+    pointer-events: auto;
+}
+
+.slider-sec.is-ready .slider-wrap:nth-child(1):not(.is-active):not(.is-transition) {
+    visibility: hidden;
+    pointer-events: none;
 }
 
 
@@ -327,8 +368,10 @@ Pagination
     padding: 140px 0;
     background: #F6F5F4;
     text-align: center;
+}
 
-    overflow: hidden;
+.pin-spacer:has(> .history-sec) {
+    background: #F6F5F4;
 }
 
 .history-title {
@@ -349,6 +392,18 @@ Pagination
 
 .history-img-wrap {
     width: 100%;
+    overflow: hidden;
+}
+
+.history-sec.is-pinned {
+    touch-action: none;
+    background: #F6F5F4;
+    z-index: 20;
+}
+
+.pin-spacer:has(> .history-sec.is-pinned) {
+    z-index: 20;
+    position: relative;
 }
 
 .history-track {
@@ -358,6 +413,7 @@ Pagination
 }
 
 .history-track img {
+    flex: 0 0 100%;
     flex-shrink: 0;
     display: block;
     width: 100%;
@@ -413,6 +469,10 @@ Pointer
     left: 0;
 
     display: block;
+
+    will-change: transform;
+
+    pointer-events: none;
 
     transform: translateY(-50%);
 }
@@ -1372,24 +1432,56 @@ Unit
         object-position: center;
     }
 
+    .scrollbar-pointer {
+        width: 36px;
+        height: 36px;
+        top: 50%;
+    }
+
+    .history-sec.is-pinned {
+        min-height: 100vh;
+        min-height: 100dvh;
+        z-index: 20;
+        box-sizing: border-box;
+        isolation: isolate;
+    }
+
+    .prove-sec,
+    .flavor-sec {
+        position: relative;
+        z-index: 0;
+    }
+
     .history-text-wrap {
-        display: flex;
+        display: block;
+        position: relative;
         justify-content: center;
         margin-top: calc(50px + 30px * var(--fluid-t));
         gap: 0;
+        min-height: 132px;
     }
 
     .history-text-list {
-        display: none;
-    }
-
-    .history-text-list.active {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: calc(12px + 4px * var(--fluid-t));
         width: 100%;
         text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .history-text-list.active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .history-text-list>img {
@@ -1849,24 +1941,50 @@ Unit
         top: 50%;
     }
 
+    .history-sec.is-pinned {
+        min-height: 100vh;
+        min-height: 100dvh;
+        z-index: 20;
+        box-sizing: border-box;
+        isolation: isolate;
+    }
+
+    .prove-sec,
+    .flavor-sec {
+        position: relative;
+        z-index: 0;
+    }
+
     .history-text-wrap {
-        display: flex;
+        display: block;
+        position: relative;
         justify-content: center;
         margin-top: 50px;
         padding: 0 20px;
+        min-height: 120px;
     }
 
     .history-text-list {
-        display: none;
-    }
-
-    .history-text-list.active {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 12px;
         width: 100%;
         text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .history-text-list.active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .history-text-list>img {

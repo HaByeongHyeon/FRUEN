@@ -192,6 +192,174 @@
     display: none;
 }
 
+.hamburger-close-icon {
+    display: none;
+    position: relative;
+    width: 18px;
+    height: 18px;
+}
+
+.hamburger-close-icon::before,
+.hamburger-close-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--color-primary-normal);
+}
+
+.hamburger-close-icon::before {
+    transform: rotate(45deg);
+}
+
+.hamburger-close-icon::after {
+    transform: rotate(-45deg);
+}
+
+.hamburger-menu.is-open .hamburger-menu-btn img {
+    display: none;
+}
+
+.hamburger-menu.is-open .hamburger-close-icon {
+    display: block;
+}
+
+
+/* ==================================================
+   Slide Menu (Tablet / Mobile)
+================================================== */
+
+.slide-menu,
+.slide-menu-dim {
+    display: none;
+}
+
+.slide-menu-dim {
+    position: fixed;
+    inset: 0;
+    z-index: 199990;
+    background: transparent;
+}
+
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200000;
+
+    height: 100%;
+    height: 100dvh;
+
+    display: none;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    background-color: #fff;
+
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.slide-menu.is-open {
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.slide-menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.slide-menu-list a {
+    display: block;
+    color: var(--color-primary-normal);
+    font-family: var(--font-family);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+}
+
+.slide-menu-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #e6ded8;
+}
+
+.slide-menu-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slide-menu-shop,
+.slide-menu-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 50px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.slide-menu-shop {
+    border: 1px solid var(--color-primary-normal);
+    background-color: #fff;
+    color: var(--color-primary-normal);
+}
+
+.slide-menu-shop img {
+    display: block;
+    width: auto;
+    height: 12px;
+    margin-left: 6px;
+}
+
+.slide-menu-contact {
+    border: 1px solid var(--color-primary-normal);
+    background-color: var(--color-primary-normal);
+    color: #fff;
+}
+
+.slide-menu-instagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    color: var(--color-primary-normal);
+    font-family: var(--font-family);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+
+.slide-menu-instagram img {
+    display: block;
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    filter: invert(18%) sepia(38%) saturate(1800%) hue-rotate(353deg) brightness(92%) contrast(101%);
+}
+
+html.is-slide-menu-open,
+html.is-slide-menu-open body {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+html.is-slide-menu-open .header {
+    z-index: 200010;
+}
+
 
 /* ==================================================
    Sub page overlay header (기존 서브페이지 스타일 유지)
@@ -270,6 +438,8 @@ body.theme-header-light .contact-btn:hover a {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        z-index: 2;
     }
 
     .hamburger-menu-btn {
@@ -278,6 +448,8 @@ body.theme-header-light .contact-btn:hover a {
         justify-content: center;
         width: calc(28px + 4px * var(--fluid-t));
         height: calc(28px + 4px * var(--fluid-t));
+        background: transparent;
+        cursor: pointer;
     }
 
     .hamburger-menu-btn img {
@@ -296,6 +468,53 @@ body.theme-header-light .contact-btn:hover a {
 
     body.theme-header-light .hamburger-menu-btn img {
         filter: none;
+    }
+
+    .slide-menu-dim {
+        display: block;
+        pointer-events: none;
+    }
+
+    html.is-slide-menu-open .slide-menu-dim {
+        pointer-events: auto;
+    }
+
+    .slide-menu {
+        display: flex;
+        width: 50%;
+        padding: calc(108px + 20px * var(--fluid-t)) calc(36px + 16px * var(--fluid-t)) 48px;
+    }
+
+    .slide-menu-list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: calc(28px + 10px * var(--fluid-t));
+    }
+
+    .slide-menu-list a {
+        font-size: calc(24px + 6px * var(--fluid-t));
+        line-height: 1.3;
+    }
+
+    .slide-menu-divider {
+        margin: calc(36px + 10px * var(--fluid-t)) 0 calc(28px + 8px * var(--fluid-t));
+    }
+
+    .slide-menu-actions {
+        gap: 12px;
+    }
+
+    .slide-menu-shop,
+    .slide-menu-contact {
+        width: calc(168px + 24px * var(--fluid-t));
+        height: calc(40px + 4px * var(--fluid-t));
+        font-size: calc(15px + 1px * var(--fluid-t));
+    }
+
+    .slide-menu-instagram {
+        padding-top: 48px;
+        font-size: calc(14px + 2px * var(--fluid-t));
     }
 
 }
@@ -341,6 +560,12 @@ body.theme-header-light .contact-btn:hover a {
         padding: calc(10px + 2px * var(--fluid)) calc(24px + 8px * var(--fluid));
     }
 
+    .slide-menu,
+    .slide-menu-dim {
+        display: none !important;
+        pointer-events: none;
+    }
+
 }
 
 
@@ -375,6 +600,8 @@ body.theme-header-light .contact-btn:hover a {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        z-index: 2;
     }
 
     .hamburger-menu-btn {
@@ -383,6 +610,8 @@ body.theme-header-light .contact-btn:hover a {
         justify-content: center;
         width: 28px;
         height: 28px;
+        background: transparent;
+        cursor: pointer;
     }
 
     .hamburger-menu-btn img {
@@ -401,6 +630,48 @@ body.theme-header-light .contact-btn:hover a {
 
     body.theme-header-light .hamburger-menu-btn img {
         filter: none;
+    }
+
+    .slide-menu-dim {
+        display: none;
+    }
+
+    .slide-menu {
+        display: flex;
+        width: 100%;
+        padding: 96px 32px 40px;
+    }
+
+    .slide-menu-list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .slide-menu-list a {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .slide-menu-divider {
+        margin: 36px 0 28px;
+    }
+
+    .slide-menu-actions {
+        gap: 12px;
+    }
+
+    .slide-menu-shop,
+    .slide-menu-contact {
+        width: 180px;
+        height: 44px;
+        font-size: 16px;
+    }
+
+    .slide-menu-instagram {
+        padding-top: 40px;
+        font-size: 14px;
     }
 
 }

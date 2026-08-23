@@ -35,8 +35,33 @@
     </div>
 
     <div class="hamburger-menu">
-        <button class="hamburger-menu-btn">
-            <img src="./assets/icon/icon-hamburger-menu.png" alt="햄버거메뉴">
+        <button class="hamburger-menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="slide-menu">
+            <img src="./assets/icon/icon-hamburger-menu.png" alt="">
+            <span class="hamburger-close-icon" aria-hidden="true"></span>
         </button>
     </div>
 </header>
+
+<div class="slide-menu-dim" hidden></div>
+
+<nav class="slide-menu" id="slide-menu" aria-hidden="true">
+    <ul class="slide-menu-list">
+        <li><a href="./story.html">STORY</a></li>
+        <li><a href="./product.html">PRODUCT</a></li>
+        <li><a href="./recipe.html">RECIPE</a></li>
+        <li><a href="./brand.html">LISTED BRAND</a></li>
+        <li><a href="./event.html">EVENT</a></li>
+    </ul>
+
+    <div class="slide-menu-divider"></div>
+
+    <div class="slide-menu-actions">
+        <a class="slide-menu-shop" href="#">SHOP <img src="./assets/icon/icon-shop-btn.png" alt=""></a>
+        <a class="slide-menu-contact" href="./contact.html">CONTACT</a>
+    </div>
+
+    <a class="slide-menu-instagram" href="https://www.instagram.com/fruen_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+        <img src="./assets/icon/icon-footer-instargram.svg" alt="">
+        <span>INSTAGRAM</span>
+    </a>
+</nav>

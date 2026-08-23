@@ -30,5 +30,9 @@
     window.componentsReady = Promise.all([
         loadComponent("header", "header.html"),
         loadComponent("footer", "footer.html")
-    ]);
+    ]).then(function () {
+        var script = document.createElement("script");
+        script.src = new URL("header.js", base).href;
+        document.body.appendChild(script);
+    });
 })();
