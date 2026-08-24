@@ -26,6 +26,10 @@ $(function () {
 
     var SWIPE_THRESHOLD = 56;
 
+    function isMobileSlider() {
+        return window.matchMedia("(max-width: 767px)").matches;
+    }
+
     function fruitFromY() {
         return Math.min(140, Math.max(72, window.innerHeight * 0.12));
     }
@@ -65,10 +69,12 @@ $(function () {
 
         setBgX(slide, 0);
         gsap.set(el.cup, { opacity: isActive ? 1 : 0, force3D: false });
-        gsap.set(el.fruit, {
-            y: isActive ? 0 : fruitFromY(),
-            opacity: isActive ? 1 : 0
-        });
+        if (el.fruit && !isMobileSlider()) {
+            gsap.set(el.fruit, {
+                y: isActive ? 0 : fruitFromY(),
+                opacity: isActive ? 1 : 0
+            });
+        }
         gsap.set(el.text, {
             y: isActive ? 0 : textFromY(),
             opacity: isActive ? 1 : 0,
@@ -101,10 +107,10 @@ $(function () {
 
         setBgX(next.slide, bgInFrom);
         gsap.set(next.cup, { opacity: 0, force3D: false });
-        gsap.set(next.fruit, { y: fruitY, opacity: 0 });
+        if (next.fruit && !isMobileSlider()) gsap.set(next.fruit, { y: fruitY, opacity: 0 });
         gsap.set(next.text, { y: textY, opacity: 0, force3D: false });
         gsap.set(current.text, { opacity: 0, y: 0, force3D: false });
-        gsap.set(current.fruit, { opacity: 0 });
+        if (current.fruit && !isMobileSlider()) gsap.set(current.fruit, { opacity: 0 });
 
         current.slide.classList.add("is-transition");
         next.slide.classList.add("is-transition");
@@ -139,12 +145,14 @@ $(function () {
             force3D: false
         }, "content");
 
-        tl.to(next.fruit, {
-            y: 0,
-            opacity: 1,
-            duration: DUR_FRUIT,
-            ease: EASE_FRUIT
-        }, "content");
+        if (next.fruit && !isMobileSlider()) {
+            tl.to(next.fruit, {
+                y: 0,
+                opacity: 1,
+                duration: DUR_FRUIT,
+                ease: EASE_FRUIT
+            }, "content");
+        }
 
         tl.to(next.text, {
             y: 0,
@@ -499,7 +507,7 @@ ScrollTrigger.config({
 
         pinTrigger = ScrollTrigger.create({
             trigger: triggerEl,
-            start: "top top",
+            start: "center center",
             end: function () {
                 if (isHistoryMobile()) {
                     return "+=" + Math.round(Math.max(window.innerHeight * 0.55, maxStep * 96));
@@ -645,7 +653,7 @@ ScrollTrigger.config({
     }
 
     mm.add(PC_QUERY, function () {
-        return initHistoryPin(wrap);
+        return initHistoryPin(section);
     });
 
     mm.add("(min-width: 768px) and (max-width: 1024px)", function () {
@@ -756,7 +764,7 @@ duplicateMarqueeChildren(".sns-wrap");
 
 $(function () {
     $(".problem-sec button").on("click", function () {
-        location.href = "./brand.html";
+        location.href = "../story.html";
     });
 });
 
@@ -775,11 +783,11 @@ $(function () {
     });
 
     $(".recipe-sec .preview-btn").on("click", function () {
-        location.href = "/recipe.html";
+        location.href = "../recipe.html";
     });
 
     $(".flavor-sec .preview-btn").on("click", function () {
-        location.href = "/product.html";
+        location.href = "../product.html";
     });
 });
 
@@ -817,6 +825,7 @@ $(function () {
         var startPointerX = 0;
         var startPointerY = 0;
         var startTrackX = 0;
+        var pendingMeasure = false;
 
         function cloneSet() {
             originals.forEach(function (img) {
@@ -871,11 +880,41 @@ $(function () {
         }
 
         function measure() {
+            if (isDragging && axis === "h") {
+                pendingMeasure = true;
+                return;
+            }
+
             setWidth = measureSetWidth();
             ensureCopies();
             if (setWidth <= 0) setWidth = measureSetWidth();
             normalize();
             apply();
+        }
+
+        function startHorizontalDrag() {
+            wrap.classList.add("is-dragging");
+            wrap.style.touchAction = "none";
+            try {
+                wrap.setPointerCapture(pointerId);
+            } catch (err) {}
+        }
+
+        function endDrag() {
+            if (!isDragging) return;
+
+            isDragging = false;
+            axis = null;
+            pointerId = null;
+            wrap.classList.remove("is-dragging");
+            wrap.style.touchAction = "";
+            normalize();
+            apply();
+
+            if (pendingMeasure) {
+                pendingMeasure = false;
+                measure();
+            }
         }
 
         function onPointerDown(e) {
@@ -888,12 +927,7 @@ $(function () {
             startPointerY = e.clientY;
             startTrackX = x;
 
-            if (axis === "h") {
-                wrap.classList.add("is-dragging");
-                try {
-                    wrap.setPointerCapture(pointerId);
-                } catch (err) {}
-            }
+            if (axis === "h") startHorizontalDrag();
         }
 
         function onPointerMove(e) {
@@ -907,10 +941,12 @@ $(function () {
                 axis = Math.abs(dx) >= Math.abs(dy) ? "h" : "v";
 
                 if (axis === "h") {
-                    wrap.classList.add("is-dragging");
-                    try {
-                        wrap.setPointerCapture(pointerId);
-                    } catch (err) {}
+                    startHorizontalDrag();
+                } else {
+                    isDragging = false;
+                    axis = null;
+                    pointerId = null;
+                    return;
                 }
             }
 
@@ -922,24 +958,22 @@ $(function () {
         }
 
         function onPointerUp(e) {
-            if (!isDragging) return;
             if (pointerId !== null && e.pointerId !== pointerId) return;
+            endDrag();
+        }
 
-            isDragging = false;
-            axis = null;
-            pointerId = null;
-            wrap.classList.remove("is-dragging");
-            normalize();
-            apply();
+        function onTouchMove(e) {
+            if (!isDragging || axis !== "h") return;
+            e.preventDefault();
         }
 
         wrap.addEventListener("pointerdown", onPointerDown);
         wrap.addEventListener("pointermove", onPointerMove);
         wrap.addEventListener("pointerup", onPointerUp);
         wrap.addEventListener("pointercancel", onPointerUp);
-        wrap.addEventListener("lostpointercapture", onPointerUp);
         window.addEventListener("pointerup", onPointerUp);
         window.addEventListener("pointercancel", onPointerUp);
+        wrap.addEventListener("touchmove", onTouchMove, { passive: false });
         wrap.addEventListener("dragstart", function (e) {
             e.preventDefault();
         });
