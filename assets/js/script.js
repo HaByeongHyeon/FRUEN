@@ -255,6 +255,15 @@ ScrollTrigger.config({
         return window.innerWidth >= 1025;
     }
 
+    function isHistoryTablet() {
+        var width = window.innerWidth;
+        return width >= 768 && width <= 1024;
+    }
+
+    function isHistoryMobile() {
+        return window.innerWidth <= 767;
+    }
+
     function getPointerStop(index) {
         var stop = pointerStops[index];
 
@@ -298,27 +307,56 @@ ScrollTrigger.config({
     }
 
     function getBarLength() {
+        var svgWidth;
+
+        if ((isHistoryTablet() || isHistoryMobile()) && svg) {
+            svgWidth = svg.getBoundingClientRect().width;
+            if (svgWidth > 1) return svgWidth;
+        }
+
         return bar && typeof bar.getTotalLength === "function" ? bar.getTotalLength() : 1920;
     }
 
     function getBarOffset(index) {
-        return getBarLength() * (1 - getPointerStop(index));
-    }
+        var length = getBarLength();
+        var stop = getPointerStop(index);
+        var layout;
+        var fillPx;
+        var ratio;
 
-    function setActiveText(index) {
-        texts.forEach(function (el, i) {
-            el.classList.toggle("active", i === index);
-        });
+        if (isHistoryPc()) {
+            return length * (1 - stop);
+        }
+
+        layout = getTouchProgressLayout();
+        if (!layout.width) return length * (1 - stop);
+
+        fillPx = layout.left + Math.max(0, layout.width - layout.pointerWidth) * stop + layout.pointerWidth / 2;
+        ratio = Math.max(0, Math.min(1, fillPx / layout.width));
+
+        return length * (1 - ratio);
     }
 
     function updateHistoryText(currentIndex) {
-        setActiveText(currentIndex);
+        texts.forEach(function (el, i) {
+            var isActive = i === currentIndex;
+            el.classList.toggle("active", isActive);
+
+            if (!isHistoryMobile()) return;
+
+            gsap.to(el, {
+                autoAlpha: isActive ? 1 : 0,
+                duration: 0.45,
+                ease: "power2.inOut",
+                overwrite: true
+            });
+        });
     }
 
     function resetHistoryVisual() {
         gsap.set(track, { x: getTrackX(0), y: 0, force3D: false });
         gsap.set(pointer, { x: getPointerX(0), yPercent: -50, y: 0, force3D: false });
-        setActiveText(0);
+        updateHistoryText(0);
 
         if (bar) {
             gsap.set(bar, {
@@ -331,7 +369,11 @@ ScrollTrigger.config({
     function destroyHistoryVisual() {
         gsap.set(track, { clearProps: "transform,x,y" });
         gsap.set(pointer, { clearProps: "transform,x,y" });
-        setActiveText(0);
+        gsap.killTweensOf(texts);
+        texts.forEach(function (el) {
+            gsap.set(el, { clearProps: "opacity,visibility" });
+        });
+        updateHistoryText(0);
 
         if (bar) {
             gsap.set(bar, { clearProps: "strokeDasharray,strokeDashoffset" });
@@ -387,7 +429,7 @@ ScrollTrigger.config({
                 if (bar) {
                     historyTl.to(bar, {
                         strokeDasharray: length,
-                        strokeDashoffset: getBarLength() * (1 - pointerStops[i]),
+                        strokeDashoffset: getBarOffset(i),
                         duration: 1
                     }, i - 1);
                 }
@@ -459,12 +501,16 @@ ScrollTrigger.config({
             trigger: triggerEl,
             start: "top top",
             end: function () {
+                if (isHistoryMobile()) {
+                    return "+=" + Math.round(Math.max(window.innerHeight * 0.55, maxStep * 96));
+                }
+
                 return "+=" + window.innerHeight * maxStep;
             },
             pin: section,
             pinSpacing: true,
             pinType: "fixed",
-            anticipatePin: 0,
+            anticipatePin: isHistoryMobile() ? 1 : 0,
             invalidateOnRefresh: true,
             onRefresh: function () {
                 buildHistoryTl();
@@ -536,16 +582,29 @@ ScrollTrigger.config({
         }
 
         var resizeTimer = null;
+        var refreshQueued = false;
+
+        function refreshHistoryPin() {
+            if (!pinTrigger) return;
+            ScrollTrigger.refresh();
+        }
 
         function onResize() {
             window.clearTimeout(resizeTimer);
-            resizeTimer = window.setTimeout(function () {
-                ScrollTrigger.refresh();
-            }, 120);
+            resizeTimer = window.setTimeout(refreshHistoryPin, 120);
         }
 
         function onImageLoad() {
-            ScrollTrigger.refresh();
+            if (refreshQueued) return;
+            refreshQueued = true;
+            window.requestAnimationFrame(function () {
+                refreshQueued = false;
+                refreshHistoryPin();
+            });
+        }
+
+        function onWindowLoad() {
+            refreshHistoryPin();
         }
 
         window.addEventListener("wheel", onWheel, { passive: false });
@@ -554,11 +613,16 @@ ScrollTrigger.config({
         section.addEventListener("pointerup", onPointerUp);
         section.addEventListener("pointercancel", onPointerCancel);
         window.addEventListener("resize", onResize);
+        window.addEventListener("load", onWindowLoad);
 
         images.forEach(function (img) {
             if (img.complete) return;
             img.addEventListener("load", onImageLoad);
         });
+
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(refreshHistoryPin);
+        }
 
         return function () {
             window.removeEventListener("wheel", onWheel);
@@ -567,6 +631,10 @@ ScrollTrigger.config({
             section.removeEventListener("pointerup", onPointerUp);
             section.removeEventListener("pointercancel", onPointerCancel);
             window.removeEventListener("resize", onResize);
+            window.removeEventListener("load", onWindowLoad);
+            images.forEach(function (img) {
+                img.removeEventListener("load", onImageLoad);
+            });
 
             gsap.killTweensOf(historyTl);
             if (historyTl) historyTl.kill();
@@ -581,7 +649,7 @@ ScrollTrigger.config({
     });
 
     mm.add("(min-width: 768px) and (max-width: 1024px)", function () {
-        return initHistoryPin(track);
+        return initHistoryPin(section);
     });
 
     mm.add("(max-width: 767px)", function () {
@@ -688,7 +756,7 @@ duplicateMarqueeChildren(".sns-wrap");
 
 $(function () {
     $(".problem-sec button").on("click", function () {
-        location.href = "/brand.html";
+        location.href = "./brand.html";
     });
 });
 
@@ -714,3 +782,191 @@ $(function () {
         location.href = "/product.html";
     });
 });
+
+
+// Flavor infinite drag track ===========================================
+
+(function () {
+    var wraps = document.querySelectorAll(".flavor-img-wrap");
+    if (!wraps.length) return;
+
+    var AXIS_LOCK = 8;
+
+    function initFlavorTrack(wrap) {
+        if (wrap.getAttribute("data-flavor-track") === "1") return;
+        wrap.setAttribute("data-flavor-track", "1");
+
+        var originals = Array.prototype.slice.call(wrap.querySelectorAll("img"));
+        if (originals.length < 2) return;
+
+        var track = document.createElement("div");
+        track.className = "flavor-img-track";
+
+        originals.forEach(function (img) {
+            img.setAttribute("draggable", "false");
+            track.appendChild(img);
+        });
+        wrap.appendChild(track);
+
+        var originalCount = originals.length;
+        var x = 0;
+        var setWidth = 0;
+        var isDragging = false;
+        var axis = null;
+        var pointerId = null;
+        var startPointerX = 0;
+        var startPointerY = 0;
+        var startTrackX = 0;
+
+        function cloneSet() {
+            originals.forEach(function (img) {
+                var clone = img.cloneNode(true);
+                clone.setAttribute("aria-hidden", "true");
+                clone.setAttribute("draggable", "false");
+                track.appendChild(clone);
+            });
+        }
+
+        cloneSet();
+
+        function apply() {
+            track.style.transform = "translate3d(" + x + "px,0,0)";
+        }
+
+        function normalize() {
+            if (setWidth <= 0) return;
+
+            while (x <= -setWidth) {
+                x += setWidth;
+                startTrackX += setWidth;
+            }
+
+            while (x > 0) {
+                x -= setWidth;
+                startTrackX -= setWidth;
+            }
+        }
+
+        function measureSetWidth() {
+            var first = track.children[0];
+            var clone = track.children[originalCount];
+            if (!first || !clone) return 0;
+
+            var width = clone.getBoundingClientRect().left - first.getBoundingClientRect().left;
+            if (width > 1) return width;
+
+            return clone.offsetLeft - first.offsetLeft;
+        }
+
+        function ensureCopies() {
+            if (setWidth <= 0) return;
+
+            var needed = Math.max(2, Math.ceil((wrap.clientWidth * 2) / setWidth) + 1);
+            var current = Math.round(track.children.length / originalCount);
+
+            while (current < needed) {
+                cloneSet();
+                current += 1;
+            }
+        }
+
+        function measure() {
+            setWidth = measureSetWidth();
+            ensureCopies();
+            if (setWidth <= 0) setWidth = measureSetWidth();
+            normalize();
+            apply();
+        }
+
+        function onPointerDown(e) {
+            if (e.pointerType === "mouse" && e.button !== 0) return;
+
+            isDragging = true;
+            axis = e.pointerType === "mouse" ? "h" : null;
+            pointerId = e.pointerId;
+            startPointerX = e.clientX;
+            startPointerY = e.clientY;
+            startTrackX = x;
+
+            if (axis === "h") {
+                wrap.classList.add("is-dragging");
+                try {
+                    wrap.setPointerCapture(pointerId);
+                } catch (err) {}
+            }
+        }
+
+        function onPointerMove(e) {
+            if (!isDragging || e.pointerId !== pointerId) return;
+
+            var dx = e.clientX - startPointerX;
+            var dy = e.clientY - startPointerY;
+
+            if (axis === null) {
+                if (Math.abs(dx) < AXIS_LOCK && Math.abs(dy) < AXIS_LOCK) return;
+                axis = Math.abs(dx) >= Math.abs(dy) ? "h" : "v";
+
+                if (axis === "h") {
+                    wrap.classList.add("is-dragging");
+                    try {
+                        wrap.setPointerCapture(pointerId);
+                    } catch (err) {}
+                }
+            }
+
+            if (axis !== "h") return;
+
+            x = startTrackX + dx;
+            normalize();
+            apply();
+        }
+
+        function onPointerUp(e) {
+            if (!isDragging) return;
+            if (pointerId !== null && e.pointerId !== pointerId) return;
+
+            isDragging = false;
+            axis = null;
+            pointerId = null;
+            wrap.classList.remove("is-dragging");
+            normalize();
+            apply();
+        }
+
+        wrap.addEventListener("pointerdown", onPointerDown);
+        wrap.addEventListener("pointermove", onPointerMove);
+        wrap.addEventListener("pointerup", onPointerUp);
+        wrap.addEventListener("pointercancel", onPointerUp);
+        wrap.addEventListener("lostpointercapture", onPointerUp);
+        window.addEventListener("pointerup", onPointerUp);
+        window.addEventListener("pointercancel", onPointerUp);
+        wrap.addEventListener("dragstart", function (e) {
+            e.preventDefault();
+        });
+
+        originals.forEach(function (img) {
+            if (img.complete) return;
+            img.addEventListener("load", measure);
+        });
+
+        var resizeTimer = null;
+
+        function onResize() {
+            window.clearTimeout(resizeTimer);
+            resizeTimer = window.setTimeout(measure, 80);
+        }
+
+        window.addEventListener("resize", onResize);
+        window.addEventListener("load", measure);
+
+        if (typeof ResizeObserver !== "undefined") {
+            var ro = new ResizeObserver(onResize);
+            ro.observe(wrap);
+        }
+
+        measure();
+        window.requestAnimationFrame(measure);
+    }
+
+    Array.prototype.forEach.call(wraps, initFlavorTrack);
+})();
