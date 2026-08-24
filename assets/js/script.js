@@ -764,7 +764,7 @@ duplicateMarqueeChildren(".sns-wrap");
 
 $(function () {
     $(".problem-sec button").on("click", function () {
-        location.href = "../story.html";
+        location.href = "./story.html";
     });
 });
 
@@ -783,11 +783,11 @@ $(function () {
     });
 
     $(".recipe-sec .preview-btn").on("click", function () {
-        location.href = "../recipe.html";
+        location.href = "./recipe.html";
     });
 
     $(".flavor-sec .preview-btn").on("click", function () {
-        location.href = "../product.html";
+        location.href = "./product.html";
     });
 });
 
