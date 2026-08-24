@@ -194,12 +194,10 @@ Page Button
 .tablet-popup-wrap,
 .mobile-popup-wrap {
     position: fixed;
-
-    top: 0;
-    left: 0;
+    inset: 0;
 
     width: 100%;
-    height: 100vh;
+    height: 100%;
 
     display: none;
 
@@ -219,7 +217,10 @@ Page Button
 .popup,
 .tablet-popup,
 .mobile-popup {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     display: none;
 

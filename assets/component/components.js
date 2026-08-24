@@ -45,4 +45,48 @@
         privacyScript.src = new URL("privacy-popup.js", base).href;
         document.body.appendChild(privacyScript);
     });
+
+    function playInlineVideo(video) {
+        video.muted = true;
+        video.defaultMuted = true;
+        video.autoplay = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.setAttribute("muted", "");
+        video.setAttribute("autoplay", "");
+        video.setAttribute("loop", "");
+        video.setAttribute("playsinline", "");
+        video.setAttribute("webkit-playsinline", "");
+
+        var play = function () {
+            var result = video.play();
+            if (result && typeof result.catch === "function") {
+                result.catch(function () {});
+            }
+        };
+
+        if (video.readyState >= 2) {
+            play();
+            return;
+        }
+
+        video.addEventListener("canplay", play, { once: true });
+        video.addEventListener("loadeddata", play, { once: true });
+    }
+
+    function startInlineVideos() {
+        document.querySelectorAll("video").forEach(playInlineVideo);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startInlineVideos);
+    } else {
+        startInlineVideos();
+    }
+
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") {
+            startInlineVideos();
+        }
+    });
 })();

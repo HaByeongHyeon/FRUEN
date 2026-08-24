@@ -59,8 +59,11 @@ Brand Wrap
 
 .brand-wrap {
     position: relative;
-    margin-top: 140px;
     width: 100%;
+    max-width: 100%;
+    margin-top: 140px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -372,8 +375,8 @@ Brand Card
 
         display: grid;
         grid-template-columns: repeat(3, var(--brand-card-size));
-        justify-content: start;
-        justify-items: start;
+        justify-content: center;
+        justify-items: center;
         align-content: start;
         column-gap: calc(12px + 4px * var(--fluid-t));
         row-gap: calc(16px + 8px * var(--fluid-t));
@@ -503,8 +506,8 @@ Brand Card
 
         display: grid;
         grid-template-columns: repeat(2, var(--brand-card-size));
-        justify-content: start;
-        justify-items: start;
+        justify-content: center;
+        justify-items: center;
         align-content: start;
         column-gap: calc(10px + 4px * var(--fluid-m));
         row-gap: calc(12px + 6px * var(--fluid-m));

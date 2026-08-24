@@ -1769,6 +1769,7 @@ Unit
         align-items: center;
         gap: calc(28px + 16px * var(--fluid-t));
         flex-wrap: nowrap;
+        animation-duration: 40s;
     }
 
     .brand-wrap img {
@@ -2294,6 +2295,7 @@ Unit
         align-items: center;
         gap: 20px;
         flex-wrap: nowrap;
+        animation-duration: 40s;
     }
 
     .brand-wrap img {

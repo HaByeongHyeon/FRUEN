@@ -827,9 +827,12 @@ duplicateMarqueeChildren(".sns-wrap");
         });
     }
 
+    var productWrap = proveSec.querySelector(".product-wrap");
+    if (!productWrap) return;
+
     ScrollTrigger.create({
-        trigger: proveSec,
-        start: "top top",
+        trigger: productWrap,
+        start: "top bottom",
         once: true,
         onEnter: playCountUp
     });
