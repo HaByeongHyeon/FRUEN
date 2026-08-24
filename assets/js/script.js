@@ -234,7 +234,7 @@ ScrollTrigger.config({
     if (!wrap || !track || !progress || !pointer || total < 2 || images.length < total) return;
 
     var mm = gsap.matchMedia();
-    var pointerStops = [0, 0.31, 0.51, 0.705, 1];
+    var pointerStops = [0.11, 0.31, 0.51, 0.705, 1];
     var STEP_DUR = 0.7;
     var STEP_EASE = "power2.inOut";
     var WHEEL_MIN = 12;
