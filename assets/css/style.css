@@ -1881,7 +1881,7 @@ Unit
 
     .slider-text-wrap {
         left: 0;
-        bottom: calc(200px + 16px * var(--fluid-m));
+        bottom: calc(100px + 16px * var(--fluid-m));
         padding: 0 20px;
     }
 
