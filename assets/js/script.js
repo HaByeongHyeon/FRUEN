@@ -397,6 +397,9 @@ ScrollTrigger.config({
         var pinTrigger = null;
         var stepIndex = 0;
         var maxStep = pointerStops.length - 1;
+        var mobileMode = isHistoryMobile();
+        var gestureConsumed = false;
+        var pendingStep = 0;
 
         triggerEl = triggerEl || wrap;
 
@@ -471,23 +474,52 @@ ScrollTrigger.config({
                 ease: STEP_EASE,
                 overwrite: true,
                 onComplete: function () {
+                    var queued = pendingStep;
+
                     isAnimating = false;
+                    pendingStep = 0;
+
+                    if (mobileMode && queued) goStep(queued);
                 }
             });
         }
 
         function leavePin(goingDown) {
+            var proveSec;
+            var proveTop;
+
             isPinned = false;
             isAnimating = false;
+            pendingStep = 0;
             gsap.killTweensOf(historyTl);
 
             if (!pinTrigger) return;
+
+            if (mobileMode && goingDown) {
+                proveSec = document.querySelector(".prove-sec");
+                window.scrollTo(0, pinTrigger.end);
+
+                if (!proveSec) return;
+
+                window.requestAnimationFrame(function () {
+                    proveTop = proveSec.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo(0, Math.max(0, Math.round(proveTop)));
+                });
+                return;
+            }
 
             window.scrollTo(0, goingDown ? pinTrigger.end + 1 : Math.max(0, pinTrigger.start - 1));
         }
 
         function goStep(direction) {
-            var next = stepIndex + direction;
+            var next;
+
+            if (mobileMode && isAnimating) {
+                pendingStep = direction;
+                return;
+            }
+
+            next = stepIndex + direction;
 
             if (next < 0) {
                 leavePin(false);
@@ -509,8 +541,8 @@ ScrollTrigger.config({
             trigger: triggerEl,
             start: "center center",
             end: function () {
-                if (isHistoryMobile()) {
-                    return "+=" + Math.round(Math.max(window.innerHeight * 0.55, maxStep * 96));
+                if (mobileMode) {
+                    return "+=" + Math.round(Math.max(window.innerHeight * 0.9, 360));
                 }
 
                 return "+=" + window.innerHeight * maxStep;
@@ -518,7 +550,7 @@ ScrollTrigger.config({
             pin: section,
             pinSpacing: true,
             pinType: "fixed",
-            anticipatePin: isHistoryMobile() ? 1 : 0,
+            anticipatePin: 0,
             invalidateOnRefresh: true,
             onRefresh: function () {
                 buildHistoryTl();
@@ -544,6 +576,12 @@ ScrollTrigger.config({
 
         function onWheel(e) {
             if (!isPinned) return;
+
+            if (mobileMode) {
+                e.preventDefault();
+                return;
+            }
+
             if (Math.abs(e.deltaY) < WHEEL_MIN) return;
 
             e.preventDefault();
@@ -564,16 +602,40 @@ ScrollTrigger.config({
             swipePointerId = e.pointerId;
             swipeStartX = e.clientX;
             swipeStartY = e.clientY;
+            gestureConsumed = false;
+
+            if (mobileMode) {
+                try {
+                    section.setPointerCapture(e.pointerId);
+                } catch (err) {}
+            }
         }
 
         function onPointerUp(e) {
+            var dx;
+            var dy;
+            var threshold;
+
             if (swipePointerId !== e.pointerId) return;
             swipePointerId = null;
-            if (!isPinned || isAnimating) return;
+            if (!isPinned) return;
 
-            var dx = e.clientX - swipeStartX;
-            var dy = e.clientY - swipeStartY;
+            dx = e.clientX - swipeStartX;
+            dy = e.clientY - swipeStartY;
 
+            if (mobileMode) {
+                if (gestureConsumed) return;
+
+                threshold = 40;
+                if (Math.abs(dy) < threshold) return;
+                if (Math.abs(dy) <= Math.abs(dx)) return;
+
+                gestureConsumed = true;
+                goStep(dy < 0 ? 1 : -1);
+                return;
+            }
+
+            if (isAnimating) return;
             if (Math.abs(dy) < SWIPE_MIN) return;
             if (Math.abs(dy) <= Math.abs(dx)) return;
 
@@ -581,7 +643,10 @@ ScrollTrigger.config({
         }
 
         function onPointerCancel(e) {
-            if (swipePointerId === e.pointerId) swipePointerId = null;
+            if (swipePointerId === e.pointerId) {
+                swipePointerId = null;
+                gestureConsumed = false;
+            }
         }
 
         function onTouchMove(e) {
@@ -599,7 +664,10 @@ ScrollTrigger.config({
 
         function onResize() {
             window.clearTimeout(resizeTimer);
-            resizeTimer = window.setTimeout(refreshHistoryPin, 120);
+            resizeTimer = window.setTimeout(function () {
+                if (mobileMode && (isPinned || isAnimating)) return;
+                refreshHistoryPin();
+            }, 120);
         }
 
         function onImageLoad() {
@@ -616,12 +684,16 @@ ScrollTrigger.config({
         }
 
         window.addEventListener("wheel", onWheel, { passive: false });
-        window.addEventListener("touchmove", onTouchMove, { passive: false });
+        window.addEventListener("touchmove", onTouchMove, { passive: false, capture: mobileMode });
         section.addEventListener("pointerdown", onPointerDown);
         section.addEventListener("pointerup", onPointerUp);
         section.addEventListener("pointercancel", onPointerCancel);
         window.addEventListener("resize", onResize);
         window.addEventListener("load", onWindowLoad);
+
+        if (mobileMode && window.visualViewport) {
+            window.visualViewport.addEventListener("resize", onResize);
+        }
 
         images.forEach(function (img) {
             if (img.complete) return;
@@ -634,12 +706,16 @@ ScrollTrigger.config({
 
         return function () {
             window.removeEventListener("wheel", onWheel);
-            window.removeEventListener("touchmove", onTouchMove);
+            window.removeEventListener("touchmove", onTouchMove, { capture: mobileMode });
             section.removeEventListener("pointerdown", onPointerDown);
             section.removeEventListener("pointerup", onPointerUp);
             section.removeEventListener("pointercancel", onPointerCancel);
             window.removeEventListener("resize", onResize);
             window.removeEventListener("load", onWindowLoad);
+
+            if (mobileMode && window.visualViewport) {
+                window.visualViewport.removeEventListener("resize", onResize);
+            }
             images.forEach(function (img) {
                 img.removeEventListener("load", onImageLoad);
             });

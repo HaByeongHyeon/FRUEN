@@ -265,7 +265,7 @@ Pagination
 .page-btn-wrap {
     position: absolute;
 
-    top: 40%;
+    top: 50%;
     left: 0;
 
     width: 100%;
@@ -1851,7 +1851,7 @@ Unit
     .slider-wrap .container>h2,
     .container h2 {
         width: 100%;
-        top: calc(10% + 2% * var(--fluid-m));
+        top: calc(15% + 2% * var(--fluid-m));
         font-size: calc(42px + 8px * var(--fluid-m));
         font-weight: 700;
         letter-spacing: 0.04em;
@@ -1873,7 +1873,7 @@ Unit
         width: 500px;
         max-width: 100%;
         height: auto;
-        top: 35%;
+        top: 40%;
         left: 49%;
         transform: translate(-50%, -38%);
         margin-top: clamp(0px, calc(100vh - 720px), 56px);
@@ -2005,11 +2005,13 @@ Unit
         top: 50%;
     }
 
-    .history-sec.is-pinned {
+    .history-sec.is-pinned,
+    .pin-spacer:has(> .history-sec.is-pinned) {
         z-index: 20;
         background: #F6F5F4;
         box-sizing: border-box;
         isolation: isolate;
+        touch-action: none;
     }
 
     .prove-sec,
