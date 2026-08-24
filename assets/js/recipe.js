@@ -9,7 +9,7 @@ $(document).ready(function () {
     var $slides = $(".slide");
     var $btnWrap = $(".slide-btn-wrap");
     var $slideContents = $(".slide-contents");
-    var menuNodes = $(".slide-menu").get();
+    var menuNodes = $slideContents.find(".slide-menu").get();
     var totalMenus = menuNodes.length;
     var openedIndex = null;
     var openedType = null;
@@ -127,11 +127,13 @@ $(document).ready(function () {
             top: 0,
             left: 0,
             width: "100%",
+            overflow: "hidden",
             transition: "none",
             transform: dir > 0 ? "translateX(100%)" : "translateX(-100%)"
         });
         $from.css({
             position: "relative",
+            overflow: "hidden",
             transition: "none",
             transform: "translateX(0)"
         });
@@ -151,11 +153,13 @@ $(document).ready(function () {
         window.setTimeout(function () {
             $from.removeClass("active").css({
                 position: "",
+                overflow: "",
                 transition: "none",
                 transform: "translateX(0)"
             });
             $to.css({
                 position: "",
+                overflow: "",
                 transition: "none",
                 transform: "translateX(0)"
             });

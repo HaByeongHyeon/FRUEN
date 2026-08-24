@@ -269,6 +269,11 @@
     z-index: 3;
 }
 
+.slide-contents .slide-text .main-title-1 {
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
 .slide h2 {
     margin-bottom: 20px;
 
@@ -464,7 +469,6 @@ Popup Image
     object-fit: contain;
 }
 
-
 /* =========================
 Close Button
 ========================= */
@@ -538,6 +542,7 @@ Mobile Popup Wrap (default hidden)
         font-size: calc(18px + 16px * var(--fluid));
         line-height: 1.35;
         margin-bottom: calc(24px + 21px * var(--fluid));
+        white-space: normal;
     }
 
     .slide-img {

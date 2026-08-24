@@ -1530,7 +1530,7 @@ body {
 
     .standard-text-wrap h2 {
         font-size: calc(22px + 6px * var(--fluid-m));
-        margin-bottom: 10px;
+        margin-bottom: 30px;
     }
 
     .standard-text-wrap>p {

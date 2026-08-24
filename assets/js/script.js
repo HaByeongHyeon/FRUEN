@@ -539,7 +539,7 @@ ScrollTrigger.config({
 
         pinTrigger = ScrollTrigger.create({
             trigger: triggerEl,
-            start: "center center",
+            start: triggerEl === track ? "top top" : "center center",
             end: function () {
                 if (mobileMode) {
                     return "+=" + Math.round(Math.max(window.innerHeight * 0.9, 360));
@@ -729,7 +729,7 @@ ScrollTrigger.config({
     }
 
     mm.add(PC_QUERY, function () {
-        return initHistoryPin(section);
+        return initHistoryPin(track);
     });
 
     mm.add("(min-width: 768px) and (max-width: 1024px)", function () {

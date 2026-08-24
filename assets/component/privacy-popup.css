@@ -1,0 +1,232 @@
+.privacy-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 310000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.privacy-popup-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.privacy-popup {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    width: min(680px, calc(100vw - 48px));
+    height: 560px;
+    max-height: calc(100dvh - 48px);
+
+    padding: 56px 56px 48px;
+    box-sizing: border-box;
+
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+
+    transform: scale(0.96);
+    opacity: 0;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.privacy-popup-overlay.is-open .privacy-popup {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.privacy-popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.privacy-popup-close::before,
+.privacy-popup-close::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 1.5px;
+    background: #121212;
+}
+
+.privacy-popup-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.privacy-popup-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.privacy-popup-header {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.privacy-popup-logo {
+    display: block;
+    width: 148px;
+    height: auto;
+    object-fit: contain;
+}
+
+.privacy-popup-line {
+    display: block;
+    width: 56px;
+    height: 1px;
+    margin: 24px 0 28px;
+    background: #c4c4c4;
+}
+
+.privacy-popup-title {
+    margin: 0 0 32px;
+    color: #121212;
+    font-family: var(--font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.28em;
+}
+
+.privacy-popup-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    text-align: left;
+    color: #121212;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.privacy-popup-content p {
+    margin: 0 0 16px;
+}
+
+.privacy-popup-content p:last-child {
+    margin-bottom: 0;
+}
+
+.privacy-popup-content strong {
+    font-weight: 700;
+}
+
+html.is-privacy-popup-open {
+    overflow: hidden;
+}
+
+html.is-privacy-popup-open,
+html.is-privacy-popup-open body {
+    overscroll-behavior: none;
+}
+
+html.is-privacy-popup-open body {
+    position: fixed;
+    left: 0;
+    right: var(--privacy-scrollbar-gutter, 0px);
+    width: auto;
+    overflow: hidden;
+}
+
+html.is-privacy-popup-open .header {
+    left: 0;
+    right: var(--privacy-scrollbar-gutter, 0px);
+    width: auto;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .privacy-popup {
+        width: min(600px, calc(100vw - 40px));
+        height: 520px;
+        max-height: calc(100dvh - 40px);
+        padding: 48px 40px 40px;
+        border-radius: 20px;
+    }
+
+    .privacy-popup-logo {
+        width: 128px;
+    }
+
+    .privacy-popup-title {
+        font-size: 22px;
+        margin-bottom: 24px;
+    }
+
+    .privacy-popup-content {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .privacy-popup-overlay {
+        padding: 16px;
+    }
+
+    .privacy-popup {
+        width: calc(100vw - 32px);
+        height: 480px;
+        max-height: calc(100dvh - 32px);
+        padding: 44px 24px 28px;
+        border-radius: 16px;
+    }
+
+    .privacy-popup-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .privacy-popup-logo {
+        width: 110px;
+    }
+
+    .privacy-popup-line {
+        margin: 20px 0 22px;
+    }
+
+    .privacy-popup-title {
+        font-size: 18px;
+        letter-spacing: 0.2em;
+        margin-bottom: 20px;
+    }
+
+    .privacy-popup-content {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .privacy-popup-content br {
+        display: none;
+    }
+}

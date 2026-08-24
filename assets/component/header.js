@@ -2,7 +2,7 @@
     var header = document.querySelector(".header");
     var hamburger = document.querySelector(".hamburger-menu");
     var button = document.querySelector(".hamburger-menu-btn");
-    var menu = document.querySelector(".slide-menu");
+    var menu = document.querySelector("#slide-menu");
     var dim = document.querySelector(".slide-menu-dim");
     var mqDesktop = window.matchMedia("(min-width: 1025px)");
     var isOpen = false;
@@ -116,5 +116,81 @@
         mqDesktop.addEventListener("change", onViewportChange);
     } else if (typeof mqDesktop.addListener === "function") {
         mqDesktop.addListener(onViewportChange);
+    }
+
+
+    var overlay = document.querySelector(".shop-popup-overlay");
+    var closeBtn = overlay ? overlay.querySelector(".shop-popup-close") : null;
+    var shopTriggers = document.querySelectorAll(".shop-btn, .shop-btn a, .slide-menu-shop");
+    var isPopupOpen = false;
+    var isPopupAnimating = false;
+    var lockedScrollY = 0;
+    var closeTimer = null;
+
+    function lockPageScroll() {
+        var gutter;
+
+        lockedScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        gutter = Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+
+        document.documentElement.style.setProperty("--shop-scrollbar-gutter", gutter + "px");
+        document.documentElement.classList.add("is-shop-popup-open");
+        document.body.classList.add("is-shop-popup-open");
+        document.body.style.top = "-" + lockedScrollY + "px";
+    }
+
+    function unlockPageScroll() {
+        document.documentElement.classList.remove("is-shop-popup-open");
+        document.body.classList.remove("is-shop-popup-open");
+        document.body.style.top = "";
+        document.documentElement.style.removeProperty("--shop-scrollbar-gutter");
+        window.scrollTo(0, lockedScrollY);
+    }
+
+    function openShopPopup() {
+        if (!overlay || isPopupOpen || isPopupAnimating) return;
+
+        closeMenu();
+        isPopupOpen = true;
+        isPopupAnimating = true;
+        overlay.hidden = false;
+        overlay.offsetWidth;
+        overlay.classList.add("is-open");
+        lockPageScroll();
+
+        window.setTimeout(function () {
+            isPopupAnimating = false;
+        }, 220);
+    }
+
+    function closeShopPopup() {
+        if (!overlay || !isPopupOpen || isPopupAnimating) return;
+
+        isPopupAnimating = true;
+        overlay.classList.remove("is-open");
+
+        window.clearTimeout(closeTimer);
+        closeTimer = window.setTimeout(function () {
+            overlay.hidden = true;
+            isPopupOpen = false;
+            isPopupAnimating = false;
+            unlockPageScroll();
+        }, 220);
+    }
+
+    Array.prototype.forEach.call(shopTriggers, function (el) {
+        el.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            openShopPopup();
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            closeShopPopup();
+        });
     }
 })();

@@ -29,10 +29,20 @@
 
     window.componentsReady = Promise.all([
         loadComponent("header", "header.html"),
-        loadComponent("footer", "footer.html")
+        loadComponent("footer", "footer.html"),
+        loadComponent("float-menu", "float-menu.html"),
+        loadComponent("privacy-popup", "privacy-popup.html")
     ]).then(function () {
-        var script = document.createElement("script");
-        script.src = new URL("header.js", base).href;
-        document.body.appendChild(script);
+        var headerScript = document.createElement("script");
+        headerScript.src = new URL("header.js", base).href;
+        document.body.appendChild(headerScript);
+
+        var floatScript = document.createElement("script");
+        floatScript.src = new URL("float-menu.js", base).href;
+        document.body.appendChild(floatScript);
+
+        var privacyScript = document.createElement("script");
+        privacyScript.src = new URL("privacy-popup.js", base).href;
+        document.body.appendChild(privacyScript);
     });
 })();
