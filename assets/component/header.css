@@ -143,6 +143,7 @@
 .shop-btn:hover a {
     background-color: var(--color-btn-secondary-hover);
     color: var(--color-btn-secondary-default);
+    border: none;
 }
 
 .shop-btn:hover img {
@@ -422,8 +423,7 @@ body.theme-header-light .contact-btn:hover a {
     }
 
     body.page-index .header {
-        background-color: transparent;
-        background-image: none;
+        background-color: #fff;
     }
 
     .logo a {
@@ -590,8 +590,7 @@ body.theme-header-light .contact-btn:hover a {
     }
 
     body.page-index .header {
-        background-color: transparent;
-        background-image: none;
+        background-color: #fff;
     }
 
     .logo a {

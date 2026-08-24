@@ -1967,6 +1967,9 @@ Unit
 
     .history-sec {
         padding: 64px 0 72px;
+        min-height: 100vh;
+        min-height: 100dvh;
+        box-sizing: border-box;
     }
 
     .history-title {

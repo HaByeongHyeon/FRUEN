@@ -400,8 +400,23 @@ ScrollTrigger.config({
         var mobileMode = isHistoryMobile();
         var gestureConsumed = false;
         var pendingStep = 0;
+        var nativeExit = false;
 
         triggerEl = triggerEl || wrap;
+
+        function setNativeExit(enabled) {
+            var spacer;
+
+            if (!mobileMode) return;
+
+            nativeExit = enabled;
+            section.style.touchAction = enabled ? "pan-y" : "";
+
+            spacer = section.parentNode;
+            if (spacer && spacer.classList && spacer.classList.contains("pin-spacer")) {
+                spacer.style.touchAction = enabled ? "pan-y" : "";
+            }
+        }
 
         function buildHistoryTl() {
             var length = getBarLength();
@@ -485,9 +500,6 @@ ScrollTrigger.config({
         }
 
         function leavePin(goingDown) {
-            var proveSec;
-            var proveTop;
-
             isPinned = false;
             isAnimating = false;
             pendingStep = 0;
@@ -496,15 +508,6 @@ ScrollTrigger.config({
             if (!pinTrigger) return;
 
             if (mobileMode && goingDown) {
-                proveSec = document.querySelector(".prove-sec");
-                window.scrollTo(0, pinTrigger.end);
-
-                if (!proveSec) return;
-
-                window.requestAnimationFrame(function () {
-                    proveTop = proveSec.getBoundingClientRect().top + window.pageYOffset;
-                    window.scrollTo(0, Math.max(0, Math.round(proveTop)));
-                });
                 return;
             }
 
@@ -522,15 +525,22 @@ ScrollTrigger.config({
             next = stepIndex + direction;
 
             if (next < 0) {
+                setNativeExit(false);
                 leavePin(false);
                 return;
             }
 
             if (next > maxStep) {
+                if (mobileMode) {
+                    setNativeExit(true);
+                    return;
+                }
+
                 leavePin(true);
                 return;
             }
 
+            setNativeExit(false);
             applyStep(next, false);
         }
 
@@ -539,10 +549,18 @@ ScrollTrigger.config({
 
         pinTrigger = ScrollTrigger.create({
             trigger: triggerEl,
-            start: triggerEl === track ? "top top" : "center center",
+            start: mobileMode ? "top top" : (triggerEl === track ? "top top" : "center center"),
             end: function () {
+                var vh;
+                var hold;
+                var maxPin;
+
                 if (mobileMode) {
-                    return "+=" + Math.round(Math.max(window.innerHeight * 0.9, 360));
+                    vh = window.innerHeight;
+                    hold = Math.round(Math.max(vh * 0.9, 360));
+                    maxPin = Math.max(0, Math.round(section.offsetHeight) - 1);
+
+                    return "+=" + Math.min(hold, maxPin);
                 }
 
                 return "+=" + window.innerHeight * maxStep;
@@ -559,6 +577,10 @@ ScrollTrigger.config({
             onToggle: function (self) {
                 isPinned = self.isActive;
                 section.classList.toggle("is-pinned", self.isActive);
+
+                if (!self.isActive) {
+                    setNativeExit(false);
+                }
             },
             onEnter: function (self) {
                 if (self.direction === 1) applyStep(0, true);
@@ -578,7 +600,7 @@ ScrollTrigger.config({
             if (!isPinned) return;
 
             if (mobileMode) {
-                e.preventDefault();
+                if (!nativeExit) e.preventDefault();
                 return;
             }
 
@@ -604,7 +626,7 @@ ScrollTrigger.config({
             swipeStartY = e.clientY;
             gestureConsumed = false;
 
-            if (mobileMode) {
+            if (mobileMode && !nativeExit) {
                 try {
                     section.setPointerCapture(e.pointerId);
                 } catch (err) {}
@@ -651,6 +673,7 @@ ScrollTrigger.config({
 
         function onTouchMove(e) {
             if (!isPinned) return;
+            if (mobileMode && nativeExit) return;
             e.preventDefault();
         }
 
@@ -723,6 +746,7 @@ ScrollTrigger.config({
             gsap.killTweensOf(historyTl);
             if (historyTl) historyTl.kill();
             if (pinTrigger) pinTrigger.kill();
+            setNativeExit(false);
             section.classList.remove("is-pinned");
             destroyHistoryVisual();
         };
