@@ -563,8 +563,8 @@ Page Button
     }
 
     .filter-wrap button {
-        padding: 7px 14px;
-        font-size: 12px;
+        padding: 10px 20px;
+        font-size: 14px;
         line-height: 1.2;
         white-space: nowrap;
     }

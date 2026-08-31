@@ -290,9 +290,10 @@
     }
 
     .footer-bottom {
-        flex-direction: flex;
+        display: flex;
+        flex-direction: column;
         align-items: flex-start;
-        gap: 24px;
+        gap: 20px;
         padding: 20px 0 28px;
     }
 
@@ -302,9 +303,8 @@
     }
 
     .footer-menu a,
-    .footer-company p,
-    .footer-copy {
-        font-size: 12px;
+    .footer-company p {
+        font-size: 14px;
         line-height: 1.5;
     }
 
@@ -320,10 +320,15 @@
 
     .footer-copy {
         margin-top: 12px;
+        font-size: 13px;
+        line-height: 1.45;
+        font-weight: 600;
     }
 
     .footer-right {
-        align-items: flex-end;
+        order: -1;
+        align-items: flex-start;
+        width: 100%;
         height: max-content;
     }
 
@@ -338,14 +343,16 @@
     }
 
     .footer-center-title {
-        margin-top: 5px;
-        font-size: 12px;
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 1.4;
     }
 
     .footer-tel {
         text-align: right;
-        margin-top: 5px;
-        font-size: 12px;
+        margin-top: 6px;
+        font-size: 18px;
+        line-height: 1.3;
     }
 
 }

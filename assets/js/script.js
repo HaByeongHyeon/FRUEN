@@ -12,6 +12,8 @@ $(function () {
 
     var currentIndex = 0;
     var isAnimating = false;
+    var autoplayTimer = null;
+    var AUTOPLAY_DELAY = 2000;
 
     var DUR_BG = 0.9;
     var DUR_CUP = 0.7;
@@ -90,12 +92,28 @@ $(function () {
     });
     sec.classList.add("is-ready");
 
+    function stopAutoplay() {
+        if (autoplayTimer) {
+            window.clearTimeout(autoplayTimer);
+            autoplayTimer = null;
+        }
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = window.setTimeout(function () {
+            autoplayTimer = null;
+            goToSlide(currentIndex + 1, "next");
+        }, AUTOPLAY_DELAY);
+    }
+
     function goToSlide(index, direction) {
         if (isAnimating) return;
 
         var nextIndex = ((index % total) + total) % total;
         if (nextIndex === currentIndex) return;
 
+        stopAutoplay();
         isAnimating = true;
 
         var current = parts(slides[currentIndex]);
@@ -123,6 +141,7 @@ $(function () {
                 });
                 currentIndex = nextIndex;
                 isAnimating = false;
+                startAutoplay();
             }
         });
 
@@ -164,11 +183,15 @@ $(function () {
     }
 
     $(sec).on("click", ".next-btn", function () {
+        stopAutoplay();
         goToSlide(currentIndex + 1, "next");
+        if (!isAnimating) startAutoplay();
     });
 
     $(sec).on("click", ".prev-btn", function () {
+        stopAutoplay();
         goToSlide(currentIndex - 1, "prev");
+        if (!isAnimating) startAutoplay();
     });
 
     var swipeStartX = 0;
@@ -179,6 +202,7 @@ $(function () {
         if (isAnimating) return;
         if (e.pointerType === "mouse") return;
 
+        stopAutoplay();
         swipePointerId = e.pointerId;
         swipeStartX = e.clientX;
         swipeStartY = e.clientY;
@@ -192,8 +216,10 @@ $(function () {
         var dx = e.clientX - swipeStartX;
         var dy = e.clientY - swipeStartY;
 
-        if (Math.abs(dx) < SWIPE_THRESHOLD) return;
-        if (Math.abs(dx) <= Math.abs(dy)) return;
+        if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) <= Math.abs(dy)) {
+            startAutoplay();
+            return;
+        }
 
         if (dx < 0) {
             goToSlide(currentIndex + 1, "next");
@@ -203,7 +229,10 @@ $(function () {
     });
 
     sec.addEventListener("pointercancel", function (e) {
-        if (swipePointerId === e.pointerId) swipePointerId = null;
+        if (swipePointerId === e.pointerId) {
+            swipePointerId = null;
+            if (!isAnimating) startAutoplay();
+        }
     });
 
     window.addEventListener("resize", function () {
@@ -213,6 +242,13 @@ $(function () {
             restSlide(slide, i === currentIndex);
         });
     });
+
+    window.addEventListener("pagehide", stopAutoplay);
+    window.addEventListener("pageshow", function (e) {
+        if (e.persisted && !isAnimating) startAutoplay();
+    });
+
+    startAutoplay();
 });
 
 

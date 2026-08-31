@@ -1672,7 +1672,7 @@ Unit
     }
 
     .flavor-img-wrap img {
-        width: calc((100cqi - 24px - 48px * var(--fluid-t)) / 4);
+        width: calc((100vw - 64px - 68px * var(--fluid-t)) / 4);
         max-width: none;
         height: auto;
     }
@@ -1966,16 +1966,17 @@ Unit
     ========================================= */
 
     .history-sec {
-        padding: 64px 0 72px;
-        min-height: 100vh;
-        min-height: 100dvh;
+        height: auto;
+        min-height: 0;
+        padding: calc(32px + 8px * var(--fluid-m)) 0 calc(36px + 12px * var(--fluid-m));
         box-sizing: border-box;
     }
 
     .history-title {
-        font-size: calc(20px + 4px * var(--fluid-m));
+        font-size: clamp(22px, 5.6vw, 28px);
+        line-height: 1.35;
         padding: 0 20px;
-        margin-bottom: calc(48px + 24px * var(--fluid-m));
+        margin-bottom: calc(20px + 10px * var(--fluid-m));
         box-sizing: border-box;
 
         color: var(--color-primary-heavy);
@@ -1991,7 +1992,7 @@ Unit
     }
 
     .history-track {
-        height: calc(100cqi * 618 / 1920 * 1.5);
+        height: calc(100cqi * 618 / 1920 * 2);
     }
 
     .history-track img {
@@ -2028,9 +2029,9 @@ Unit
         display: block;
         position: relative;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: calc(20px + 8px * var(--fluid-m));
         padding: 0 20px;
-        min-height: 148px;
+        min-height: clamp(140px, 40vw, 176px);
     }
 
     .history-text-list {
@@ -2063,14 +2064,16 @@ Unit
 
     .history-text-list.active h3,
     .history-text h3 {
-        font-size: clamp(16px, 4.2vw, 20px);
+        font-size: clamp(18px, 5vw, 24px);
+        line-height: 1.4;
         text-align: center;
     }
 
     .history-text-list.active p,
     .history-text p {
-        margin-top: 12px;
-        font-size: clamp(13px, 3.4vw, 16px);
+        margin-top: 10px;
+        font-size: clamp(14px, 3.9vw, 18px);
+        line-height: 1.5;
         text-align: center;
     }
 
@@ -2188,7 +2191,7 @@ Unit
     }
 
     .flavor-img-wrap img {
-        width: calc((100cqi - 24px) / 4);
+        width: calc((100vw - 64px) / 4);
         max-width: none;
         height: auto;
     }
@@ -2303,8 +2306,8 @@ Unit
 
     .brand-wrap img {
         width: auto;
-        height: 20px;
-        max-width: 68px;
+        height: 26px;
+        max-width: 88.4px;
         object-fit: contain;
         flex-shrink: 0;
     }

@@ -608,6 +608,10 @@ body {
     color: var(--color-primary-heavy);
 }
 
+.standard-copy-mobile {
+    display: none;
+}
+
 
 /* =========================
    Slider Pagination
@@ -828,7 +832,7 @@ body {
     }
 
     .standard-text-wrap > p {
-        font-size: calc(18px + 2px * var(--fluid));
+        font-size: 24px;
         line-height: 1.6;
     }
 
@@ -1171,7 +1175,7 @@ body {
     }
 
     .standard-text-wrap>p {
-        font-size: calc(15px + 3px * var(--fluid-t));
+        font-size: 18px;
         line-height: 1.7;
     }
 
@@ -1534,8 +1538,16 @@ body {
     }
 
     .standard-text-wrap>p {
-        font-size: calc(13px + 2px * var(--fluid-m));
+        font-size: 16px;
         line-height: 1.7;
+    }
+
+    .standard-copy-pc {
+        display: none;
+    }
+
+    .standard-copy-mobile {
+        display: inline;
     }
 
     .slider-pagenation {

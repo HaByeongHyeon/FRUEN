@@ -96,16 +96,11 @@ $(function () {
         return Math.max(sectionTop + secHeight + imgHeight - screenCenter - 1500, 400);
     }
 
-    gsap.set(solutionImg, {
-        y: () => solutionSec.offsetHeight,
-        autoAlpha: 0
-    });
-
-    gsap.timeline({
-        scrollTrigger: {
+    function getSolutionScrollTrigger(getEndDistance) {
+        return {
             trigger: solutionSec,
             start: "center center",
-            end: () => "+=" + getMoveDistance(),
+            end: () => "+=" + getEndDistance(),
             pin: true,
             pinSpacing: true,
             scrub: true,
@@ -124,10 +119,65 @@ $(function () {
                     autoAlpha: 0
                 });
             }
+        };
+    }
+
+    gsap.set(solutionImg, {
+        y: () => solutionSec.offsetHeight,
+        autoAlpha: 0
+    });
+
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", function () {
+        const tl = gsap.timeline({
+            scrollTrigger: getSolutionScrollTrigger(getMoveDistance)
+        }).to(solutionImg, {
+            y: () => -getMoveDistance(),
+            ease: "none"
+        });
+
+        return function () {
+            tl.kill();
+        };
+    });
+
+    mm.add("(max-width: 767px)", function () {
+        function getMobileAnimationScroll() {
+            const full = getMoveDistance();
+            const startY = solutionSec.offsetHeight;
+            const imgHeight = solutionImg.scrollHeight;
+            const visualProgress = (startY + imgHeight) / (startY + full);
+
+            return Math.max(full * visualProgress, 400);
         }
-    }).to(solutionImg, {
-        y: () => -getMoveDistance(),
-        ease: "none"
+
+        function getMobileExitScroll() {
+            return Math.round(Math.min(Math.max(window.innerHeight * 0.22, 120), 180));
+        }
+
+        const animScroll = getMobileAnimationScroll();
+        const exitScroll = getMobileExitScroll();
+
+        const tl = gsap.timeline({
+            scrollTrigger: getSolutionScrollTrigger(function () {
+                return getMobileAnimationScroll() + getMobileExitScroll();
+            })
+        });
+
+        tl.to(solutionImg, {
+            y: () => -solutionImg.scrollHeight,
+            ease: "none",
+            duration: 1
+        });
+
+        tl.to({}, {
+            duration: exitScroll / animScroll
+        });
+
+        return function () {
+            tl.kill();
+        };
     });
 
     $(window).on("resize.storySolution", function () {

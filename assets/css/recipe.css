@@ -115,6 +115,14 @@
     color: #121212;
 }
 
+.recipe-list-scrollbar {
+    display: none;
+}
+
+.recipe-list-scroll {
+    display: contents;
+}
+
 
 /* =========================
    Slide Contents
@@ -906,35 +914,71 @@ Mobile Popup Wrap (default hidden)
         width: 100%;
         height: auto;
         padding: 6px 2px 0;
-        flex-direction: row;
-        justify-content: space-around;
+        flex-direction: column;
         align-items: stretch;
         gap: 0;
         border-right: 0;
         border-top: 1px solid #C4C4C4;
         border-bottom: 1px solid #C4C4C4;
         box-sizing: border-box;
-        overflow-x: auto;
-        scrollbar-width: none;
+        overflow: hidden;
     }
 
-    .recipe-list-wrap::-webkit-scrollbar {
+    .recipe-list-scrollbar {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .recipe-list-scrollbar[hidden] {
+        display: none;
+    }
+
+    .recipe-list-scrollbar-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 4px;
+        background-color: #121212;
+        will-change: transform;
+    }
+
+    .recipe-list-scroll {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 20px;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
+    }
+
+    .recipe-list-scroll::-webkit-scrollbar {
         display: none;
     }
 
     .recipe-list {
         width: auto;
-        flex: 1 1 0;
-        min-width: 0;
+        flex: 0 0 auto;
+        min-width: auto;
         height: auto;
-        padding: 8px 2px 10px;
+        padding: 8px 10px 10px;
         position: relative;
         gap: 4px;
     }
 
     .recipe-list img {
-        width: calc(20px + 8px * var(--fluid-m));
-        height: calc(20px + 8px * var(--fluid-m));
+        width: calc(50px + 32px * var(--fluid-m));
+        height: calc(50px + 32px * var(--fluid-m));
     }
 
     .recipe-list p {
@@ -996,7 +1040,7 @@ Mobile Popup Wrap (default hidden)
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: calc(36px + 12px * var(--fluid-m)) 20px calc(84px + 16px * var(--fluid-m));
+        padding: calc(36px + 12px * var(--fluid-m)) 20px calc(28px + 8px * var(--fluid-m));
         box-sizing: border-box;
     }
 
@@ -1055,24 +1099,39 @@ Mobile Popup Wrap (default hidden)
     .slide-btn-wrap {
         position: absolute;
         top: auto;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        left: 50%;
+        right: auto;
+        bottom: calc(28px + 8px * var(--fluid-m));
         flex: 0 0 auto;
-        width: 100%;
+        width: min(78vw, calc(300px + 40px * var(--fluid-m)));
         max-width: none;
-        padding: 8px 0 calc(24px + 8px * var(--fluid-m));
-        transform: none;
-        justify-content: center;
-        gap: 10px;
+        height: auto;
+        aspect-ratio: 753 / 829;
+        padding: 0;
+        transform: translateX(-50%);
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
         margin: 0;
         background: transparent;
         pointer-events: none;
+        overflow: visible;
+        z-index: 12;
     }
 
     .slide-btn-wrap button {
         width: 32px;
         height: 32px;
+        flex-shrink: 0;
+        margin-top: 0;
+    }
+
+    .slide-btn-wrap button:first-child {
+        margin-left: -40px;
+    }
+
+    .slide-btn-wrap button:last-child {
+        margin-right: -40px;
     }
 
     .slide-btn-wrap button img {

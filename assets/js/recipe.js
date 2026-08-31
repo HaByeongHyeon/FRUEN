@@ -416,3 +416,83 @@ $(document).ready(function () {
     syncAll();
 
 });
+
+
+(function () {
+    var wrap = document.querySelector(".recipe-list-wrap");
+    var scroller = wrap && wrap.querySelector(".recipe-list-scroll");
+    var bar = wrap && wrap.querySelector(".recipe-list-scrollbar");
+    var thumb = wrap && wrap.querySelector(".recipe-list-scrollbar-thumb");
+
+    if (!wrap || !scroller || !bar || !thumb) return;
+
+    var ticking = false;
+    var trackW = 0;
+    var thumbW = 0;
+    var maxScroll = 0;
+    var resizeTimer = null;
+
+    function isMobile() {
+        return window.matchMedia("(max-width: 767px)").matches;
+    }
+
+    function updateThumb() {
+        if (maxScroll <= 0 || trackW <= thumbW) {
+            thumb.style.transform = "translateX(0)";
+            return;
+        }
+
+        var progress = scroller.scrollLeft / maxScroll;
+        progress = Math.max(0, Math.min(1, progress));
+        thumb.style.transform = "translateX(" + (progress * (trackW - thumbW)) + "px)";
+    }
+
+    function measure() {
+        if (!isMobile()) {
+            bar.hidden = true;
+            maxScroll = 0;
+            return;
+        }
+
+        var client = scroller.clientWidth;
+        var scroll = scroller.scrollWidth;
+
+        maxScroll = Math.max(0, scroll - client);
+        trackW = bar.clientWidth || wrap.clientWidth;
+
+        if (maxScroll <= 0 || trackW <= 0) {
+            bar.hidden = true;
+            thumb.style.width = "0px";
+            return;
+        }
+
+        bar.hidden = false;
+        thumbW = Math.max(32, (client / scroll) * trackW);
+        thumb.style.width = thumbW + "px";
+        updateThumb();
+    }
+
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(function () {
+            ticking = false;
+            updateThumb();
+        });
+    }
+
+    function onResize() {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(measure, 80);
+    }
+
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    window.addEventListener("load", measure);
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(measure);
+    }
+
+    measure();
+})();
