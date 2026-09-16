@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRUEN : RECIPE</title>
+    <title>레시피 | FRUEN</title>
+    <meta name="description" content="에이드, 티, 스무디, 요거트, 디저트까지 FRUEN 스틱형 과일청으로 만드는 레시피를 소개합니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="./assets/images/logo.png" type="image/png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FRUEN">
+    <meta property="og:title" content="레시피 | FRUEN">
+    <meta property="og:description" content="에이드, 티, 스무디, 요거트, 디저트까지 FRUEN 스틱형 과일청으로 만드는 레시피를 소개합니다.">
+    <meta property="og:image" content="./assets/images/logo.png">
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/component/font.css">
     <link rel="stylesheet" href="./assets/component/guide.css">
@@ -17,15 +26,19 @@
 </head>
 
 <body class="theme-header-light">
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
 
     <!-- 헤더 -->
     <div data-component="header"></div>
     <div data-component="float-menu"></div>
     <div data-component="privacy-popup"></div>
 
+    <main id="main-content">
+    <h1 class="visually-hidden">FRUEN 레시피</h1>
+
     <!-- kv section -->
     <section class="kv-sec">
-        <img src="./assets/images/sub-recipe/recipe-kv-img.png" alt="kv 이미지">
+        <img src="./assets/images/sub-recipe/recipe-kv-img.png" alt="FRUEN 레시피" fetchpriority="high" decoding="async">
         <div class="kv-title-wrap">
             <h2 class="main-title-1">RECIPE</h2>
             <p class="subtitle">FRUEN의<br>레시피 이야기</p>
@@ -40,28 +53,28 @@
                 <span class="recipe-list-scrollbar-thumb"></span>
             </div>
             <div class="recipe-list-scroll">
-            <button class="recipe-list active">
-                <img src="./assets/icon/icon-recipe-ade.svg" alt="레시피 아이콘">
+            <button class="recipe-list active" type="button">
+                <img src="./assets/icon/icon-recipe-ade.svg" alt="">
                 <p>ADE</p>
             </button>
-            <button class="recipe-list">
-                <img src="./assets/icon/icon-recipe-tea.svg" alt="레시피 아이콘">
+            <button class="recipe-list" type="button">
+                <img src="./assets/icon/icon-recipe-tea.svg" alt="">
                 <p>TEA</p>
             </button>
-            <button class="recipe-list">
-                <img src="./assets/icon/icon-recipe-smoothie.svg" alt="레시피 아이콘">
+            <button class="recipe-list" type="button">
+                <img src="./assets/icon/icon-recipe-smoothie.svg" alt="">
                 <p>SMOOTHIE</p>
             </button>
-            <button class="recipe-list">
-                <img src="./assets/icon/icon-recipe-yogurt.svg" alt="레시피 아이콘">
+            <button class="recipe-list" type="button">
+                <img src="./assets/icon/icon-recipe-yogurt.svg" alt="">
                 <p>YOGURT</p>
             </button>
-            <button class="recipe-list">
-                <img src="./assets/icon/icon-recipe-icecream.svg" alt="레시피 아이콘">
+            <button class="recipe-list" type="button">
+                <img src="./assets/icon/icon-recipe-icecream.svg" alt="">
                 <p>DESSERT</p>
             </button>
-            <button class="recipe-list">
-                <img src="./assets/icon/icon-recipe-mix.svg" alt="레시피 아이콘">
+            <button class="recipe-list" type="button">
+                <img src="./assets/icon/icon-recipe-mix.svg" alt="">
                 <p>MIX</p>
             </button>
             </div>
@@ -322,128 +335,128 @@
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/ade-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/ade-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/ade-3-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/tea-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/tea-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/tea-3-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/smoothie-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/smoothie-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/yogurt-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/yogurt-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup popup-scale-dessert">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/dessert-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup popup-scale-dessert">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/dessert-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/dessert-3-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mix-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mix-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mix-3-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
     </div>
@@ -454,132 +467,134 @@
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-ade-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-ade-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-ade-3-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-tea-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-tea-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-tea-3-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-smoothie-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-smoothie-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-yogurt-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-yogurt-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-dessert-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-dessert-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-dessert-3-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-mix-1-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-mix-2-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
         <div class="popup">
             <div class="popup-img">
                 <img src="./assets/images/sub-recipe/mobile-mix-3-popup.png" alt="팝업창">
             </div>
-            <button class="close-btn">
-                <img src="./assets/images/popup-close-btn.png" alt="닫기 버튼">
+            <button class="close-btn" type="button" aria-label="닫기">
+                <img src="./assets/images/popup-close-btn.png" alt="">
             </button>
         </div>
     </div>
 
+
+    </main>
 
     <!-- Footer -->
     <div data-component="footer"></div>

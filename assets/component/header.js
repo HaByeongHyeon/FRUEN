@@ -102,7 +102,10 @@
     });
 
     document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") closeMenu();
+        if (event.key === "Escape") {
+            closeMenu();
+            closeShopPopup();
+        }
     });
 
     window.addEventListener("wheel", onGuardScroll, { passive: false });
@@ -117,6 +120,17 @@
     } else if (typeof mqDesktop.addListener === "function") {
         mqDesktop.addListener(onViewportChange);
     }
+
+    var currentPage = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+    if (!currentPage || currentPage.indexOf(".") === -1) {
+        currentPage = "index.html";
+    }
+    document.querySelectorAll(".header-nav a, .slide-menu-list a").forEach(function (link) {
+        var href = (link.getAttribute("href") || "").split("/").pop().toLowerCase();
+        if (href && href === currentPage) {
+            link.setAttribute("aria-current", "page");
+        }
+    });
 
 
     var overlay = document.querySelector(".shop-popup-overlay");

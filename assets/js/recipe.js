@@ -405,6 +405,10 @@ $(document).ready(function () {
         if (e.target === this) closeRecipePopup();
     });
 
+    $(document).on("keydown.recipePopup", function (event) {
+        if (event.key === "Escape") closeRecipePopup();
+    });
+
     $(window).on("resize", function () {
         clearTimeout(slideResizeTimer);
         slideResizeTimer = setTimeout(resetSlideTrack, 50);

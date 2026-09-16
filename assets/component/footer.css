@@ -68,6 +68,10 @@
     flex-direction: column;
 }
 
+.footer-left > nav {
+    display: contents;
+}
+
 .footer-menu {
     display: flex;
     gap: 15px;

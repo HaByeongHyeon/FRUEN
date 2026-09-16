@@ -130,6 +130,18 @@ $(function () {
         slide(1);
     });
 
+    $prev.add($next).attr({
+        role: "button",
+        tabindex: "0"
+    });
+    $prev.attr("aria-label", "이전 이벤트");
+    $next.attr("aria-label", "다음 이벤트");
+    $prev.add($next).on("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        $(this).trigger("click");
+    });
+
     const $filter = $(".filter-wrap button");
     const $groups = $(".event-wrap").children();
 

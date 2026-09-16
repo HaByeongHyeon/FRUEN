@@ -251,6 +251,18 @@ $(function () {
         slide(1);
     });
 
+    $prev.add($next).attr({
+        role: "button",
+        tabindex: "0"
+    });
+    $prev.attr("aria-label", "이전 제품");
+    $next.attr("aria-label", "다음 제품");
+    $prev.add($next).on("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        $(this).trigger("click");
+    });
+
     $(window).on("resize.productSlider", function () {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
@@ -375,6 +387,12 @@ $(function () {
     $(document).on("click", ".close-btn", function () {
         const $item = $(this).closest(".popup, .tablet-popup, .mobile-popup");
         closeResponsivePopup($item);
+    });
+
+    $(document).on("keydown.productPopup", function (event) {
+        if (event.key === "Escape" && openedIndex !== null) {
+            closeResponsivePopup();
+        }
     });
 
     $(window).on("resize.productPopup", function () {

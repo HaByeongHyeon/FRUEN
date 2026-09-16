@@ -4,7 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRUEN</title>
+    <title>제품 | FRUEN</title>
+    <meta name="description" content="딸기, 레몬, 자몽, 샤인머스켓 등 FRUEN 스틱형 과일청 제품 라인업을 만나보세요.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="./assets/images/logo.png" type="image/png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FRUEN">
+    <meta property="og:title" content="제품 | FRUEN">
+    <meta property="og:description" content="딸기, 레몬, 자몽, 샤인머스켓 등 FRUEN 스틱형 과일청 제품 라인업을 만나보세요.">
+    <meta property="og:image" content="./assets/images/logo.png">
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/component/font.css">
     <link rel="stylesheet" href="./assets/component/guide.css">
@@ -17,16 +26,19 @@
 </head>
 
 <body class="theme-header-light">
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
 
     <!-- 헤더 -->
     <div data-component="header"></div>
     <div data-component="float-menu"></div>
     <div data-component="privacy-popup"></div>
 
+    <main id="main-content">
+    <h1 class="visually-hidden">FRUEN 제품</h1>
 
     <!-- kv section -->
     <section class="kv-sec">
-        <img src="./assets/images/product-kv-img.png" alt="kv 이미지">
+        <img src="./assets/images/product-kv-img.png" alt="FRUEN 과일청 제품" fetchpriority="high" decoding="async">
         <div class="kv-title-wrap">
             <h2 class="main-title-1">PRODUCT FRUEN</h2>
             <p class="subtitle">FRUEN의<br>과일 이야기</p>
@@ -55,35 +67,35 @@
             <!-- COOL & FRESH -->
             <div class="product-slider-wrap">
                 <div class="product-list active">
-                    <button class="product-btn">
+                    <button class="product-btn" type="button">
                         <img src="./assets/images/product-1.png" alt="딸기">
                         <p class="product-card-title">딸기</p>
                     </button>
-                    <button class="product-btn">
+                    <button class="product-btn" type="button">
                         <img src="./assets/images/product-2.png" alt="자몽">
                         <p class="product-card-title">자몽</p>
                     </button>
-                    <button class="product-btn">
+                    <button class="product-btn" type="button">
                         <img src="./assets/images/product-3.png" alt="샤인머스켓">
                         <p class="product-card-title">샤인머스켓</p>
                     </button>
-                    <button class="product-btn">
+                    <button class="product-btn" type="button">
                         <img src="./assets/images/product-4.png" alt="파인애플">
                         <p class="product-card-title">파인애플</p>
                     </button>
-                    <button class="product-btn">
+                    <button class="product-btn" type="button">
                         <img src="./assets/images/product-5.png" alt="패션후르츠">
                         <p class="product-card-title">패션후르츠</p>
                     </button>
-                    <button class="product-btn">
+                    <button class="product-btn" type="button">
                         <img src="./assets/images/product-6.png" alt="망고">
                         <p class="product-card-title">망고</p>
                     </button>
-                    <button class="product-btn">
+                    <button class="product-btn" type="button">
                         <img src="./assets/images/product-7.png" alt="복숭아">
                         <p class="product-card-title">복숭아</p>
                     </button>
-                    <button class="product-btn">
+                    <button class="product-btn" type="button">
                         <img src="./assets/images/product-8.png" alt="블루베리">
                         <p class="product-card-title">블루베리</p>
                     </button>
@@ -92,23 +104,23 @@
 
             <!-- WARM & COZY -->
             <div class="product-list">
-                <button class="product-btn">
+                <button class="product-btn" type="button">
                     <img src="./assets/images/product-9.png" alt="레몬">
                     <p>레몬</p>
                 </button>
-                <button class="product-btn">
+                <button class="product-btn" type="button">
                     <img src="./assets/images/product-10.png" alt="사과">
                     <p>사과</p>
                 </button>
-                <button class="product-btn">
+                <button class="product-btn" type="button">
                     <img src="./assets/images/product-11.png" alt="유자">
                     <p>유자</p>
                 </button>
-                <button class="product-btn">
+                <button class="product-btn" type="button">
                     <img src="./assets/images/product-12.png" alt="배">
                     <p>배</p>
                 </button>
-                <button class="product-btn">
+                <button class="product-btn" type="button">
                     <img src="./assets/images/product-2.png" alt="자몽">
                     <p>자몽</p>
                 </button>
@@ -116,81 +128,81 @@
 
             <!-- Pagination -->
             <div class="page-btn-wrap">
-                <img class="prev-btn" src="./assets/icon/icon-philosophy-slide-prev.svg" alt="이전 버튼">
-                <img class="next-btn active" src="./assets/icon/icon-philosophy-slide-next.svg" alt="다음 버튼">
+                <img class="prev-btn" src="./assets/icon/icon-philosophy-slide-prev.svg" alt="">
+                <img class="next-btn active" src="./assets/icon/icon-philosophy-slide-next.svg" alt="">
             </div>
 
             <!-- pc-popup -->
             <div class="popup-wrap">
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-1.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-2.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-3.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-4.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-5.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-6.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-7.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-8.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-9.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-10.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-11.png" alt="팝업창">
                 </div>
                 <div class="popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/product-popup-12.png" alt="팝업창">
                 </div>
@@ -200,74 +212,74 @@
             <!-- tablet-popup -->
             <div class="tablet-popup-wrap">
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-1.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-2.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-3.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-4.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-5.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-6.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-7.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-8.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-9.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-10.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-11.png" alt="팝업창">
                 </div>
                 <div class="tablet-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/tablet-popup-12.png" alt="팝업창">
                 </div>
@@ -276,80 +288,82 @@
              <!-- mobile-popup -->
              <div class="mobile-popup-wrap">
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-1.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-2.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-3.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-4.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-5.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-6.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-7.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-8.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-9.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-10.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-11.png" alt="팝업창">
                 </div>
                 <div class="mobile-popup">
-                    <button class="close-btn">
-                        <img src="./assets/images/popup-close-btn.png" alt="닫기">
+                    <button class="close-btn" type="button" aria-label="닫기">
+                    <img src="./assets/images/popup-close-btn.png" alt="">
                     </button>
                     <img src="./assets/images/sub-product/mobile-popup-12.png" alt="팝업창">
                 </div>
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <div data-component="footer"></div>

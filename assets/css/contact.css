@@ -160,10 +160,16 @@ Form Row
     outline: none;
 }
 
+.form-row input:focus-visible,
+.form-row select:focus-visible {
+    outline: 2px solid #5C2300;
+    outline-offset: 2px;
+}
+
 .form-row select {
     padding-right: 60px;
 
-    background-image: url("/assets/icon/btn-down-arrow.svg");
+    background-image: url("../icon/btn-down-arrow.svg");
     background-repeat: no-repeat;
     background-position: right 20px center;
     background-size: 24px;
@@ -226,6 +232,11 @@ Message
     color: var(--color-text-secondary);
 
     outline: none;
+}
+
+.form-message textarea:focus-visible {
+    outline: 2px solid #5C2300;
+    outline-offset: 2px;
 }
 
 

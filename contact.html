@@ -4,7 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRUEN : CONTACT</title>
+    <title>문의하기 | FRUEN</title>
+    <meta name="description" content="제품 문의, 제휴 문의 등 FRUEN에 궁금한 점을 남겨 주세요. 고객센터 080-742-2100.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="./assets/images/logo.png" type="image/png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FRUEN">
+    <meta property="og:title" content="문의하기 | FRUEN">
+    <meta property="og:description" content="제품 문의, 제휴 문의 등 FRUEN에 궁금한 점을 남겨 주세요.">
+    <meta property="og:image" content="./assets/images/logo.png">
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/component/font.css">
     <link rel="stylesheet" href="./assets/component/guide.css">
@@ -17,15 +26,18 @@
 </head>
 
 <body class="theme-header-light">
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
 
     <!-- 헤더 -->
     <div data-component="header"></div>
     <div data-component="privacy-popup"></div>
 
+    <main id="main-content">
+    <h1 class="visually-hidden">FRUEN 문의하기</h1>
 
     <!-- kv section -->
     <section class="kv-sec">
-        <img src="./assets/images/sub-contact/img-contact-kv.png" alt="kv 이미지">
+        <img src="./assets/images/sub-contact/img-contact-kv.png" alt="FRUEN 문의하기" fetchpriority="high" decoding="async">
         <div class="kv-title-wrap">
             <h2>CONTACT</h2>
             <p>FRUEN과<br>더 가까이 만나는 공간</p>
@@ -53,7 +65,7 @@
                         성함
                     </label>
 
-                    <input type="text" id="name" name="name" placeholder="성함" required>
+                    <input type="text" id="name" name="name" placeholder="성함" autocomplete="name" required>
                 </div>
 
 
@@ -64,7 +76,7 @@
                         연락처
                     </label>
 
-                    <input type="tel" id="tel" name="tel" placeholder="연락처" required>
+                    <input type="tel" id="tel" name="tel" placeholder="연락처" autocomplete="tel" required>
                 </div>
 
 
@@ -75,7 +87,7 @@
                         이메일
                     </label>
 
-                    <input type="email" id="email" name="email" placeholder="이메일을 입력해 주세요." required>
+                    <input type="email" id="email" name="email" placeholder="이메일을 입력해 주세요." autocomplete="email" required>
                 </div>
 
 
@@ -97,6 +109,7 @@
 
                 <!-- 문의 내용 -->
                 <div class="form-message">
+                    <label class="visually-hidden" for="message">문의 내용</label>
                     <textarea id="message" name="message" placeholder="문의 내용을 입력해주세요."></textarea>
                 </div>
 
@@ -126,12 +139,13 @@
             <!-- Contact Image -->
             <div class="contact-img-wrap">
 
-                <img src="./assets/images/sub-contact/contact-img.png" alt="FRUEN 제품 이미지">
+                <img src="./assets/images/sub-contact/contact-img.png" alt="FRUEN 스틱형 과일청 제품" loading="lazy" decoding="async">
 
             </div>
 
     </section>
 
+    </main>
 
     <!-- Footer -->
     <div data-component="footer"></div>

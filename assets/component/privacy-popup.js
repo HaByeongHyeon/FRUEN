@@ -75,6 +75,10 @@
         });
     }
 
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closePrivacyPopup();
+    });
+
     window.openPrivacyPopup = openPrivacyPopup;
     window.closePrivacyPopup = closePrivacyPopup;
 })();

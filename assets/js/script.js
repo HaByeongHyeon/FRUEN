@@ -194,6 +194,12 @@ $(function () {
         if (!isAnimating) startAutoplay();
     });
 
+    $(sec).on("keydown", ".prev-btn, .next-btn", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        $(this).trigger("click");
+    });
+
     var swipeStartX = 0;
     var swipeStartY = 0;
     var swipePointerId = null;

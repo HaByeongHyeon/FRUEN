@@ -4,7 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRUEN : EVENT</title>
+    <title>팝업스토어 오픈 예정 | FRUEN</title>
+    <meta name="description" content="FRUEN 팝업스토어 오픈 예정 안내입니다. 과일의 향과 맛을 직접 경험할 수 있는 체험형 공간입니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="./assets/images/logo.png" type="image/png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FRUEN">
+    <meta property="og:title" content="팝업스토어 오픈 예정 | FRUEN">
+    <meta property="og:description" content="FRUEN 팝업스토어 오픈 예정 안내입니다.">
+    <meta property="og:image" content="./assets/images/logo.png">
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/component/font.css">
     <link rel="stylesheet" href="./assets/component/guide.css">
@@ -17,16 +26,19 @@
 </head>
 
 <body class="theme-header-light">
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
 
     <!-- 헤더 -->
     <div data-component="header"></div>
     <div data-component="float-menu"></div>
     <div data-component="privacy-popup"></div>
 
+    <main id="main-content">
+    <h1 class="visually-hidden">FRUEN 팝업스토어 오픈 예정</h1>
 
     <!-- kv section -->
     <section class="kv-sec">
-        <img src="./assets/images/sub-event/img-event-kv.png" alt="kv 이미지">
+        <img src="./assets/images/sub-event/img-event-kv.png" alt="FRUEN 이벤트" fetchpriority="high" decoding="async">
         <div class="kv-title-wrap">
             <h2>EVENT</h2>
             <p>FRUEN과<br>함께하는 이벤트</p>
@@ -36,7 +48,7 @@
     <section class="contents">
 
         <!-- 영상 -->
-        <video src="./assets/images/sub-event/event-video.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>
+        <video src="./assets/images/sub-event/event-video.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto" title="FRUEN 팝업스토어 소개 영상"></video>
 
 
         <!-- 텍스트 -->
@@ -97,7 +109,7 @@
         </div>
 
         <!-- 이미지 -->
-        <img class="main-img" src="./assets/images/sub-event/event-soon-1-img.png" alt="이미지">
+        <img class="main-img" src="./assets/images/sub-event/event-soon-1-img.png" alt="FRUEN 팝업스토어 공간" loading="lazy" decoding="async">
 
     </section>
 
@@ -105,6 +117,7 @@
         <a href="./event.html" class="list-btn">EVENT LIST</a>
     </section>
 
+    </main>
 
     <!-- Footer -->
     <div data-component="footer"></div>
